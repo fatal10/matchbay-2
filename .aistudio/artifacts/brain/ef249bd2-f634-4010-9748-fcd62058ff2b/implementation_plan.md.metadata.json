@@ -1,0 +1,6 @@
+{
+  "summary":  "Implementation plan for adding 2026/2027 player season stats (goals, assists, appearances, minutes, cards) across team squad lists and dedicated player profile pages, correcting head coaches for the 2026/2027 season across all 35 competitions, and implementing a 24-hour smart auto-refresh cache.",
+  "updatedAt":  "2026-10-26T20:19:36.948489891Z",
+  "requestFeedback":  true,
+  "userFacing":  true
+}

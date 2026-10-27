@@ -1,0 +1,6 @@
+{
+  "name": "MatchBay — Live Football Scores & Fixtures",
+  "description": "Live football scores, fixtures, standings, and match details with country flags for every competition.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

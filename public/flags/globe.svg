@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" fill="#071b1d"/>
+  <circle cx="256" cy="256" r="236" fill="#0c292b" stroke="#3fd6c0" stroke-width="14" stroke-opacity="0.35"/>
+  <!-- Latitude / Longitude lines -->
+  <line x1="20" y1="256" x2="492" y2="256" stroke="#3fd6c0" stroke-width="16" stroke-linecap="round"/>
+  <line x1="256" y1="20" x2="256" y2="492" stroke="#3fd6c0" stroke-width="16" stroke-linecap="round"/>
+  <ellipse cx="256" cy="256" rx="140" ry="236" fill="none" stroke="#3fd6c0" stroke-width="14" stroke-opacity="0.75"/>
+  <ellipse cx="256" cy="256" rx="236" ry="110" fill="none" stroke="#3fd6c0" stroke-width="14" stroke-opacity="0.75"/>
+  <circle cx="256" cy="256" r="248" fill="none" stroke="#19e3b1" stroke-width="16"/>
+</svg>

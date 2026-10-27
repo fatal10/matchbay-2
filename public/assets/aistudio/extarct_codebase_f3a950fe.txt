@@ -1,0 +1,54 @@
+open vs code 
+
+new folder
+
+powersheel
+
+PS C:\Users\Pc\Desktop\apps project\matchbay design features\matchbay v2>
+
+$root = (Get-Location).Path
+$out = Join-Path $root "codebase.txt"
+$skipDirs = @("node_modules", ".git", "dist", "build", ".next", "coverage", ".venv", "venv")
+$skipExt = @(".png", ".jpg", ".jpeg", ".webp", ".gif", ".ico", ".woff", ".woff2", ".ttf", ".mp4", ".pdf", ".exe", ".dll", ".pyc", ".pem", ".key")
+$allowedExt = @(".html", ".css", ".js", ".mjs", ".cjs", ".ts", ".tsx", ".jsx", ".json", ".py", ".php", ".java", ".go", ".rs", ".vue", ".svelte", ".astro", ".sql", ".md", ".txt", ".yaml", ".yml", ".toml", ".xml", ".sh", ".bat", ".ps1")
+
+$files = Get-ChildItem -LiteralPath $root -File -Recurse -Force |
+Where-Object {
+    $rel = $_.FullName.Substring($root.Length).TrimStart('\')
+    $parts = $rel -split '[\\/]'
+    $_.FullName -ne $out -and
+    $_.Name -notmatch '^\.env' -and
+    $_.Name -notin @("id_rsa", "id_ed25519", "package-lock.json", "pnpm-lock.yaml", "yarn.lock", "bun.lockb") -and
+    $_.Length -le 1000000 -and
+    $_.Extension.ToLower() -in $allowedExt -and
+    -not ($parts | Where-Object { $_ -in $skipDirs })
+}
+
+$writer = [System.IO.StreamWriter]::new($out, $false, [System.Text.UTF8Encoding]::new($false))
+$count = 0
+
+try {
+    $writer.WriteLine("MATCHBAY CODEBASE EXPORT")
+    foreach ($file in $files) {
+        if ([IO.Path]::GetFullPath($file.FullName) -eq [IO.Path]::GetFullPath($out)) { continue }
+        if ($file.Extension.ToLower() -in $skipExt) { continue }
+
+        try {
+            $content = [IO.File]::ReadAllText($file.FullName)
+            if ($content.Contains([char]0)) { continue }
+            $rel = $file.FullName.Substring($root.Length).TrimStart('\')
+            $writer.WriteLine("`r`n" + ("=" * 70))
+            $writer.WriteLine("FILE: $rel")
+            $writer.WriteLine(("=" * 70) + "`r`n")
+            $writer.WriteLine($content)
+            $count++
+        } catch {
+            Write-Host "Skipped: $($file.Name)" -ForegroundColor Yellow
+        }
+    }
+} finally {
+    $writer.Dispose()
+}
+
+Write-Host "Done! Exported $count files." -ForegroundColor Green
+Write-Host "Saved to: $out"

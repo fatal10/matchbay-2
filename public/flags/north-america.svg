@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" fill="#071b1d"/>
+  <circle cx="256" cy="256" r="248" fill="none" stroke="#38bdf8" stroke-width="16"/>
+  <!-- Stylized North America Continent Contour -->
+  <path d="M140 120 C180 90, 360 85, 390 120 C420 155, 380 200, 350 230 C320 260, 300 290, 290 330 C280 370, 260 410, 250 430 C240 400, 220 340, 200 300 C170 240, 120 180, 140 120 Z" fill="#38bdf8" fill-opacity="0.85"/>
+  <circle cx="270" cy="220" r="14" fill="#071b1d"/>
+</svg>

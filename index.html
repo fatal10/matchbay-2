@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>MatchBay — Live Football Scores &amp; Fixtures</title>
+    <meta name="description" content="Live football scores, fixtures, standings, and match details with country flags for every competition." />
+    <meta property="og:title" content="MatchBay — Live Football Scores &amp; Fixtures" />
+    <meta property="og:description" content="Live football scores, fixtures, standings, and match details with country flags for every competition." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#050d0e" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MatchBay" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https: data: blob:; img-src 'self' https: data: blob:;" />
+    <link rel="manifest" href="./manifest.webmanifest?v=matchbay-v22" />
+    <link rel="icon" type="image/png" href="./icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css?v=matchbay-v22" />
+  </head>
+  <body>
+    <div class="app">
+      <section class="pg on" id="home"></section>
+      <section class="pg" id="matches"></section>
+      <section class="pg" id="tables"></section>
+      <section class="pg" id="news"></section>
+      <section class="pg" id="profile"></section>
+      <section id="detail" hidden aria-label="Match details"></section>
+      <section id="club" hidden aria-label="Club details"></section>
+      <section id="player" hidden aria-label="Player profile"></section>
+      <section id="set" hidden aria-label="Settings"></section>
+      <section id="stv" hidden aria-label="Matchday story"></section>
+      <nav class="nav" aria-label="Main"></nav>
+      <div class="toast" id="toast"></div>
+    </div>
+    <script src="./competitionCountries.js?v=matchbay-v22"></script>
+    <script src="./countryFlag.js?v=matchbay-v22"></script>
+    <script src="./competitionLogos.js?v=matchbay-v22"></script>
+    <script src="./featuredMatch.js?v=matchbay-v22"></script>
+    <script src="./playersData.js?v=matchbay-v22"></script>
+    <script src="./playerSpotlight.js?v=matchbay-v22"></script>
+    <script src="./playerStatsEngine.js?v=matchbay-v22"></script>
+    <script src="./matchDetailsAdapter.js?v=matchbay-v22"></script>
+    <script src="./storiesMode.js?v=matchbay-v23"></script>
+    <script src="./app.js?v=matchbay-v25" defer></script>
+  </body>
+</html>
