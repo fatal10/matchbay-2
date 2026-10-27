@@ -115,6 +115,7 @@ const DATA = {
   detailStatus: {},
   loadingDates: {},
   dateErrors: {},
+  playerPhotosDb: null,
   status: 'loading',
   lastSuccess: null,
   lastError: null,
@@ -692,6 +693,19 @@ const API = {
     DATA.leaguesByCountry = byCountry;
   },
 
+  async loadPlayerPhotosDb() {
+    try {
+      const res = await fetch('./player-photos-db.json');
+      if (res.ok) {
+        const db = await res.json();
+        if (db && db.players) {
+          window.PLAYER_PHOTOS_DB = db;
+          DATA.playerPhotosDb = db;
+        }
+      }
+    } catch {}
+  },
+
   async loadLeagues() {
     try {
       const data = await API.get(`${CONFIG.PREFIX}/leagues`, { kind: 'all', available: 'true' });
@@ -1121,7 +1135,8 @@ const outdatedBanner = () => {
 const attribution = () =>
   `<div class="m" style="font-size:11px;text-align:center;padding:18px 6px 12px;line-height:1.6">
     Live football scores &amp; data powered by <a href="https://github.com/rezarahiminia/livescoreFootball" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">livescoreFootball</a>
-    <br>Competition logos via <a href="https://football-logos.cc/" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">football-logos.cc</a> · Flag icons via <a href="https://github.com/lipis/flag-icons" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">flag-icons</a> (MIT) · All trademarks belong to their respective owners
+    <br>Competition logos via <a href="https://football-logos.cc/" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">football-logos.cc</a> · Flag icons via <a href="https://github.com/lipis/flag-icons" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">flag-icons</a> (MIT)
+    <br>Player headshots courtesy of open-source photographers via <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:700">Wikimedia Commons</a> &amp; <a href="https://inthegame.blog/football/photo-credits" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:700">In The Game</a> (Open Licenses)
   </div>`;
 
 const miniCard = (g) => {
@@ -2380,7 +2395,7 @@ function renderPlayerSearchCard(p) {
       <div class="r" style="gap:10px;align-items:center">
         ${photoUrl ? `
           <div style="width:36px;height:36px;border-radius:50%;overflow:hidden;border:2px solid ${posColor};flex:none;background:#0D1A1C;display:flex;align-items:center;justify-content:center">
-            <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
             <div style="display:none;font-size:12px;font-weight:700;color:${posColor}">${p.jersey ? `#${p.jersey}` : esc(p.position || '⚽')}</div>
           </div>
         ` : `
@@ -2752,7 +2767,7 @@ function clubModal() {
               <div class="player-row" data-open-player="${esc(p.id)}" data-player-club="${esc(key)}" role="button" tabindex="0" aria-label="View player profile for ${esc(p.name)}">
                 <span class="player-num">${esc(p.jersey ? `#${p.jersey}` : '—')}</span>
                 ${photoUrl ? `
-                  <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="" class="player-squad-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" class="player-squad-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
                   <div class="player-squad-fallback" style="display:none;">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
                 ` : `
                   <div class="player-squad-fallback">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
@@ -2993,7 +3008,7 @@ function playerModal() {
         <div class="player-avatar-ring">
           <div class="player-avatar-inner">
             ${photoUrl ? `
-              <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(player.name)}" class="player-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(player.name)}" class="player-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <div class="player-photo-fallback" style="display:none;">
                 <svg width="64" height="64" viewBox="0 0 120 120" fill="none" stroke="#5E7B7E" stroke-width="5" stroke-linecap="round" role="img" aria-label="Player photo placeholder"><circle cx="60" cy="42" r="20"></circle><path d="M20 106 C22 80 40 70 60 70 C80 70 98 80 100 106"></path></svg>
               </div>
@@ -3019,6 +3034,12 @@ function playerModal() {
           `}
         </div>
         <span class="player-hero-pos">${esc(posDisplay)}</span>
+        ${details.credit ? `
+          <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
+            <span>📷 Photo: ${esc(details.credit)}</span>
+            ${details.sourceUrl ? `<span>· <a href="${esc(details.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--ac);text-decoration:none">${esc(details.license || 'License')}</a></span>` : ''}
+          </div>
+        ` : ''}
       </div>
 
       <!-- Facts Card (From Design Template: Nationality, Age, Position, Club, Height, Preferred foot, Shirt number) -->
@@ -4138,6 +4159,7 @@ function restartPolling() {
 // Initial boot
 API.restore();
 draw();
+API.loadPlayerPhotosDb().then(() => draw()).catch(() => {});
 
 API.loadLeagues().then(() => {
   draw();

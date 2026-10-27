@@ -272,18 +272,25 @@
   function getSpotlightPlayerPhoto(player) {
     if (!player) return '';
 
-    if (player.photo && typeof player.photo === 'string' && player.photo.startsWith('http')) {
+    var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
+    var normSlug = normalizePlayerKey(player.slug || '');
+
+    // 0. High priority: Check local verified photos database (served from local storage, zero hotlinking)
+    var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
+    if (db && db.players) {
+      if (normName && db.players[normName] && db.players[normName].photoUrl) return db.players[normName].photoUrl;
+      if (normSlug && db.players[normSlug] && db.players[normSlug].photoUrl) return db.players[normSlug].photoUrl;
+    }
+
+    if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
       return player.photo;
     }
-    if (player.headshot && typeof player.headshot === 'string' && player.headshot.startsWith('http')) {
+    if (player.headshot && typeof player.headshot === 'string' && (player.headshot.startsWith('http') || player.headshot.startsWith('/'))) {
       return player.headshot;
     }
     if (player.headshot && player.headshot.href && typeof player.headshot.href === 'string' && player.headshot.href.startsWith('http')) {
       return player.headshot.href;
     }
-
-    var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-    var normSlug = normalizePlayerKey(player.slug || '');
 
     if (normName && SPOTLIGHT_PLAYERS_MAP[normName]) {
       return API_SPORTS_BASE + SPOTLIGHT_PLAYERS_MAP[normName].id + '.png';
@@ -307,9 +314,10 @@
   }
 
   function getSpotlightPlayerDetails(player) {
-    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—' };
+    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '' };
 
     var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
+    var normSlug = normalizePlayerKey(player.slug || '');
     var match = SPOTLIGHT_PLAYERS_MAP[normName] || (player.slug ? SPOTLIGHT_PLAYERS_MAP[normalizePlayerKey(player.slug)] : null);
 
     var photo = getSpotlightPlayerPhoto(player);
@@ -320,12 +328,19 @@
       formattedHeight = formattedHeight + ' cm';
     }
 
+    var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
+    var photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug])) || null;
+
     return {
       photo: photo,
       preferredFoot: preferredFoot,
       height: formattedHeight,
       nationality: player.citizenship || player.nationality || '—',
-      shirtNumber: player.jersey ? '#' + player.jersey : '—'
+      shirtNumber: player.jersey ? '#' + player.jersey : '—',
+      credit: (photoRecord && photoRecord.credit) || '',
+      license: (photoRecord && photoRecord.license) || '',
+      sourceUrl: (photoRecord && photoRecord.sourceUrl) || '',
+      confidence: (photoRecord && photoRecord.confidence) || 0
     };
   }
 

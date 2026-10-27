@@ -272,16 +272,26 @@ export const SPOTLIGHT_PLAYERS_MAP: Record<string, { id: number; foot?: 'Right' 
 };
 
 /**
- * Resolves a player's profile picture URL from Football Spotlight / API-Sports
+ * Resolves a player's profile picture URL from local verified storage, Football Spotlight, or API-Sports
  */
 export function getSpotlightPlayerPhoto(player: any): string {
   if (!player) return '';
 
+  const normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
+  const normSlug = normalizePlayerKey(player.slug || '');
+
+  // 0. High priority: Check local verified photos database (served from local storage, zero hotlinking)
+  const db = (typeof window !== 'undefined' && (window as any).PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && (globalThis as any).PLAYER_PHOTOS_DB);
+  if (db && db.players) {
+    if (normName && db.players[normName]?.photoUrl) return db.players[normName].photoUrl;
+    if (normSlug && db.players[normSlug]?.photoUrl) return db.players[normSlug].photoUrl;
+  }
+
   // 1. Direct photo or headshot property if provided
-  if (player.photo && typeof player.photo === 'string' && player.photo.startsWith('http')) {
+  if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
     return player.photo;
   }
-  if (player.headshot && typeof player.headshot === 'string' && player.headshot.startsWith('http')) {
+  if (player.headshot && typeof player.headshot === 'string' && (player.headshot.startsWith('http') || player.headshot.startsWith('/'))) {
     return player.headshot;
   }
   if (player.headshot?.href && typeof player.headshot.href === 'string' && player.headshot.href.startsWith('http')) {
@@ -289,9 +299,6 @@ export function getSpotlightPlayerPhoto(player: any): string {
   }
 
   // 2. Lookup by normalized name or slug
-  const normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-  const normSlug = normalizePlayerKey(player.slug || '');
-
   if (normName && SPOTLIGHT_PLAYERS_MAP[normName]) {
     return `${API_SPORTS_BASE}${SPOTLIGHT_PLAYERS_MAP[normName].id}.png`;
   }
@@ -316,12 +323,13 @@ export function getSpotlightPlayerPhoto(player: any): string {
 }
 
 /**
- * Returns full spotlight details (photo, preferred foot, formatted height, shirt number)
+ * Returns full spotlight details (photo, preferred foot, formatted height, shirt number, attribution)
  */
 export function getSpotlightPlayerDetails(player: any) {
-  if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—' };
+  if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '' };
 
   const normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
+  const normSlug = normalizePlayerKey(player.slug || '');
   const match = SPOTLIGHT_PLAYERS_MAP[normName] || (player.slug ? SPOTLIGHT_PLAYERS_MAP[normalizePlayerKey(player.slug)] : null);
 
   const photo = getSpotlightPlayerPhoto(player);
@@ -332,11 +340,18 @@ export function getSpotlightPlayerDetails(player: any) {
     formattedHeight = `${formattedHeight} cm`;
   }
 
+  const db = (typeof window !== 'undefined' && (window as any).PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && (globalThis as any).PLAYER_PHOTOS_DB);
+  const photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug])) || null;
+
   return {
     photo,
     preferredFoot,
     height: formattedHeight,
     nationality: player.citizenship || player.nationality || '—',
     shirtNumber: player.jersey ? `#${player.jersey}` : '—',
+    credit: photoRecord?.credit || '',
+    license: photoRecord?.license || '',
+    sourceUrl: photoRecord?.sourceUrl || '',
+    confidence: photoRecord?.confidence || 0
   };
 }
