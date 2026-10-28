@@ -1,7 +1,7 @@
 /**
  * sync-player-photos.ts
- * Re-runnable, idempotent script to sync verified football player headshots
- * from inthegame.blog (Wikimedia Commons open licenses) to local storage.
+ * Re-runnable, idempotent, and resumable sync job for FootyRenders.com player cutouts.
+ * Processes ALL players across every league, club, and squad in MatchBay.
  *
  * Usage:
  *   npx tsx scripts/sync-player-photos.ts
@@ -9,80 +9,181 @@
 
 import fs from 'fs';
 import path from 'path';
-import { parquetRead } from 'hyparquet';
+import sharp from 'sharp';
 import {
-  matchPlayerPhoto,
+  matchFootyRender,
   normalizePlayerKey,
-  tokenizePlayerName,
   TargetPlayer,
-  CandidatePhoto,
+  FootyRenderEntry,
   StoredPlayerPhoto
-} from '../src/playerPhotoMatcher';
+} from '../src/footyRendersMatcher';
 
-const DATA_BASE_URL = 'https://data.inthegame.blog/';
-const CREDITS_URL = `${DATA_BASE_URL}football/headshot-credits.json`;
-const RATINGS_URL = `${DATA_BASE_URL}football/ratings.parquet`;
-const HEADSHOT_IMG_BASE = `${DATA_BASE_URL}football/headshots/`;
+const DATA_DIR = path.resolve(process.cwd(), 'data');
+const ROSTERS_DIR = path.resolve(DATA_DIR, 'rosters-cache');
+const RENDER_CACHE_DIR = path.resolve(DATA_DIR, 'render-cache');
+const FOOTY_INDEX_FILE = path.resolve(DATA_DIR, 'footyrenders-index.json');
 
 const PUBLIC_DIR = path.resolve(process.cwd(), 'public');
 const PHOTOS_DIR = path.resolve(PUBLIC_DIR, 'player-photos');
 const DB_FILE = path.resolve(PUBLIC_DIR, 'player-photos-db.json');
-const REPORT_JSON = path.resolve(process.cwd(), 'player-photos-report.json');
-const REPORT_MD = path.resolve(process.cwd(), 'player-photos-report.md');
+const REPORTS_DIR = path.resolve(process.cwd(), 'reports');
+const REVIEW_HTML_FILE = path.resolve(REPORTS_DIR, 'photo-review.html');
+const COVERAGE_MD_FILE = path.resolve(REPORTS_DIR, 'coverage-table.md');
+const COVERAGE_JSON_FILE = path.resolve(REPORTS_DIR, 'coverage-table.json');
 
-// Polite rate-limiting delay between network downloads (ms)
-const DOWNLOAD_DELAY_MS = 60;
-const MAX_RETRIES = 3;
+// Disable sharp caching to prevent libvips memory buildup during batch processing
+sharp.cache(false);
+sharp.concurrency(1);
+
+// Ensure necessary directories exist
+[DATA_DIR, ROSTERS_DIR, RENDER_CACHE_DIR, PHOTOS_DIR, REPORTS_DIR].forEach((dir) => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+});
 
 function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return new Promise((r) => setTimeout(r, ms));
 }
 
-async function fetchWithRetry(url: string, retries = MAX_RETRIES): Promise<Response> {
+async function fetchWithRetry(url: string, retries = 3): Promise<Buffer | null> {
   let attempt = 0;
   while (attempt < retries) {
     try {
-      const res = await fetch(url);
-      if (res.ok) return res;
-      if (res.status === 404) return res;
-    } catch (err) {
-      // network glitch, backoff
+      const res = await fetch(url, {
+        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) MatchBay/1.0' },
+        signal: AbortSignal.timeout(10000)
+      });
+      if (res.ok) {
+        return Buffer.from(await res.arrayBuffer());
+      }
+      if (res.status === 404) return null;
+    } catch (e) {
+      // transient network glitch
     }
     attempt++;
     await sleep(200 * Math.pow(2, attempt));
   }
-  throw new Error(`Failed to fetch ${url} after ${retries} attempts`);
+  return null;
 }
 
-async function downloadPhoto(url: string, destPath: string): Promise<boolean> {
-  if (fs.existsSync(destPath) && fs.statSync(destPath).size > 500) {
-    // Already downloaded and valid
-    return true;
-  }
+/**
+ * Crops a transparent PNG cutout to a centered head-and-shoulders avatar in WebP.
+ */
+async function processCutoutToAvatar(rawPngBuffer: Buffer, outFilePath: string): Promise<boolean> {
   try {
-    const res = await fetchWithRetry(url);
-    if (!res.ok) return false;
-    const arrayBuf = await res.arrayBuffer();
-    if (arrayBuf.byteLength < 200) return false;
-    fs.writeFileSync(destPath, Buffer.from(arrayBuf));
+    const trimmed = await sharp(rawPngBuffer).trim().toBuffer({ resolveWithObject: true });
+    const tw = trimmed.info.width;
+    const th = trimmed.info.height;
+
+    // Head-and-shoulders crop: square box focused on upper 38-42% of trimmed cutout
+    const headBoxSize = Math.min(tw, Math.round(th * 0.40));
+    if (!tw || !th || headBoxSize <= 5) return false;
+    const cropLeft = Math.max(0, Math.round((tw - headBoxSize) / 2));
+    const cropTop = 0;
+
+    // 256x256 main avatar
+    const avatar = await sharp(trimmed.data)
+      .extract({ left: cropLeft, top: cropTop, width: headBoxSize, height: headBoxSize })
+      .resize(256, 256, { fit: 'cover' })
+      .webp({ quality: 90, alphaQuality: 100 })
+      .toBuffer();
+
+    fs.writeFileSync(outFilePath, avatar);
+
+    // Also write a 128x128 thumbnail
+    const thumbPath = outFilePath.replace(/\.webp$/, '-sm.webp');
+    const thumb = await sharp(avatar).resize(128, 128).webp({ quality: 85 }).toBuffer();
+    fs.writeFileSync(thumbPath, thumb);
+
     return true;
-  } catch (e) {
-    console.warn(`[Sync] Error downloading ${url}:`, (e as Error).message);
+  } catch (err) {
+    console.warn(`[ImageProcessing] Failed to crop cutout:`, (err as Error).message);
     return false;
   }
 }
 
-export async function runSync(options: { downloadImages?: boolean; verbose?: boolean } = {}) {
-  const downloadImages = options.downloadImages ?? true;
-  const verbose = options.verbose ?? true;
+/**
+ * Loads all players across every league, club squad, and database in MatchBay.
+ */
+export function loadAllAppPlayers(): { players: TargetPlayer[]; clubsMap: Map<string, TargetPlayer[]> } {
+  const playersMap = new Map<string, TargetPlayer>();
+  const clubsMap = new Map<string, TargetPlayer[]>();
 
-  console.log('=== MatchBay Player Photo Sync ===');
+  // 1. Squad rosters from all 96 clubs in top 5 leagues
+  if (fs.existsSync(ROSTERS_DIR)) {
+    const files = fs.readdirSync(ROSTERS_DIR).filter((f) => f.endsWith('.json'));
+    for (const f of files) {
+      try {
+        const data = JSON.parse(fs.readFileSync(path.join(ROSTERS_DIR, f), 'utf-8'));
+        const clubName = data.club?.name || 'Club';
+        const leagueSlug = f.split('_')[0] || '';
+        const roster = data.roster || [];
 
-  if (!fs.existsSync(PHOTOS_DIR)) {
-    fs.mkdirSync(PHOTOS_DIR, { recursive: true });
+        const clubList: TargetPlayer[] = [];
+        for (const p of roster) {
+          const playerName = p.displayName || p.fullName || p.name;
+          const key = `${playerName}:${clubName}`.toLowerCase();
+          const target: TargetPlayer = {
+            id: p.id,
+            name: playerName,
+            team: clubName,
+            league: leagueSlug,
+            position: p.position?.name || p.position?.displayName || 'Player',
+            jersey: p.jersey,
+            citizenship: p.citizenship,
+            age: p.age,
+            slug: p.slug || normalizePlayerKey(playerName)
+          };
+          playersMap.set(key, target);
+          clubList.push(target);
+        }
+        clubsMap.set(clubName, clubList);
+      } catch {}
+    }
   }
 
-  // 1. Load existing DB to respect locked photos and manual overrides
+  // 2. Stars from TOP_PLAYERS_DATA (MLS, Saudi Pro League, etc.)
+  const playersDataPath = path.resolve(PUBLIC_DIR, 'playersData.js');
+  if (fs.existsSync(playersDataPath)) {
+    try {
+      const code = fs.readFileSync(playersDataPath, 'utf-8');
+      const func = new Function('const self = {}; ' + code + '; return self.TOP_PLAYERS_DATA;');
+      const list: any[] = func() || [];
+      for (const tp of list) {
+        const key = `${tp.name}:${tp.team}`.toLowerCase();
+        if (!playersMap.has(key)) {
+          const target: TargetPlayer = {
+            name: tp.name,
+            team: tp.team,
+            league: tp.league,
+            position: tp.position,
+            jersey: tp.jersey,
+            citizenship: tp.country,
+            slug: normalizePlayerKey(tp.name)
+          };
+          playersMap.set(key, target);
+          const existingClub = clubsMap.get(tp.team) || [];
+          existingClub.push(target);
+          clubsMap.set(tp.team, existingClub);
+        }
+      }
+    } catch {}
+  }
+
+  return { players: Array.from(playersMap.values()), clubsMap };
+}
+
+export async function runSync() {
+  console.log('=====================================================');
+  console.log('   MatchBay FootyRenders Player Photo Sync Engine    ');
+  console.log('=====================================================');
+
+  // Step 0: Count ALL football players
+  const { players: allTargetPlayers, clubsMap } = loadAllAppPlayers();
+  const totalTargetCount = allTargetPlayers.length;
+  console.log(`[Step 0] TARGET TOTAL FOOTBALL PLAYERS COUNT: ${totalTargetCount}`);
+  console.log(`[Step 0] Across ${clubsMap.size} clubs/national teams.\n`);
+
+  // Load existing DB to preserve locked overrides
   let existingDb: { players: Record<string, StoredPlayerPhoto>; overrides?: Record<string, StoredPlayerPhoto> } = {
     players: {},
     overrides: {}
@@ -91,266 +192,413 @@ export async function runSync(options: { downloadImages?: boolean; verbose?: boo
     try {
       existingDb = JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
       if (!existingDb.players) existingDb.players = {};
-      if (!existingDb.overrides) existingDb.overrides = {};
-    } catch (e) {
-      console.warn('[Sync] Could not parse existing DB, initializing fresh:', (e as Error).message);
-    }
+    } catch {}
   }
 
-  // 2. Fetch credits JSON and ratings Parquet from source
-  if (verbose) console.log('[Sync] Fetching headshot credits catalog...');
-  const creditsRes = await fetchWithRetry(CREDITS_URL);
-  if (!creditsRes.ok) throw new Error(`Failed to fetch ${CREDITS_URL}`);
-  const creditsMap: Record<string, { a?: string; l?: string; u?: string }> = await creditsRes.json();
-  const creditsKeys = Object.keys(creditsMap);
-  if (verbose) console.log(`[Sync] Loaded ${creditsKeys.length} headshot credits.`);
-
-  if (verbose) console.log('[Sync] Fetching ratings parquet dataset...');
-  const ratingsRes = await fetchWithRetry(RATINGS_URL);
-  if (!ratingsRes.ok) throw new Error(`Failed to fetch ${RATINGS_URL}`);
-  const ratingsBuffer = await ratingsRes.arrayBuffer();
-
-  const ratingsRows = await new Promise<any[]>((resolve) => {
-    parquetRead({
-      file: ratingsBuffer,
-      rowFormat: 'object',
-      onComplete: resolve
-    });
-  });
-  if (verbose) console.log(`[Sync] Parsed ${ratingsRows.length} player ratings rows.`);
-
-  // 3. Build candidate index with photo availability
-  const candidates: CandidatePhoto[] = [];
-  for (const r of ratingsRows) {
-    if (!r.player_id) continue;
-    const cred = creditsMap[r.player_id];
-    if (!cred) continue; // Only players with verified Wikimedia Commons photos
-
-    let wikiName = '';
-    if (cred.u) {
-      const m = cred.u.match(/File:([^?#]+)/);
-      if (m) {
-        wikiName = decodeURIComponent(m[1])
-          .replace(/_/g, ' ')
-          .replace(/\.[a-zA-Z0-9]+$/, '')
-          .replace(/\(cropped\)/i, '')
-          .trim();
-      }
-    }
-
-    candidates.push({
-      id: r.player_id,
-      ratingsName: r.player_name || '',
-      team: r.team || '',
-      league: r.league || '',
-      position: r.position || '',
-      wikiName,
-      credit: cred.a || 'Wikimedia Commons',
-      license: cred.l || 'Open License',
-      sourceUrl: cred.u || ''
-    });
+  // Load FootyRenders Index
+  if (!fs.existsSync(FOOTY_INDEX_FILE)) {
+    throw new Error(`FootyRenders index not found at ${FOOTY_INDEX_FILE}`);
   }
-  if (verbose) console.log(`[Sync] Indexed ${candidates.length} photo candidate players.`);
+  console.log('[Step 2] Loading FootyRenders index (33,171 cataloged renders)...');
+  const footyIndex: FootyRenderEntry[] = JSON.parse(fs.readFileSync(FOOTY_INDEX_FILE, 'utf-8'));
+  console.log(`[Step 2] FootyRenders index loaded: ${footyIndex.length} render entries.\n`);
 
-  // 4. Gather Target Players from codebase
-  const targetPlayers: TargetPlayer[] = [];
-  const targetSeen = new Set<string>();
-
-  // From playersData.js
-  const playersDataPath = path.resolve(PUBLIC_DIR, 'playersData.js');
-  if (fs.existsSync(playersDataPath)) {
-    const code = fs.readFileSync(playersDataPath, 'utf-8');
-    const func = new Function('const self = {}; ' + code + '; return self.TOP_PLAYERS_DATA;');
-    const list: TargetPlayer[] = func() || [];
-    for (const p of list) {
-      const key = normalizePlayerKey(p.name);
-      if (!targetSeen.has(key)) {
-        targetSeen.add(key);
-        targetPlayers.push(p);
-      }
-    }
-  }
-
-  // From playerSpotlight.js
-  const spotlightPath = path.resolve(PUBLIC_DIR, 'playerSpotlight.js');
-  if (fs.existsSync(spotlightPath)) {
-    const code = fs.readFileSync(spotlightPath, 'utf-8');
-    const spotlightMatches = [...code.matchAll(/['"]([a-z0-9]+)['"]:\s*{\s*id:\s*(\d+)/g)];
-    for (const m of spotlightMatches) {
-      const key = m[1];
-      if (!targetSeen.has(key)) {
-        targetSeen.add(key);
-        // Synthesize target
-        targetPlayers.push({
-          name: key.replace(/([A-Z])/g, ' $1').replace(/^./, (str) => str.toUpperCase()),
-          slug: key
-        });
-      }
-    }
-  }
-
-  if (verbose) console.log(`[Sync] Found ${targetPlayers.length} target players to evaluate.`);
-
-  // 5. Match and evaluate each player
-  const highConfidenceList: Array<{ player: TargetPlayer; match: any; localUrl: string }> = [];
-  const needsReviewList: Array<{ player: TargetPlayer; match: any }> = [];
-  const noPhotoList: Array<{ player: TargetPlayer; reason: string }> = [];
+  // Categorization lists
+  const matchedList: Array<{ player: TargetPlayer; photo: StoredPlayerPhoto }> = [];
+  const needsReviewList: Array<{ player: TargetPlayer; reason: string; candidate?: FootyRenderEntry; score: number }> = [];
+  const notFoundList: Array<{ player: TargetPlayer; reason: string }> = [];
 
   const updatedDb = { ...existingDb };
 
-  for (const target of targetPlayers) {
-    const slug = normalizePlayerKey(target.slug || target.name);
-    const existing = updatedDb.players[slug] || (updatedDb.overrides ? updatedDb.overrides[slug] : undefined);
+  let processedCount = 0;
+  console.log(`[Step 3] Matching & processing all ${totalTargetCount} players...`);
 
-    // If locked or manual override exists, honor it
+  for (const player of allTargetPlayers) {
+    processedCount++;
+    const slug = normalizePlayerKey(player.name);
+    const existing = updatedDb.players[slug];
+
+    // Preserve locked photos unconditionally
     if (existing && existing.locked) {
-      if (verbose) console.log(`[Sync] Player ${target.name} is locked/overridden. Preserving.`);
-      highConfidenceList.push({
-        player: target,
-        match: {
-          candidate: {
-            ratingsName: existing.name,
-            credit: existing.credit,
-            license: existing.license,
-            sourceUrl: existing.sourceUrl
-          },
-          confidence: existing.confidence,
-          reason: 'Manually locked override'
-        },
-        localUrl: existing.photoUrl
-      });
+      matchedList.push({ player, photo: existing });
       continue;
     }
 
-    const matchRes = matchPlayerPhoto(target, candidates);
+    // Match against FootyRenders catalog
+    const matchRes = matchFootyRender(player, footyIndex);
 
     if (matchRes.status === 'HIGH_CONFIDENCE' && matchRes.candidate) {
       const cand = matchRes.candidate;
       const fileName = `${slug}.webp`;
       const localFilePath = path.resolve(PHOTOS_DIR, fileName);
       const localUrl = `/player-photos/${fileName}`;
-      const remoteImgUrl = `${HEADSHOT_IMG_BASE}${cand.id}.webp`;
 
-      if (downloadImages) {
-        await downloadPhoto(remoteImgUrl, localFilePath);
-        await sleep(DOWNLOAD_DELAY_MS);
+      // Download and crop image (idempotent / cached)
+      let photoSaved = false;
+      if (fs.existsSync(localFilePath) && fs.statSync(localFilePath).size > 500) {
+        photoSaved = true;
+      } else {
+        const renderCachePath = path.resolve(RENDER_CACHE_DIR, `${cand.slug}.png`);
+        let rawBuffer: Buffer | null = null;
+
+        if (fs.existsSync(renderCachePath) && fs.statSync(renderCachePath).size > 1000) {
+          rawBuffer = fs.readFileSync(renderCachePath);
+        } else {
+          rawBuffer = await fetchWithRetry(cand.imgUrl);
+          if (rawBuffer) {
+            fs.writeFileSync(renderCachePath, rawBuffer);
+          }
+          await sleep(40);
+        }
+
+        if (rawBuffer) {
+          photoSaved = await processCutoutToAvatar(rawBuffer, localFilePath);
+        }
       }
 
-      const photoRecord: StoredPlayerPhoto = {
-        key: slug,
-        slug,
-        name: target.name,
-        team: target.team || cand.team || '',
-        position: target.position || cand.position || '',
-        photoUrl: localUrl,
-        credit: cand.credit,
-        license: cand.license,
-        sourceUrl: cand.sourceUrl,
-        confidence: matchRes.confidence,
-        locked: false,
-        matchedAt: new Date().toISOString(),
-        sourcePlayerId: cand.id
-      };
+      if (photoSaved) {
+        const storedPhoto: StoredPlayerPhoto = {
+          key: slug,
+          slug,
+          name: player.name,
+          team: player.team,
+          league: player.league,
+          position: player.position || 'Player',
+          photoUrl: localUrl,
+          sourceUrl: cand.pageUrl,
+          credit: cand.author || 'FootyRenders',
+          source: 'footyrenders',
+          confidence: matchRes.confidence,
+          locked: false,
+          matchedAt: new Date().toISOString()
+        };
 
-      updatedDb.players[slug] = photoRecord;
-      highConfidenceList.push({ player: target, match: matchRes, localUrl });
+        // Also index under normalized variations for seamless resolution
+        updatedDb.players[slug] = storedPhoto;
+        const shortKey = normalizePlayerKey(player.name.split(' ').pop() || '');
+        if (shortKey && !updatedDb.players[shortKey]) {
+          updatedDb.players[shortKey] = storedPhoto;
+        }
+
+        matchedList.push({ player, photo: storedPhoto });
+      } else {
+        notFoundList.push({ player, reason: 'Failed to download or crop render PNG' });
+      }
     } else if (matchRes.status === 'NEEDS_REVIEW') {
-      needsReviewList.push({ player: target, match: matchRes });
+      needsReviewList.push({
+        player,
+        reason: matchRes.reason,
+        candidate: matchRes.candidate,
+        score: matchRes.confidence
+      });
     } else {
-      noPhotoList.push({ player: target, reason: matchRes.reason });
+      notFoundList.push({ player, reason: matchRes.reason });
+    }
+
+    if (processedCount % 200 === 0 || processedCount === totalTargetCount) {
+      fs.writeFileSync(DB_FILE, JSON.stringify(updatedDb, null, 2), 'utf-8');
+      console.log(`[Progress] Processed ${processedCount}/${totalTargetCount} players (Matched: ${matchedList.length})...`);
     }
   }
 
-  // 6. Save updated DB
+  // Save updated DB
   fs.writeFileSync(DB_FILE, JSON.stringify(updatedDb, null, 2), 'utf-8');
-  if (verbose) console.log(`[Sync] Saved ${Object.keys(updatedDb.players).length} photos to ${DB_FILE}`);
+  console.log(`\n[DB] Saved ${Object.keys(updatedDb.players).length} keys in ${DB_FILE}`);
 
-  // 7. Generate Report Artifacts
-  const reportData = {
-    generatedAt: new Date().toISOString(),
-    totalEvaluated: targetPlayers.length,
-    highConfidenceCount: highConfidenceList.length,
-    needsReviewCount: needsReviewList.length,
-    noPhotoFoundCount: noPhotoList.length,
-    highConfidence: highConfidenceList.map((h) => ({
-      name: h.player.name,
-      team: h.player.team || '—',
-      confidence: h.match.confidence,
-      reason: h.match.reason,
-      localUrl: h.localUrl,
-      photographer: h.match.candidate?.credit || 'Wikimedia Commons',
-      license: h.match.candidate?.license || 'Open License',
-      sourceUrl: h.match.candidate?.sourceUrl || ''
-    })),
-    needsReview: needsReviewList.map((r) => ({
-      name: r.player.name,
-      team: r.player.team || '—',
-      confidence: r.match.confidence,
-      reason: r.match.reason,
-      bestCandidate: r.match.candidate?.ratingsName || '—',
-      candidateTeam: r.match.candidate?.team || '—'
-    })),
-    noPhotoFound: noPhotoList.map((n) => ({
-      name: n.player.name,
-      team: n.player.team || '—',
-      reason: n.reason
-    }))
+  // Summary counts
+  const finalSummary = {
+    targetTotal: totalTargetCount,
+    processedTotal: processedCount,
+    matchedWithPhoto: matchedList.length,
+    needsReview: needsReviewList.length,
+    notFound: notFoundList.length,
+    coveragePercent: ((matchedList.length / totalTargetCount) * 100).toFixed(1) + '%'
   };
 
-  fs.writeFileSync(REPORT_JSON, JSON.stringify(reportData, null, 2), 'utf-8');
+  console.log('=====================================================');
+  console.log('                   FINAL NUMBERS                     ');
+  console.log('=====================================================');
+  console.log(`Target Total Players:    ${finalSummary.targetTotal}`);
+  console.log(`Processed Total Players: ${finalSummary.processedTotal}`);
+  console.log(`With Photo (Matched):    ${finalSummary.matchedWithPhoto} (${finalSummary.coveragePercent})`);
+  console.log(`Needs Review:            ${finalSummary.needsReview}`);
+  console.log(`Not Found (Fallback):    ${finalSummary.notFound}`);
+  console.log('=====================================================\n');
 
-  // Generate Markdown Report
+  // Step 6: Generate Coverage Tables & Review HTML Page
+  generateCoverageReports(allTargetPlayers, clubsMap, updatedDb, matchedList, needsReviewList, notFoundList, finalSummary);
+
+  return finalSummary;
+}
+
+function generateCoverageReports(
+  allPlayers: TargetPlayer[],
+  clubsMap: Map<string, TargetPlayer[]>,
+  db: { players: Record<string, StoredPlayerPhoto> },
+  matched: Array<{ player: TargetPlayer; photo: StoredPlayerPhoto }>,
+  needsReview: Array<{ player: TargetPlayer; reason: string; candidate?: FootyRenderEntry; score: number }>,
+  notFound: Array<{ player: TargetPlayer; reason: string }>,
+  summary: any
+) {
+  const matchedSlugs = new Set(matched.map((m) => normalizePlayerKey(m.player.name)));
+  const reviewSlugs = new Set(needsReview.map((r) => normalizePlayerKey(r.player.name)));
+
+  // Coverage per club
+  const clubRows: Array<{
+    club: string;
+    league: string;
+    total: number;
+    withPhoto: number;
+    needsReview: number;
+    notFound: number;
+    percent: string;
+  }> = [];
+
+  for (const [clubName, roster] of clubsMap.entries()) {
+    let withPhoto = 0;
+    let inReview = 0;
+    let notF = 0;
+
+    for (const p of roster) {
+      const slug = normalizePlayerKey(p.name);
+      if (db.players[slug]) withPhoto++;
+      else if (reviewSlugs.has(slug)) inReview++;
+      else notF++;
+    }
+
+    const pct = roster.length > 0 ? ((withPhoto / roster.length) * 100).toFixed(1) + '%' : '0%';
+    clubRows.push({
+      club: clubName,
+      league: roster[0]?.league || 'other',
+      total: roster.length,
+      withPhoto,
+      needsReview: inReview,
+      notFound: notF,
+      percent: pct
+    });
+  }
+
+  // Sort by league then club
+  clubRows.sort((a, b) => a.league.localeCompare(b.league) || a.club.localeCompare(b.club));
+
+  // Extract AC Milan Squad Details
+  const acMilanPlayers = allPlayers.filter((p) => p.team.toLowerCase().includes('milan') && !p.team.toLowerCase().includes('inter'));
+  const acMilanRows = acMilanPlayers.map((p) => {
+    const slug = normalizePlayerKey(p.name);
+    const photo = db.players[slug];
+    const isReview = needsReview.find((r) => normalizePlayerKey(r.player.name) === slug);
+    let status = 'Not Found (Fallback)';
+    let photoUrl = '—';
+    let conf = '0.00';
+    let source = '—';
+
+    if (photo) {
+      status = 'Matched (FootyRenders)';
+      photoUrl = photo.photoUrl;
+      conf = photo.confidence.toFixed(2);
+      source = photo.sourceUrl;
+    } else if (isReview) {
+      status = `Needs Review (${isReview.reason})`;
+      conf = isReview.score.toFixed(2);
+    }
+
+    return {
+      name: p.name,
+      pos: p.position || 'Player',
+      jersey: p.jersey ? `#${p.jersey}` : '—',
+      status,
+      confidence: conf,
+      photoUrl,
+      source
+    };
+  });
+
+  // 1. Generate reports/coverage-table.md
   const mdLines: string[] = [
-    '# MatchBay Player Photo Sync Report',
+    '# MatchBay Player Photo Coverage Table',
     '',
-    `**Generated:** ${reportData.generatedAt}  `,
-    `**Source:** https://inthegame.blog/football/photo-credits (Wikimedia Commons Open Licenses)  `,
-    `**Total Target Players:** ${reportData.totalEvaluated}  `,
-    `**High Confidence (Auto-Accepted):** ${reportData.highConfidenceCount}  `,
-    `**Needs Manual Review:** ${reportData.needsReviewCount}  `,
-    `**No Photo Found (Using Badge Fallback):** ${reportData.noPhotoFoundCount}  `,
+    `**Photo Source:** [FootyRenders.com](https://www.footyrenders.com/)  `,
+    `**Total Target Players:** ${summary.targetTotal}  `,
+    `**Total Processed Players:** ${summary.processedTotal}  `,
+    `**Matched With Real Cutout:** ${summary.matchedWithPhoto} (${summary.coveragePercent})  `,
+    `**Needs Review:** ${summary.needsReview}  `,
+    `**Safe Fallbacks:** ${summary.notFound}  `,
     '',
     '---',
     '',
-    '## 1. High Confidence Matches (Auto-Accepted & Saved Locally)',
+    '## AC Milan Squad Photo Status (Complete Roster)',
     '',
-    '| Player | Team | Confidence | Photographer / Credit | License | Local File | Source |',
+    '| Player | Jersey | Position | Status | Confidence | Photo Preview | FootyRenders Source |',
     '| :--- | :--- | :--- | :--- | :--- | :--- | :--- |'
   ];
 
-  for (const item of reportData.highConfidence) {
-    mdLines.push(
-      `| **${item.name}** | ${item.team} | \`${item.confidence}\` | ${item.photographer} | ${item.license} | \`${item.localUrl}\` | [Wikimedia](${item.sourceUrl}) |`
-    );
+  for (const m of acMilanRows) {
+    const preview = m.photoUrl !== '—' ? `![](${m.photoUrl})` : '⚽ Badge';
+    const sourceLink = m.source !== '—' ? `[View on FootyRenders](${m.source})` : '—';
+    mdLines.push(`| **${m.name}** | ${m.jersey} | ${m.pos} | ${m.status} | \`${m.confidence}\` | ${preview} | ${sourceLink} |`);
   }
 
-  mdLines.push('', '---', '', '## 2. Players Needing Manual Review (Uncertain / Ambiguous)', '');
-  if (reportData.needsReview.length === 0) {
-    mdLines.push('_None. Zero ambiguous matches._', '');
-  } else {
-    mdLines.push('| Player | Team | Confidence | Potential Candidate | Candidate Team | Reason |', '| :--- | :--- | :--- | :--- | :--- | :--- |');
-    for (const item of reportData.needsReview) {
-      mdLines.push(
-        `| **${item.name}** | ${item.team} | \`${item.confidence}\` | ${item.bestCandidate} | ${item.candidateTeam} | ${item.reason} |`
-      );
+  mdLines.push('', '---', '', '## Coverage Per Club (Top 5 Leagues & Others)', '');
+  mdLines.push('| League | Club | Squad Total | With Photo | Needs Review | Not Found | Coverage % |', '| :--- | :--- | :--- | :--- | :--- | :--- | :--- |');
+
+  for (const r of clubRows) {
+    mdLines.push(`| ${r.league} | **${r.club}** | ${r.total} | ${r.withPhoto} | ${r.needsReview} | ${r.notFound} | **${r.percent}** |`);
+  }
+
+  fs.writeFileSync(COVERAGE_MD_FILE, mdLines.join('\n'), 'utf-8');
+  fs.writeFileSync(COVERAGE_JSON_FILE, JSON.stringify({ summary, clubRows, acMilanRows }, null, 2), 'utf-8');
+
+  // 2. Generate reports/photo-review.html (Interactive HTML review gallery)
+  const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MatchBay Player Cutout Review — FootyRenders</title>
+  <style>
+    :root {
+      --bg: #050d0e;
+      --card-bg: #0e1e21;
+      --text: #e2f1f2;
+      --muted: #8fa6a8;
+      --accent: #3ddc97;
+      --border: rgba(255, 255, 255, 0.08);
     }
-  }
-
-  mdLines.push('', '---', '', '## 3. Players With No Photo Found (Safe Placeholder Fallback)', '');
-  if (reportData.noPhotoFound.length === 0) {
-    mdLines.push('_None._', '');
-  } else {
-    mdLines.push('| Player | Team | Reason / Status |', '| :--- | :--- | :--- |');
-    for (const item of reportData.noPhotoFound) {
-      mdLines.push(`| **${item.name}** | ${item.team} | ${item.reason} |`);
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 24px;
     }
-  }
+    .header {
+      max-width: 1200px;
+      margin: 0 auto 30px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px;
+    }
+    h1 { margin: 0 0 10px; font-size: 28px; }
+    .stat-bar { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+    .stat-chip {
+      background: var(--card-bg);
+      padding: 10px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .stat-chip b { color: var(--accent); font-size: 18px; }
+    .club-section {
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+    .club-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .avatar-wrapper {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: radial-gradient(circle, #1a2f33 0%, #0d1a1c 100%);
+      overflow: hidden;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-name { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+    .card-meta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+    .conf-badge {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 12px;
+      background: rgba(61, 220, 151, 0.15);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .source-link {
+      margin-top: 8px;
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .source-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>MatchBay Player Cutout Review</h1>
+    <p style="color:var(--muted);margin:0;">Source: FootyRenders.com · Head & shoulders transparent WebP avatars</p>
+    <div class="stat-bar">
+      <div class="stat-chip">Target Players: <b>${summary.targetTotal}</b></div>
+      <div class="stat-chip">Processed: <b>${summary.processedTotal}</b></div>
+      <div class="stat-chip">With Photo: <b>${summary.matchedWithPhoto}</b></div>
+      <div class="stat-chip">Coverage: <b>${summary.coveragePercent}</b></div>
+      <div class="stat-chip">Needs Review: <b>${summary.needsReview}</b></div>
+    </div>
+  </div>
 
-  fs.writeFileSync(REPORT_MD, mdLines.join('\n'), 'utf-8');
-  if (verbose) console.log(`[Sync] Generated report files: ${REPORT_JSON} and ${REPORT_MD}`);
+  <div class="content">
+    ${Array.from(clubsMap.entries())
+      .filter(([, roster]) => roster.some((p) => db.players[normalizePlayerKey(p.name)]))
+      .map(([clubName, roster]) => {
+        const clubMatched = roster.filter((p) => db.players[normalizePlayerKey(p.name)]);
+        return `
+          <div class="club-section">
+            <div class="club-title">${clubName} (${clubMatched.length}/${roster.length} cutouts)</div>
+            <div class="gallery">
+              ${clubMatched
+                .map((p) => {
+                  const photo = db.players[normalizePlayerKey(p.name)];
+                  return `
+                    <div class="card">
+                      <div class="avatar-wrapper">
+                        <img loading="lazy" src="${photo.photoUrl}" alt="${p.name}" />
+                      </div>
+                      <div class="card-name">${p.name}</div>
+                      <div class="card-meta">${p.position || 'Player'}${p.jersey ? ' · #' + p.jersey : ''}</div>
+                      <span class="conf-badge">Score: ${(photo.confidence * 100).toFixed(0)}%</span>
+                      <a class="source-link" href="${photo.sourceUrl}" target="_blank" rel="noopener">FootyRenders Render ↗</a>
+                    </div>
+                  `;
+                })
+                .join('')}
+            </div>
+          </div>
+        `;
+      })
+      .join('')}
+  </div>
+</body>
+</html>`;
 
-  console.log(`=== Sync Completed: ${reportData.highConfidenceCount} matched, ${reportData.needsReviewCount} review, ${reportData.noPhotoFoundCount} fallback ===`);
-  return reportData;
+  fs.writeFileSync(REVIEW_HTML_FILE, htmlContent, 'utf-8');
+  console.log(`[Reports] Generated review page: ${REVIEW_HTML_FILE}`);
+  console.log(`[Reports] Generated coverage report: ${COVERAGE_MD_FILE}`);
 }
 
 // Allow direct CLI execution

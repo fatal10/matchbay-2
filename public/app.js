@@ -1136,7 +1136,7 @@ const attribution = () =>
   `<div class="m" style="font-size:11px;text-align:center;padding:18px 6px 12px;line-height:1.6">
     Live football scores &amp; data powered by <a href="https://github.com/rezarahiminia/livescoreFootball" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">livescoreFootball</a>
     <br>Competition logos via <a href="https://football-logos.cc/" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">football-logos.cc</a> · Flag icons via <a href="https://github.com/lipis/flag-icons" rel="noopener" target="_blank" style="color:var(--ac);text-decoration:none;font-weight:700">flag-icons</a> (MIT)
-    <br>Player headshots courtesy of open-source photographers via <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:700">Wikimedia Commons</a> &amp; <a href="https://inthegame.blog/football/photo-credits" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:700">In The Game</a> (Open Licenses)
+    <br>Player cutouts courtesy of <a href="https://www.footyrenders.com/" target="_blank" rel="noopener" style="color:var(--ac);text-decoration:none;font-weight:700">FootyRenders</a>
   </div>`;
 
 const miniCard = (g) => {
@@ -3036,8 +3036,8 @@ function playerModal() {
         <span class="player-hero-pos">${esc(posDisplay)}</span>
         ${details.credit ? `
           <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
-            <span>📷 Photo: ${esc(details.credit)}</span>
-            ${details.sourceUrl ? `<span>· <a href="${esc(details.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--ac);text-decoration:none">${esc(details.license || 'License')}</a></span>` : ''}
+            <span>Cutout: ${esc(details.credit)}</span>
+            ${details.sourceUrl ? `<span>· <a href="${esc(details.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--ac);text-decoration:none">FootyRenders</a></span>` : ''}
           </div>
         ` : ''}
       </div>
