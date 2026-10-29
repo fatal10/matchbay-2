@@ -1,0 +1,216 @@
+{
+  "uniquePlayersCount": 3025,
+  "topPlayersCount": 123,
+  "spotlightKeysCount": 217,
+  "rosterFilesCount": 96,
+  "totalRosterEntries": 2902,
+  "samplePlayers": [
+    {
+      "name": "Erling Haaland",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 9,
+      "apiSportsId": 1100,
+      "espnId": "253989",
+      "citizenship": "Norway"
+    },
+    {
+      "name": "Kevin De Bruyne",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 17,
+      "apiSportsId": 629,
+      "espnId": "134947",
+      "citizenship": "Belgium"
+    },
+    {
+      "name": "Phil Foden",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 47,
+      "apiSportsId": 631,
+      "espnId": "250787",
+      "citizenship": "England"
+    },
+    {
+      "name": "Rodri",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 16,
+      "apiSportsId": 44,
+      "espnId": "231828",
+      "citizenship": "Spain"
+    },
+    {
+      "name": "Bernardo Silva",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 20,
+      "apiSportsId": 635,
+      "espnId": "199833",
+      "citizenship": "Portugal"
+    },
+    {
+      "name": "Jack Grealish",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 10,
+      "apiSportsId": 641,
+      "espnId": "172850",
+      "citizenship": "England"
+    },
+    {
+      "name": "Josko Gvardiol",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "DF",
+      "jersey": 24,
+      "apiSportsId": 138787,
+      "espnId": "299910",
+      "citizenship": "Croatia"
+    },
+    {
+      "name": "Ruben Dias",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "DF",
+      "jersey": 3,
+      "apiSportsId": 566
+    },
+    {
+      "name": "Ederson",
+      "team": "Manchester City",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "GK",
+      "jersey": 31,
+      "apiSportsId": 617
+    },
+    {
+      "name": "Bukayo Saka",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 7,
+      "apiSportsId": 1465,
+      "espnId": "280555",
+      "citizenship": "England"
+    },
+    {
+      "name": "Martin Ødegaard",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 8,
+      "espnId": "203669",
+      "citizenship": "Norway"
+    },
+    {
+      "name": "Declan Rice",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "MF",
+      "jersey": 41,
+      "apiSportsId": 293,
+      "espnId": "238262",
+      "citizenship": "England"
+    },
+    {
+      "name": "Kai Havertz",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 29,
+      "apiSportsId": 978,
+      "espnId": "231182",
+      "citizenship": "Germany"
+    },
+    {
+      "name": "Gabriel Martinelli",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 11,
+      "apiSportsId": 158697
+    },
+    {
+      "name": "William Saliba",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "DF",
+      "jersey": 2,
+      "apiSportsId": 2290,
+      "espnId": "277385",
+      "citizenship": "France"
+    },
+    {
+      "name": "Gabriel Magalhães",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "DF",
+      "jersey": 6,
+      "espnId": "236322",
+      "citizenship": "Brazil"
+    },
+    {
+      "name": "David Raya",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "GK",
+      "jersey": 22,
+      "apiSportsId": 18861,
+      "espnId": "196176",
+      "citizenship": "Spain"
+    },
+    {
+      "name": "Leandro Trossard",
+      "team": "Arsenal",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 19,
+      "apiSportsId": 2479
+    },
+    {
+      "name": "Mohamed Salah",
+      "team": "Liverpool",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 11,
+      "apiSportsId": 306
+    },
+    {
+      "name": "Luis Díaz",
+      "team": "Liverpool",
+      "league": "eng.1",
+      "source": "TOP_PLAYERS_DATA",
+      "position": "FW",
+      "jersey": 7,
+      "espnId": "257390",
+      "citizenship": "Colombia"
+    }
+  ]
+}

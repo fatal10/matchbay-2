@@ -704,6 +704,19 @@ const API = {
         }
       }
     } catch {}
+
+    try {
+      if (!window.PLAYER_PHOTOS_DB || !window.PLAYER_PHOTOS_DB.players) {
+        const fRes = await fetch('./fotmob-player-ids.json');
+        if (fRes.ok) {
+          const fDb = await fRes.json();
+          if (fDb && fDb.players) {
+            window.PLAYER_PHOTOS_DB = fDb;
+            DATA.playerPhotosDb = fDb;
+          }
+        }
+      }
+    } catch {}
   },
 
   async loadLeagues() {
@@ -1453,15 +1466,21 @@ function stRender() {
       <section class="sgn" style="top:47%">
         ${scorers.length ? `
           <div class="sg-scorers-box">
-            ${scorers.map((s) => `
-              <div class="sg-scorer-row">
-                <span class="min">${esc(s.minute || '⚽')}</span>
-                <span style="font-weight:700">${esc(s.player)}</span>
-                <span class="m" style="font-size:10px">(${s.team === 'home' ? esc(g.homeName) : esc(g.awayName)})</span>
-                ${s.isPenalty ? '<span class="m" style="font-size:9px">(P)</span>' : ''}
-                ${s.isOwnGoal ? '<span class="m" style="font-size:9px">(OG)</span>' : ''}
-              </div>
-            `).join('')}
+            ${scorers.map((s) => {
+              const photoUrl = (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerPhoto)
+                ? window.PlayerSpotlight.getSpotlightPlayerPhoto({ name: s.player })
+                : '';
+              return `
+                <div class="sg-scorer-row">
+                  <span class="min">${esc(s.minute || '⚽')}</span>
+                  ${photoUrl ? `<img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(s.player)}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin:0 4px;border:1px solid rgba(255,255,255,.2);flex:none" onerror="this.remove()" />` : ''}
+                  <span style="font-weight:700">${esc(s.player)}</span>
+                  <span class="m" style="font-size:10px">(${s.team === 'home' ? esc(g.homeName) : esc(g.awayName)})</span>
+                  ${s.isPenalty ? '<span class="m" style="font-size:9px">(P)</span>' : ''}
+                  ${s.isOwnGoal ? '<span class="m" style="font-size:9px">(OG)</span>' : ''}
+                </div>
+              `;
+            }).join('')}
           </div>
         ` : `
           <div class="sgdt">${esc(badgeInfo.isPostponed ? 'Match postponed to a future date' : 'Official Full-Time Result')}</div>
@@ -3034,10 +3053,13 @@ function playerModal() {
           `}
         </div>
         <span class="player-hero-pos">${esc(posDisplay)}</span>
-        ${details.credit ? `
+        ${details.fotmobId ? `
           <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
-            <span>Cutout: ${esc(details.credit)}</span>
-            ${details.sourceUrl ? `<span>· <a href="${esc(details.sourceUrl)}" target="_blank" rel="noopener noreferrer" style="color:var(--ac);text-decoration:none">FootyRenders</a></span>` : ''}
+            <span>Photo: FotMob</span>
+          </div>
+        ` : details.credit ? `
+          <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
+            <span>${esc(details.credit)}</span>
           </div>
         ` : ''}
       </div>
@@ -3406,12 +3428,20 @@ function matchDetailModal() {
         const teamName = isAway ? g.awayName : g.homeName;
         const teamId = isAway ? g.awayId : g.homeId;
         const clubKey = `${g.k}:${teamId}`;
-        return list.map((p) => `
-          <div class="bench-player-row" data-open-player="${esc(p.id || p.name)}" data-player-club="${esc(clubKey)}" data-player-name="${esc(p.name)}" data-player-team="${esc(teamName)}" role="button" tabindex="0" style="cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:8px" title="View ${esc(p.name)} profile">
-            <span class="m" style="width:20px;text-align:right">${esc(p.jersey || '—')}</span>
-            <b style="font-weight:600;color:var(--t)">${esc(p.name)}</b>
-          </div>
-        `).join('');
+        return list.map((p) => {
+          const photoUrl = (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerPhoto)
+            ? window.PlayerSpotlight.getSpotlightPlayerPhoto(p)
+            : '';
+          return `
+            <div class="bench-player-row" data-open-player="${esc(p.id || p.name)}" data-player-club="${esc(clubKey)}" data-player-name="${esc(p.name)}" data-player-team="${esc(teamName)}" role="button" tabindex="0" style="cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:8px" title="View ${esc(p.name)} profile">
+              <span class="m" style="width:20px;text-align:right">${esc(p.jersey || '—')}</span>
+              ${photoUrl ? `
+                <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;background:#0D1A1C;flex:none;border:1px solid rgba(255,255,255,.15)" onerror="this.remove()" />
+              ` : ''}
+              <b style="font-weight:600;color:var(--t)">${esc(p.name)}</b>
+            </div>
+          `;
+        }).join('');
       };
 
       const homeCoach = lineups.homeCoach || DATA.clubDetails?.[`${g.k}:${g.homeId}`]?.coach || '';

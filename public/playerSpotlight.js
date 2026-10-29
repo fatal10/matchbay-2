@@ -269,52 +269,54 @@
     'nickpope': { id: 18869, foot: 'Right', height: '198 cm' }
   };
 
+  var FOTMOB_IMAGE_BASE = 'https://images.fotmob.com/image_resources/playerimages/';
+
   function getSpotlightPlayerPhoto(player) {
     if (!player) return '';
 
     var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
     var normSlug = normalizePlayerKey(player.slug || '');
 
-    // 0. High priority: Check local verified photos database (served from local storage, zero hotlinking)
+    // 0. High priority: Check local verified photos database (FotMob verified or manual lock)
     var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
     if (db && db.players) {
       if (normName && db.players[normName] && db.players[normName].photoUrl) return db.players[normName].photoUrl;
       if (normSlug && db.players[normSlug] && db.players[normSlug].photoUrl) return db.players[normSlug].photoUrl;
-    }
-
-    if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
-      return player.photo;
-    }
-    if (player.headshot && typeof player.headshot === 'string' && (player.headshot.startsWith('http') || player.headshot.startsWith('/'))) {
-      return player.headshot;
-    }
-    if (player.headshot && player.headshot.href && typeof player.headshot.href === 'string' && player.headshot.href.startsWith('http')) {
-      return player.headshot.href;
-    }
-
-    if (normName && SPOTLIGHT_PLAYERS_MAP[normName]) {
-      return API_SPORTS_BASE + SPOTLIGHT_PLAYERS_MAP[normName].id + '.png';
-    }
-    if (normSlug && SPOTLIGHT_PLAYERS_MAP[normSlug]) {
-      return API_SPORTS_BASE + SPOTLIGHT_PLAYERS_MAP[normSlug].id + '.png';
-    }
-
-    for (var key in SPOTLIGHT_PLAYERS_MAP) {
-      if (key.length >= 4 && (normName.indexOf(key) !== -1 || key.indexOf(normName) !== -1)) {
-        return API_SPORTS_BASE + SPOTLIGHT_PLAYERS_MAP[key].id + '.png';
+      if (normName && db.players[normName] && db.players[normName].fotmobId) {
+        return FOTMOB_IMAGE_BASE + db.players[normName].fotmobId + '.png';
+      }
+      if (normSlug && db.players[normSlug] && db.players[normSlug].fotmobId) {
+        return FOTMOB_IMAGE_BASE + db.players[normSlug].fotmobId + '.png';
       }
     }
 
-    var numericId = Number(player.id);
-    if (!isNaN(numericId) && numericId > 0 && numericId < 1000000) {
-      return API_SPORTS_BASE + numericId + '.png';
+    // 1. Explicit verified FotMob ID on player object
+    if (player.fotmobId) {
+      return FOTMOB_IMAGE_BASE + player.fotmobId + '.png';
     }
 
+    // 2. Direct verified photo URL on player object
+    if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
+      return player.photo;
+    }
+
+    // 3. Normalized fuzzy check against verified database
+    if (db && db.players && normName && normName.length >= 5) {
+      for (var k in db.players) {
+        if (k.length >= 5 && (normName === k || normName.indexOf(k) !== -1 || k.indexOf(normName) !== -1)) {
+          var rec = db.players[k];
+          if (rec.photoUrl) return rec.photoUrl;
+          if (rec.fotmobId) return FOTMOB_IMAGE_BASE + rec.fotmobId + '.png';
+        }
+      }
+    }
+
+    // Fallback: Never fabricate or guess unverified IDs; return empty string for default avatar
     return '';
   }
 
   function getSpotlightPlayerDetails(player) {
-    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '' };
+    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', fotmobId: '' };
 
     var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
     var normSlug = normalizePlayerKey(player.slug || '');
@@ -340,7 +342,8 @@
       credit: (photoRecord && photoRecord.credit) || '',
       license: (photoRecord && photoRecord.license) || '',
       sourceUrl: (photoRecord && photoRecord.sourceUrl) || '',
-      confidence: (photoRecord && photoRecord.confidence) || 0
+      confidence: (photoRecord && photoRecord.confidence) || 1,
+      fotmobId: (photoRecord && photoRecord.fotmobId) || ''
     };
   }
 
