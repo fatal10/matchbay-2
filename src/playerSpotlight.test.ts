@@ -39,6 +39,18 @@ test('getSpotlightPlayerPhoto resolves verified photo URLs from FotMob DB', () =
   const haalandPhoto = getSpotlightPlayerPhoto({ name: 'Erling Haaland' });
   assert.equal(haalandPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
 
+  // String input
+  const haalandStringPhoto = getSpotlightPlayerPhoto('Erling Haaland');
+  assert.equal(haalandStringPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
+
+  // Initial notation (e.g. from match timeline / events: E. Haaland)
+  (globalThis as any).PLAYER_PHOTOS_DB.players.haaland = {
+    fotmobId: '737066',
+    photoUrl: 'https://images.fotmob.com/image_resources/playerimages/737066.png'
+  };
+  const haalandInitialPhoto = getSpotlightPlayerPhoto({ name: 'E. Haaland' });
+  assert.equal(haalandInitialPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
+
   const mbappePhoto = getSpotlightPlayerPhoto({ name: 'Kylian Mbappé' });
   assert.equal(mbappePhoto, 'https://images.fotmob.com/image_resources/playerimages/701154.png');
 

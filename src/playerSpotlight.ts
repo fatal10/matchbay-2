@@ -273,42 +273,61 @@ export const SPOTLIGHT_PLAYERS_MAP: Record<string, { id: number; foot?: 'Right' 
 
 const FOTMOB_IMAGE_BASE = 'https://images.fotmob.com/image_resources/playerimages/';
 
+function extractSurnameKey(raw: string): string {
+  if (!raw) return '';
+  const clean = String(raw).replace(/^[A-Z]\.\s*/i, '').trim();
+  const parts = clean.split(/\s+/);
+  return normalizePlayerKey(parts[parts.length - 1] || '');
+}
+
 /**
  * Resolves a player's profile picture URL from local verified storage or FotMob
  */
 export function getSpotlightPlayerPhoto(player: any): string {
   if (!player) return '';
 
-  const normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-  const normSlug = normalizePlayerKey(player.slug || '');
+  const rawName = typeof player === 'string'
+    ? player
+    : (player.name || player.displayName || player.fullName || player.playerName || player.player || (player.athlete && (player.athlete.displayName || player.athlete.fullName)) || '');
+
+  const normName = normalizePlayerKey(rawName);
+  const normSlug = normalizePlayerKey(typeof player === 'object' && player ? (player.slug || '') : '');
+  const normSurname = typeof player === 'object' && player && player.surname
+    ? normalizePlayerKey(player.surname)
+    : extractSurnameKey(rawName);
 
   // 0. High priority: Check local verified photos database (FotMob verified or manual lock)
   const db = (typeof window !== 'undefined' && (window as any).PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && (globalThis as any).PLAYER_PHOTOS_DB);
   if (db && db.players) {
     if (normName && db.players[normName]?.photoUrl) return db.players[normName].photoUrl;
     if (normSlug && db.players[normSlug]?.photoUrl) return db.players[normSlug].photoUrl;
+    if (normSurname && db.players[normSurname]?.photoUrl) return db.players[normSurname].photoUrl;
+
     if (normName && db.players[normName]?.fotmobId) {
       return `${FOTMOB_IMAGE_BASE}${db.players[normName].fotmobId}.png`;
     }
     if (normSlug && db.players[normSlug]?.fotmobId) {
       return `${FOTMOB_IMAGE_BASE}${db.players[normSlug].fotmobId}.png`;
     }
+    if (normSurname && db.players[normSurname]?.fotmobId) {
+      return `${FOTMOB_IMAGE_BASE}${db.players[normSurname].fotmobId}.png`;
+    }
   }
 
   // 1. Explicit verified FotMob ID on player object
-  if (player.fotmobId) {
+  if (typeof player === 'object' && player && player.fotmobId) {
     return `${FOTMOB_IMAGE_BASE}${player.fotmobId}.png`;
   }
 
   // 2. Direct verified photo URL on player object
-  if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
+  if (typeof player === 'object' && player && player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
     return player.photo;
   }
 
   // 3. Normalized fuzzy check against verified database
-  if (db && db.players && normName && normName.length >= 5) {
+  if (db && db.players && normName && normName.length >= 4) {
     for (const k in db.players) {
-      if (k.length >= 5 && (normName === k || normName.includes(k) || k.includes(normName))) {
+      if (k.length >= 4 && (normName === k || normName.includes(k) || k.includes(normName))) {
         const rec = db.players[k];
         if (rec.photoUrl) return rec.photoUrl;
         if (rec.fotmobId) return `${FOTMOB_IMAGE_BASE}${rec.fotmobId}.png`;
@@ -326,27 +345,37 @@ export function getSpotlightPlayerPhoto(player: any): string {
 export function getSpotlightPlayerDetails(player: any) {
   if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', fotmobId: '' };
 
-  const normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-  const normSlug = normalizePlayerKey(player.slug || '');
-  const match = SPOTLIGHT_PLAYERS_MAP[normName] || (player.slug ? SPOTLIGHT_PLAYERS_MAP[normalizePlayerKey(player.slug)] : null);
+  const rawName = typeof player === 'string'
+    ? player
+    : (player.name || player.displayName || player.fullName || player.playerName || player.player || (player.athlete && (player.athlete.displayName || player.athlete.fullName)) || '');
+
+  const normName = normalizePlayerKey(rawName);
+  const normSlug = normalizePlayerKey(typeof player === 'object' && player ? (player.slug || '') : '');
+  const normSurname = typeof player === 'object' && player && player.surname
+    ? normalizePlayerKey(player.surname)
+    : extractSurnameKey(rawName);
+
+  const match = SPOTLIGHT_PLAYERS_MAP[normName] ||
+    (normSlug ? SPOTLIGHT_PLAYERS_MAP[normSlug] : null) ||
+    (normSurname ? SPOTLIGHT_PLAYERS_MAP[normSurname] : null);
 
   const photo = getSpotlightPlayerPhoto(player);
-  const preferredFoot = match?.foot || (player.preferredFoot || 'Right');
+  const preferredFoot = match?.foot || (typeof player === 'object' && player && player.preferredFoot) || 'Right';
   
-  let formattedHeight = match?.height || player.height || '—';
+  let formattedHeight = match?.height || (typeof player === 'object' && player && player.height) || '—';
   if (formattedHeight !== '—' && !formattedHeight.includes('cm') && !formattedHeight.includes('\'')) {
     formattedHeight = `${formattedHeight} cm`;
   }
 
   const db = (typeof window !== 'undefined' && (window as any).PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && (globalThis as any).PLAYER_PHOTOS_DB);
-  const photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug])) || null;
+  const photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug] || db.players[normSurname])) || null;
 
   return {
     photo,
     preferredFoot,
     height: formattedHeight,
-    nationality: player.citizenship || player.nationality || '—',
-    shirtNumber: player.jersey ? `#${player.jersey}` : '—',
+    nationality: (typeof player === 'object' && player && (player.citizenship || player.nationality)) || '—',
+    shirtNumber: (typeof player === 'object' && player && player.jersey) ? `#${player.jersey}` : '—',
     credit: photoRecord?.credit || '',
     license: photoRecord?.license || '',
     sourceUrl: photoRecord?.sourceUrl || '',

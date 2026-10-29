@@ -271,39 +271,58 @@
 
   var FOTMOB_IMAGE_BASE = 'https://images.fotmob.com/image_resources/playerimages/';
 
+  function extractSurnameKey(raw) {
+    if (!raw) return '';
+    var clean = String(raw).replace(/^[A-Z]\.\s*/i, '').trim();
+    var parts = clean.split(/\s+/);
+    return normalizePlayerKey(parts[parts.length - 1] || '');
+  }
+
   function getSpotlightPlayerPhoto(player) {
     if (!player) return '';
 
-    var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-    var normSlug = normalizePlayerKey(player.slug || '');
+    var rawName = typeof player === 'string'
+      ? player
+      : (player.name || player.displayName || player.fullName || player.playerName || player.player || (player.athlete && (player.athlete.displayName || player.athlete.fullName)) || '');
+
+    var normName = normalizePlayerKey(rawName);
+    var normSlug = normalizePlayerKey(typeof player === 'object' && player ? (player.slug || '') : '');
+    var normSurname = typeof player === 'object' && player && player.surname
+      ? normalizePlayerKey(player.surname)
+      : extractSurnameKey(rawName);
 
     // 0. High priority: Check local verified photos database (FotMob verified or manual lock)
     var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
     if (db && db.players) {
       if (normName && db.players[normName] && db.players[normName].photoUrl) return db.players[normName].photoUrl;
       if (normSlug && db.players[normSlug] && db.players[normSlug].photoUrl) return db.players[normSlug].photoUrl;
+      if (normSurname && db.players[normSurname] && db.players[normSurname].photoUrl) return db.players[normSurname].photoUrl;
+
       if (normName && db.players[normName] && db.players[normName].fotmobId) {
         return FOTMOB_IMAGE_BASE + db.players[normName].fotmobId + '.png';
       }
       if (normSlug && db.players[normSlug] && db.players[normSlug].fotmobId) {
         return FOTMOB_IMAGE_BASE + db.players[normSlug].fotmobId + '.png';
       }
+      if (normSurname && db.players[normSurname] && db.players[normSurname].fotmobId) {
+        return FOTMOB_IMAGE_BASE + db.players[normSurname].fotmobId + '.png';
+      }
     }
 
     // 1. Explicit verified FotMob ID on player object
-    if (player.fotmobId) {
+    if (typeof player === 'object' && player && player.fotmobId) {
       return FOTMOB_IMAGE_BASE + player.fotmobId + '.png';
     }
 
     // 2. Direct verified photo URL on player object
-    if (player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
+    if (typeof player === 'object' && player && player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
       return player.photo;
     }
 
     // 3. Normalized fuzzy check against verified database
-    if (db && db.players && normName && normName.length >= 5) {
+    if (db && db.players && normName && normName.length >= 4) {
       for (var k in db.players) {
-        if (k.length >= 5 && (normName === k || normName.indexOf(k) !== -1 || k.indexOf(normName) !== -1)) {
+        if (k.length >= 4 && (normName === k || normName.indexOf(k) !== -1 || k.indexOf(normName) !== -1)) {
           var rec = db.players[k];
           if (rec.photoUrl) return rec.photoUrl;
           if (rec.fotmobId) return FOTMOB_IMAGE_BASE + rec.fotmobId + '.png';
@@ -318,27 +337,37 @@
   function getSpotlightPlayerDetails(player) {
     if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', fotmobId: '' };
 
-    var normName = normalizePlayerKey(player.name || player.displayName || player.fullName || '');
-    var normSlug = normalizePlayerKey(player.slug || '');
-    var match = SPOTLIGHT_PLAYERS_MAP[normName] || (player.slug ? SPOTLIGHT_PLAYERS_MAP[normalizePlayerKey(player.slug)] : null);
+    var rawName = typeof player === 'string'
+      ? player
+      : (player.name || player.displayName || player.fullName || player.playerName || player.player || (player.athlete && (player.athlete.displayName || player.athlete.fullName)) || '');
+
+    var normName = normalizePlayerKey(rawName);
+    var normSlug = normalizePlayerKey(typeof player === 'object' && player ? (player.slug || '') : '');
+    var normSurname = typeof player === 'object' && player && player.surname
+      ? normalizePlayerKey(player.surname)
+      : extractSurnameKey(rawName);
+
+    var match = SPOTLIGHT_PLAYERS_MAP[normName] ||
+      (normSlug ? SPOTLIGHT_PLAYERS_MAP[normSlug] : null) ||
+      (normSurname ? SPOTLIGHT_PLAYERS_MAP[normSurname] : null);
 
     var photo = getSpotlightPlayerPhoto(player);
-    var preferredFoot = (match && match.foot) || (player.preferredFoot || 'Right');
+    var preferredFoot = (match && match.foot) || (typeof player === 'object' && player && player.preferredFoot) || 'Right';
     
-    var formattedHeight = (match && match.height) || player.height || '—';
+    var formattedHeight = (match && match.height) || (typeof player === 'object' && player && player.height) || '—';
     if (formattedHeight !== '—' && formattedHeight.indexOf('cm') === -1 && formattedHeight.indexOf('\'') === -1) {
       formattedHeight = formattedHeight + ' cm';
     }
 
     var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
-    var photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug])) || null;
+    var photoRecord = (db && db.players && (db.players[normName] || db.players[normSlug] || db.players[normSurname])) || null;
 
     return {
       photo: photo,
       preferredFoot: preferredFoot,
       height: formattedHeight,
-      nationality: player.citizenship || player.nationality || '—',
-      shirtNumber: player.jersey ? '#' + player.jersey : '—',
+      nationality: (typeof player === 'object' && player && (player.citizenship || player.nationality)) || '—',
+      shirtNumber: (typeof player === 'object' && player && player.jersey) ? '#' + player.jersey : '—',
       credit: (photoRecord && photoRecord.credit) || '',
       license: (photoRecord && photoRecord.license) || '',
       sourceUrl: (photoRecord && photoRecord.sourceUrl) || '',

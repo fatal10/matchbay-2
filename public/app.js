@@ -694,29 +694,35 @@ const API = {
   },
 
   async loadPlayerPhotosDb() {
-    try {
-      const res = await fetch('./player-photos-db.json');
-      if (res.ok) {
-        const db = await res.json();
-        if (db && db.players) {
-          window.PLAYER_PHOTOS_DB = db;
-          DATA.playerPhotosDb = db;
-        }
-      }
-    } catch {}
+    if (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB && window.PLAYER_PHOTOS_DB.players) {
+      DATA.playerPhotosDb = window.PLAYER_PHOTOS_DB;
+      return window.PLAYER_PHOTOS_DB;
+    }
 
-    try {
-      if (!window.PLAYER_PHOTOS_DB || !window.PLAYER_PHOTOS_DB.players) {
-        const fRes = await fetch('./fotmob-player-ids.json');
-        if (fRes.ok) {
-          const fDb = await fRes.json();
-          if (fDb && fDb.players) {
-            window.PLAYER_PHOTOS_DB = fDb;
-            DATA.playerPhotosDb = fDb;
+    const candidateUrls = [
+      './player-photos-db.json',
+      '/player-photos-db.json',
+      './fotmob-player-ids.json',
+      '/fotmob-player-ids.json'
+    ];
+
+    for (const u of candidateUrls) {
+      try {
+        const res = await fetch(u);
+        const ct = res.headers.get('content-type') || '';
+        if (res.ok && (ct.includes('json') || ct === '')) {
+          const text = await res.text();
+          if (text.startsWith('{')) {
+            const db = JSON.parse(text);
+            if (db && db.players) {
+              window.PLAYER_PHOTOS_DB = db;
+              DATA.playerPhotosDb = db;
+              return db;
+            }
           }
         }
-      }
-    } catch {}
+      } catch {}
+    }
   },
 
   async loadLeagues() {
@@ -1473,7 +1479,7 @@ function stRender() {
               return `
                 <div class="sg-scorer-row">
                   <span class="min">${esc(s.minute || '⚽')}</span>
-                  ${photoUrl ? `<img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(s.player)}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin:0 4px;border:1px solid rgba(255,255,255,.2);flex:none" onerror="this.remove()" />` : ''}
+                  ${photoUrl ? `<img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(s.player)}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin:0 4px;border:1px solid rgba(255,255,255,.2);flex:none" onerror="this.remove()" />` : ''}
                   <span style="font-weight:700">${esc(s.player)}</span>
                   <span class="m" style="font-size:10px">(${s.team === 'home' ? esc(g.homeName) : esc(g.awayName)})</span>
                   ${s.isPenalty ? '<span class="m" style="font-size:9px">(P)</span>' : ''}
@@ -2414,7 +2420,7 @@ function renderPlayerSearchCard(p) {
       <div class="r" style="gap:10px;align-items:center">
         ${photoUrl ? `
           <div style="width:36px;height:36px;border-radius:50%;overflow:hidden;border:2px solid ${posColor};flex:none;background:#0D1A1C;display:flex;align-items:center;justify-content:center">
-            <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+            <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(p.name)}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
             <div style="display:none;font-size:12px;font-weight:700;color:${posColor}">${p.jersey ? `#${p.jersey}` : esc(p.position || '⚽')}</div>
           </div>
         ` : `
@@ -2786,7 +2792,7 @@ function clubModal() {
               <div class="player-row" data-open-player="${esc(p.id)}" data-player-club="${esc(key)}" role="button" tabindex="0" aria-label="View player profile for ${esc(p.name)}">
                 <span class="player-num">${esc(p.jersey ? `#${p.jersey}` : '—')}</span>
                 ${photoUrl ? `
-                  <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" class="player-squad-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                  <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(p.name)}" class="player-squad-thumb" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
                   <div class="player-squad-fallback" style="display:none;">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
                 ` : `
                   <div class="player-squad-fallback">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
@@ -3027,7 +3033,7 @@ function playerModal() {
         <div class="player-avatar-ring">
           <div class="player-avatar-inner">
             ${photoUrl ? `
-              <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(player.name)}" class="player-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(player.name)}" class="player-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
               <div class="player-photo-fallback" style="display:none;">
                 <svg width="64" height="64" viewBox="0 0 120 120" fill="none" stroke="#5E7B7E" stroke-width="5" stroke-linecap="round" role="img" aria-label="Player photo placeholder"><circle cx="60" cy="42" r="20"></circle><path d="M20 106 C22 80 40 70 60 70 C80 70 98 80 100 106"></path></svg>
               </div>
@@ -3289,11 +3295,18 @@ function matchDetailModal() {
 
         const nameStr = esc(ev.playerName || '');
         const detailStr = ev.detail ? `<small>${esc(ev.detail)}</small>` : '';
+        const isGoal = ev.type === 'goal' || String(ev.detail || '').toLowerCase().includes('goal') || String(icon).includes('⚽');
+        const photoUrl = isGoal && (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerPhoto)
+          ? window.PlayerSpotlight.getSpotlightPlayerPhoto({ name: ev.playerName })
+          : '';
+        const photoHtml = photoUrl
+          ? `<img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${nameStr}" style="width:18px;height:18px;border-radius:50%;object-fit:cover;vertical-align:middle;margin:0 4px;border:1px solid rgba(255,255,255,.2);display:inline-block" onerror="this.remove()" />`
+          : '';
 
         if (ev.side === 'home') {
           return `
             <div class="ev">
-              <div class="l">${icon} ${nameStr}${detailStr}</div>
+              <div class="l">${icon} ${photoHtml}${nameStr}${detailStr}</div>
               <div class="t">${esc(ev.minute)}</div>
               <div class="r"></div>
             </div>
@@ -3303,7 +3316,7 @@ function matchDetailModal() {
             <div class="ev">
               <div class="l"></div>
               <div class="t">${esc(ev.minute)}</div>
-              <div class="r">${icon} ${nameStr}${detailStr}</div>
+              <div class="r">${photoHtml}${icon} ${nameStr}${detailStr}</div>
             </div>
           `;
         }
@@ -3400,10 +3413,19 @@ function matchDetailModal() {
         const teamName = isAway ? g.awayName : g.homeName;
         const teamId = isAway ? g.awayId : g.homeId;
         const clubKey = `${g.k}:${teamId}`;
+        const photoUrl = (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerPhoto)
+          ? window.PlayerSpotlight.getSpotlightPlayerPhoto(p.player)
+          : '';
+
         return `
           <div class="p${isAway ? ' a' : ''}" style="left:${p.x}%;top:${p.y}%;--k:${kColor};cursor:pointer" data-open-player="${esc(p.player.id || p.player.name)}" data-player-club="${esc(clubKey)}" data-player-name="${esc(p.player.name)}" data-player-team="${esc(teamName)}" role="button" tabindex="0" title="View profile for ${esc(p.player.name)}">
             <b>
-              ${esc(p.player.jersey)}
+              ${photoUrl ? `
+                <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(p.player.name)}" class="pitch-player-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline';" />
+                <span class="pitch-player-fallback" style="display:none">${esc(p.player.jersey)}</span>
+              ` : `
+                <span class="pitch-player-fallback">${esc(p.player.jersey)}</span>
+              `}
               ${p.badges.captain ? '<span class="cap" title="Captain">C</span>' : ''}
               ${badgesHtml.length ? `<u>${badgesHtml.join('')}</u>` : ''}
             </b>
@@ -3436,8 +3458,11 @@ function matchDetailModal() {
             <div class="bench-player-row" data-open-player="${esc(p.id || p.name)}" data-player-club="${esc(clubKey)}" data-player-name="${esc(p.name)}" data-player-team="${esc(teamName)}" role="button" tabindex="0" style="cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:8px" title="View ${esc(p.name)} profile">
               <span class="m" style="width:20px;text-align:right">${esc(p.jersey || '—')}</span>
               ${photoUrl ? `
-                <img referrerpolicy="no-referrer" loading="lazy" src="${esc(photoUrl)}" alt="${esc(p.name)}" style="width:24px;height:24px;border-radius:50%;object-fit:cover;background:#0D1A1C;flex:none;border:1px solid rgba(255,255,255,.15)" onerror="this.remove()" />
-              ` : ''}
+                <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(p.name)}" class="bench-player-thumb" style="width:24px;height:24px;border-radius:50%;object-fit:cover;background:#0D1A1C;flex:none;border:1px solid rgba(255,255,255,.15)" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                <div class="bench-player-fallback" style="display:none;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--t);font-size:10px;font-weight:700;align-items:center;justify-content:center;flex:none">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
+              ` : `
+                <div class="bench-player-fallback" style="display:flex;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--t);font-size:10px;font-weight:700;align-items:center;justify-content:center;flex:none">${esc(p.jersey ? `#${p.jersey}` : '⚽')}</div>
+              `}
               <b style="font-weight:600;color:var(--t)">${esc(p.name)}</b>
             </div>
           `;
