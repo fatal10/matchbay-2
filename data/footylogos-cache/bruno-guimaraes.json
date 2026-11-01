@@ -1,0 +1,161 @@
+{
+  "name": "Bruno Guimarães",
+  "slug": "bruno-guimaraes",
+  "qid": "Q58323172",
+  "born": "1997-11-16",
+  "aliases": [
+    "Bruno Guimarães",
+    "BRUNO GUIMARAES",
+    "Bruno Guimaraes",
+    "BRUNO GUIMARAES",
+    "Bruno Guimarães Rodriguez Moura",
+    "Bruno Guimaraes Rodriguez Moura",
+    "Bruno G."
+  ],
+  "club": "Arsenal",
+  "country": "Brazil",
+  "position": "Midfielder",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/arsenal/arsenal-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "4428ac38c3555485c4ef4e13b99c845bcfca4311f7d003b00025ed66c1b51a39",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Arsenal",
+      "t": true,
+      "ss": [],
+      "bytes": 829807
+    },
+    {
+      "k": "9f57ce85b89b3bd99ecf26d347d7520a402b50765a5ddc230fd135c1d3adf7f4",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Arsenal",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "f44bdcf0cd2903ddb179f8e00a46c8acdbc7a9b2d7a526bb6e67c8293651a65c",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2334,
+      "h": 3500,
+      "c": "Brazil",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "7df14773ac6d8fa63107c39c8b0ed6e038a332e57f80d0928945a0f5765698d0",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2334,
+      "h": 3500,
+      "c": "Brazil",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "1b9255d9e560528c7e008159b703cf45413dac8a081c69c1eb4559644e6934fa",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "43daf6c995234fb94f8f5f9bf4cce764f6639a3bc9f049669f47889f21d55c4b",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "01804088bc5ada24b633595336b88b6a9c6a6262ade99ba1545f48b9d433d9c8",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 956,
+      "h": 1637,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bukayo Saka",
+      "slug": "bukayo-saka",
+      "club": "Arsenal",
+      "key": "b37d73aaf85458753e39592770db8b41b5b61dee0ab7e37224e778cc2e723c3a"
+    },
+    {
+      "name": "Viktor Gyökeres",
+      "slug": "viktor-gyokeres",
+      "club": "Arsenal",
+      "key": "46d61abff6053f077b46c9cd692b6e620f537523b5b6493f0a697ad041508ba8"
+    },
+    {
+      "name": "Declan Rice",
+      "slug": "declan-rice",
+      "club": "Arsenal",
+      "key": "dc8a5692fd0a192f0ba971b431242d0b43bcf062515fe5ed0733675e2b7f60f5"
+    },
+    {
+      "name": "Martin Ødegaard",
+      "slug": "martin-degaard",
+      "club": "Arsenal",
+      "key": "1c23f709214df6bd5c9773fbda2f14619761961964f3d19a2fc85c82c91734fa"
+    },
+    {
+      "name": "David Raya",
+      "slug": "david-raya",
+      "club": "Arsenal",
+      "key": "f844bb78e21a4f02d10ba7e115676b48ffce00bf93e17c94cbe3afc0fc593ec7"
+    },
+    {
+      "name": "Ezri Konsa",
+      "slug": "ezri-konsa",
+      "club": "Arsenal",
+      "key": "230a92b5d8b737f8fe552fa26447bc1e54c2711a917b1c0de4e2c353d936a817"
+    }
+  ],
+  "logoLinks": {
+    "Arsenal": "/logos/arsenal",
+    "Brazil": "/logos/brazil-national-team",
+    "Newcastle United": "/logos/newcastle-united"
+  }
+}

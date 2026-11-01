@@ -1,0 +1,247 @@
+{
+  "name": "Erling Haaland",
+  "slug": "erling-haaland",
+  "qid": "Q28967995",
+  "born": "2000-07-21",
+  "aliases": [
+    "Erling Haaland",
+    "Erling HAALAND",
+    "Erling Braut Haaland",
+    "Erling Håland",
+    "Erling Haland",
+    "Erling Braut Haland",
+    "Erling Braut Håland"
+  ],
+  "club": "Manchester City",
+  "country": "Norway",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/manchester-city/manchester-city-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "129aee2b768d5b70864c97bc06d6f796992a21f2945954e9886282eb6ac80500",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [],
+      "bytes": 599929
+    },
+    {
+      "k": "1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester City",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "5b4c613962774da396edbd6de22d8dcc5d8d965d79ef64d8867cceae4bdd4292",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2334,
+      "h": 3500,
+      "c": "Norway",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "6112a4d2bbb67f9d6021a121ddf87b1ac27074256e3c94d240f46f460ee33ccc",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "930b0221c74714bf13a083c4e889045e8bf48979945586a37944ba34ddfc9ba1",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "2148609aa2718c0d258e68deab7afcc23174034ca9f96b359d963450a808cdd8",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "8903ae739c5c834d2417bf38279431fbf1783871317ae54a4a2032b2519637db",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "5c9b8cb26b7c54b85975b0bf427a0c84c90d48ed46fb77b6575678207819f542",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "9b99aa158709624b5c2d9aecd58621cd7568ffcdb4f9784393421d0e40099ce6",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "51debba92e1798cbd27de2401518b1c7eb9204c1ad3ee7576afe434a0131b14c",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "415aebcd572b12cee1cc123f284e3234b30c09dcdff013018b2ed0d2fc73b1cd",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "d3ee91e1fb3e95dbf6070dba63faa0dc47ddb794961ea2210ac0f50ddbb00b36",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "e19f028a6be0105d526417b794deaee13b2e119c66d576c40929d07e274a5493",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 762,
+      "h": 1684,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Enzo Fernández",
+      "slug": "enzo-fernandez",
+      "club": "Manchester City",
+      "key": "100cfe79fe3324976352acfff9c4e28fec3782c4b2b36bd936a817d6b381c10c"
+    },
+    {
+      "name": "Rayan Cherki",
+      "slug": "rayan-cherki",
+      "club": "Manchester City",
+      "key": "a4abdae81bed1e1398a9e2bb2a501fedbd26d0da1f9ec34faaa0bf7920e5b930"
+    },
+    {
+      "name": "Iliman Ndiaye",
+      "slug": "iliman-ndiaye",
+      "club": "Manchester City",
+      "key": "5139b874b84ba381e8188e6db93664589a58e7a9669aee9ba7fd98175f3b2c22"
+    },
+    {
+      "name": "Ayyoub Bouaddi",
+      "slug": "ayyoub-bouaddi",
+      "club": "Manchester City",
+      "key": "19fa752342e39c4ebcbe39040dfe12ebb88aa3320c9b083f028517eafd76e189"
+    },
+    {
+      "name": "Gianluigi Donnarumma",
+      "slug": "gianluigi-donnarumma",
+      "club": "Manchester City",
+      "key": "d941c2f8802dd085622de381aec2708c9be2ef0b0e5c8e43c7245e0cdf86a563"
+    },
+    {
+      "name": "Elliot Anderson",
+      "slug": "elliot-anderson",
+      "club": "Manchester City",
+      "key": "ab1afaf1409c056eb886cd91a4f5acfe988b7789da8f81884d82f27a8b2e10b6"
+    }
+  ],
+  "logoLinks": {
+    "Manchester City": "/logos/manchester-city",
+    "Norway": "/logos/norway-national-team",
+    "Borussia Dortmund": "/logos/borussia-dortmund"
+  }
+}

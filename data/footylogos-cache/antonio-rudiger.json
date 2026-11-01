@@ -1,0 +1,240 @@
+{
+  "name": "Antonio Rüdiger",
+  "slug": "antonio-rudiger",
+  "qid": "Q96755",
+  "born": "1993-03-03",
+  "aliases": [
+    "Antonio Rüdiger",
+    "Antonio RUEDIGER",
+    "Antonio Ruediger",
+    "Antonio Rudiger"
+  ],
+  "club": "Real Madrid",
+  "country": "Germany",
+  "position": "Defender",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/real-madrid/real-madrid-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "4ed93908f9c9025219947713ff50d6371f604f7d73f79a3d5fa0ed548fa7e1cb",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [],
+      "bytes": 640119
+    },
+    {
+      "k": "f50e4816cb9e8ac79361fee22d3ca64488a349e156e996a69c69a75f79383629",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "Germany",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "ebb2a9af42e21fedc19526230f44093bdd6e2a6fb373c96cad87e50d87df9b21",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Germany",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "68b4c68eeb722da4fd23af6d0aed4194a3f1197d134eaae2fe7404795e8bde3d",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "9bea448be5aa24042ed550d6ea816779dde7c1e127fae234a2a6578e01ce8bfc",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "4b4001a1bfe4cf703a9b72710b549895a45e4cd4ab853300dcbf1d0c19a7eff6",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "bdd15647dd47c550320c9fbf68ba08e0075357c3006ba3174b31e51a73b9b673",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "6a6efbcf791cf708bd5c37a9b05165d47dc1d969c705da289f230c94658445ac",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "7657317ddddf35f006d08c3f71b6c911ed18b1f119b0c568395a27238ba64ead",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "7b9dfbfb82a784b5a801c38342d461d41df05cc3fa8407e2850b4322b0e8a983",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "ea6bb78d73a4034e961394d491a39db8129f885e46955c9a495412b7da55027d",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "f2c487c7f5c5d89662406ca06a86d69f48aeea06e8973ad8845ec36acf2ea903",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "bad83b3fe5e0fe4421a48106b6bd96daa9ec4ea11020e487c1f0685297526fb1",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Kylian Mbappé",
+      "slug": "kylian-mbappe",
+      "club": "Real Madrid",
+      "key": "811ed9ef07a14e0dace017e7210ed71d65454bbb829c97279d43fa1011748469"
+    },
+    {
+      "name": "Jude Bellingham",
+      "slug": "jude-bellingham",
+      "club": "Real Madrid",
+      "key": "c8f8467b8acb7cb66595088dd9ab61901a1c7a1bc7da10dd91b41984f3570a27"
+    },
+    {
+      "name": "Yan Diomande",
+      "slug": "yan-diomande",
+      "club": "Real Madrid",
+      "key": "460cbce53ea8f911a030d2055724fb471b43bcd1eda636dbde261699cf1000ea"
+    },
+    {
+      "name": "Vinícius Júnior",
+      "slug": "vinicius-junior",
+      "club": "Real Madrid",
+      "key": "04339655a21da3ed9c791629e6649745a635029cc1db7297255ffe40e6963220"
+    },
+    {
+      "name": "Marc Cucurella",
+      "slug": "marc-cucurella",
+      "club": "Real Madrid",
+      "key": "ce1c763332b2dae2c15939b53461a4195e9ec5510b804d4acf295863f1d018e9"
+    },
+    {
+      "name": "Carlos Espí",
+      "slug": "carlos-espi",
+      "club": "Real Madrid",
+      "key": "2121169cb2a8ffbbb5a4cabecaef6e80fdf5c5fe54f2e8428e56a4218b9a0447"
+    }
+  ],
+  "logoLinks": {
+    "Real Madrid": "/logos/real-madrid",
+    "Germany": "/logos/germany-national-team"
+  }
+}

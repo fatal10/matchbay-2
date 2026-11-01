@@ -1,0 +1,214 @@
+{
+  "name": "Andrei Rațiu",
+  "slug": "andrei-ratiu",
+  "qid": "Q63226171",
+  "born": "1998-06-20",
+  "aliases": [
+    "Andrei Ratiu",
+    "Andrei Rațiu",
+    "Florin Rațiu"
+  ],
+  "club": "Rayo Vallecano",
+  "country": "Romania",
+  "position": "Defender",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/rayo-vallecano/rayo-vallecano-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "964a11736fa2395c10fee376147a95a576a97587039363ae6ee8a3e70f5ce13e",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "65268ff5ef427a438ed79f3836a85e7ba5b4edf49f00db5f75462e38f2b43c02",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "42ceb9d653ebb7dc3854b065a0e49445ccaabe7d239a8c30c368fc4602b9e8be",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "e74f94ae5f4e15c0d3c7d80d83122d49a3f5ab1f4e0ac84973374711c1372a6d",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "630e88cf530efb9a6fd170544ac7203bac40663d69cd57ded0105a9da82eb67d",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "88a5f3faa93c094499651baa1d11c6f4bf4a21df3715119752815349905a5131",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "13723a55e7b0d722b001b8fad947aa690b2ad26caa0b345079eca7891d42150b",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "7437db9b7ecdf1d211c5f97b7da1c838bfb6668adddf7d3798d3689a22488316",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "7d6866bd75faad2b9fa2aa254029e8c784cdcd7c177a338ed47d0e0f51291e62",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Villarreal CF",
+      "t": true,
+      "ss": [
+        "2020/21",
+        "2019/20"
+      ]
+    },
+    {
+      "k": "55077613eff25dc5e916a8d266118ad9d37d5977ef08b01441137d71ce1cd56e",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Villarreal CF",
+      "t": true,
+      "ss": [
+        "2020/21",
+        "2019/20"
+      ]
+    },
+    {
+      "k": "13894a7ae8c50f4526c90218d8947a92b88039d83c1b84f990e5b980642a5383",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 682,
+      "h": 2097,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Emil Audero",
+      "slug": "emil-audero",
+      "club": "Rayo Vallecano",
+      "key": "3a279e423bbc121e6b8c925f1bdc48cd1634f5c1b111db8094e6f8217f05aa0e"
+    },
+    {
+      "name": "Sergio Camello",
+      "slug": "sergio-camello",
+      "club": "Rayo Vallecano",
+      "key": "bb9fd23c1e8daea0a5d7467e28967516bfe7ae689c8d0e6ff1e397afde093cb6"
+    },
+    {
+      "name": "Florian Lejeune",
+      "slug": "florian-lejeune",
+      "club": "Rayo Vallecano",
+      "key": "94faf94dfcd814ce4b4249d31e9f818d528a6f8071f9fe8d8cc3cb2e4fa8e79d"
+    },
+    {
+      "name": "Raúl de Tomás",
+      "slug": "raul-de-tomas",
+      "club": "Rayo Vallecano",
+      "key": "00d8acfd2de41e07db46ca59355da372e0af4d05f46eb71d77c77ff3ea45f9fd"
+    },
+    {
+      "name": "Isi Palazón",
+      "slug": "isi-palazon",
+      "club": "Rayo Vallecano",
+      "key": "1d53caca5d14089dadb798dbdffe8a7ae11574292b6224095e462932e9ae5acc"
+    },
+    {
+      "name": "Alemão",
+      "slug": "alemao",
+      "club": "Rayo Vallecano",
+      "key": "6b62fbbe957e617c65eaafa36d1267d22d909aab591911394359ba8f705bbaaf"
+    }
+  ],
+  "logoLinks": {
+    "Rayo Vallecano": "/logos/rayo-vallecano",
+    "Villarreal CF": "/logos/villarreal-cf"
+  }
+}

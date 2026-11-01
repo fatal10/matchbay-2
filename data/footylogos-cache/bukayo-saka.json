@@ -1,0 +1,171 @@
+{
+  "name": "Bukayo Saka",
+  "slug": "bukayo-saka",
+  "qid": "Q59306386",
+  "born": "2001-09-05",
+  "aliases": [
+    "Bukayo Saka",
+    "Bukayo SAKA",
+    "Bukayo Ayoyinka Temidayo Moses Saka",
+    "Bukayo Ayoyinka Temidayo Saka"
+  ],
+  "club": "Arsenal",
+  "country": "United Kingdom",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/arsenal/arsenal-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "b37d73aaf85458753e39592770db8b41b5b61dee0ab7e37224e778cc2e723c3a",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Arsenal",
+      "t": true,
+      "ss": [],
+      "bytes": 716499
+    },
+    {
+      "k": "76aa0d866944a4440ff082e1427cf439615017b2218bf31e4773bb55115b28ec",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Arsenal",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "7b0440d43d5103639825b75149938b443d91fd2f5f54108e155922e9dca2ef9b",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "England",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "387a95ed55f1bb35a173f8712a8270e0e8ccda6fdc31dd50a76e257ce5c4597b",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "England",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "7f85c37b14a2c4754667534192d400eec38131b5689f76285fc370154011d7fa",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Arsenal",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "4b1816b571465bc9814804e2bad2e50a8e6f72676d24bb72fcf0170a90022b2c",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Arsenal",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "21aa8d4ac289617bf2780505cb060439423bc533a6f41f9cca9a1316a341b8c5",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Arsenal",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "114a83354a9076e7547c95afc4d9ba5cccdb100c219b6396e63b978f705dd09b",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 988,
+      "h": 1569,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Viktor Gyökeres",
+      "slug": "viktor-gyokeres",
+      "club": "Arsenal",
+      "key": "46d61abff6053f077b46c9cd692b6e620f537523b5b6493f0a697ad041508ba8"
+    },
+    {
+      "name": "Declan Rice",
+      "slug": "declan-rice",
+      "club": "Arsenal",
+      "key": "dc8a5692fd0a192f0ba971b431242d0b43bcf062515fe5ed0733675e2b7f60f5"
+    },
+    {
+      "name": "Martin Ødegaard",
+      "slug": "martin-degaard",
+      "club": "Arsenal",
+      "key": "1c23f709214df6bd5c9773fbda2f14619761961964f3d19a2fc85c82c91734fa"
+    },
+    {
+      "name": "David Raya",
+      "slug": "david-raya",
+      "club": "Arsenal",
+      "key": "f844bb78e21a4f02d10ba7e115676b48ffce00bf93e17c94cbe3afc0fc593ec7"
+    },
+    {
+      "name": "Ezri Konsa",
+      "slug": "ezri-konsa",
+      "club": "Arsenal",
+      "key": "230a92b5d8b737f8fe552fa26447bc1e54c2711a917b1c0de4e2c353d936a817"
+    },
+    {
+      "name": "Christos Tzolis",
+      "slug": "christos-tzolis",
+      "club": "Arsenal",
+      "key": "2eb8fa2c571c80c4fba2bfbc27717ac781420609567287a0cefde4c13c0cb924"
+    }
+  ],
+  "logoLinks": {
+    "Arsenal": "/logos/arsenal",
+    "England": "/logos/england-national-team"
+  }
+}

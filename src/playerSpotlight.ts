@@ -271,8 +271,6 @@ export const SPOTLIGHT_PLAYERS_MAP: Record<string, { id: number; foot?: 'Right' 
   'nickpope': { id: 18869, foot: 'Right', height: '198 cm' }
 };
 
-const FOTMOB_IMAGE_BASE = 'https://images.fotmob.com/image_resources/playerimages/';
-
 function extractSurnameKey(raw: string): string {
   if (!raw) return '';
   const clean = String(raw).replace(/^[A-Z]\.\s*/i, '').trim();
@@ -281,7 +279,7 @@ function extractSurnameKey(raw: string): string {
 }
 
 /**
- * Resolves a player's profile picture URL from local verified storage or FotMob
+ * Resolves a player's profile picture URL from local verified storage or FootyLogos
  */
 export function getSpotlightPlayerPhoto(player: any): string {
   if (!player) return '';
@@ -296,41 +294,25 @@ export function getSpotlightPlayerPhoto(player: any): string {
     ? normalizePlayerKey(player.surname)
     : extractSurnameKey(rawName);
 
-  // 0. High priority: Check local verified photos database (FotMob verified or manual lock)
+  // 0. High priority: Check local verified photos database (FootyLogos verified or manual lock)
   const db = (typeof window !== 'undefined' && (window as any).PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && (globalThis as any).PLAYER_PHOTOS_DB);
   if (db && db.players) {
     if (normName && db.players[normName]?.photoUrl) return db.players[normName].photoUrl;
     if (normSlug && db.players[normSlug]?.photoUrl) return db.players[normSlug].photoUrl;
     if (normSurname && db.players[normSurname]?.photoUrl) return db.players[normSurname].photoUrl;
-
-    if (normName && db.players[normName]?.fotmobId) {
-      return `${FOTMOB_IMAGE_BASE}${db.players[normName].fotmobId}.png`;
-    }
-    if (normSlug && db.players[normSlug]?.fotmobId) {
-      return `${FOTMOB_IMAGE_BASE}${db.players[normSlug].fotmobId}.png`;
-    }
-    if (normSurname && db.players[normSurname]?.fotmobId) {
-      return `${FOTMOB_IMAGE_BASE}${db.players[normSurname].fotmobId}.png`;
-    }
   }
 
-  // 1. Explicit verified FotMob ID on player object
-  if (typeof player === 'object' && player && player.fotmobId) {
-    return `${FOTMOB_IMAGE_BASE}${player.fotmobId}.png`;
-  }
-
-  // 2. Direct verified photo URL on player object
+  // 1. Direct verified photo URL on player object
   if (typeof player === 'object' && player && player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
     return player.photo;
   }
 
-  // 3. Normalized fuzzy check against verified database
+  // 2. Normalized fuzzy check against verified database
   if (db && db.players && normName && normName.length >= 4) {
     for (const k in db.players) {
       if (k.length >= 4 && (normName === k || normName.includes(k) || k.includes(normName))) {
         const rec = db.players[k];
-        if (rec.photoUrl) return rec.photoUrl;
-        if (rec.fotmobId) return `${FOTMOB_IMAGE_BASE}${rec.fotmobId}.png`;
+        if (rec && rec.photoUrl) return rec.photoUrl;
       }
     }
   }
@@ -343,7 +325,7 @@ export function getSpotlightPlayerPhoto(player: any): string {
  * Returns full spotlight details (photo, preferred foot, formatted height, shirt number, attribution)
  */
 export function getSpotlightPlayerDetails(player: any) {
-  if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', fotmobId: '' };
+  if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', source: '' };
 
   const rawName = typeof player === 'string'
     ? player
@@ -376,11 +358,11 @@ export function getSpotlightPlayerDetails(player: any) {
     height: formattedHeight,
     nationality: (typeof player === 'object' && player && (player.citizenship || player.nationality)) || '—',
     shirtNumber: (typeof player === 'object' && player && player.jersey) ? `#${player.jersey}` : '—',
-    credit: photoRecord?.credit || '',
+    credit: photoRecord?.credit || (photo ? 'FootyLogos' : ''),
     license: photoRecord?.license || '',
     sourceUrl: photoRecord?.sourceUrl || '',
-    confidence: photoRecord?.confidence || 1,
-    fotmobId: photoRecord?.fotmobId || ''
+    source: photoRecord?.source || (photo ? 'footylogos' : ''),
+    confidence: photoRecord?.confidence || 1
   };
 }
 

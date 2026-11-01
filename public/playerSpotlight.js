@@ -269,8 +269,6 @@
     'nickpope': { id: 18869, foot: 'Right', height: '198 cm' }
   };
 
-  var FOTMOB_IMAGE_BASE = 'https://images.fotmob.com/image_resources/playerimages/';
-
   function extractSurnameKey(raw) {
     if (!raw) return '';
     var clean = String(raw).replace(/^[A-Z]\.\s*/i, '').trim();
@@ -291,41 +289,25 @@
       ? normalizePlayerKey(player.surname)
       : extractSurnameKey(rawName);
 
-    // 0. High priority: Check local verified photos database (FotMob verified or manual lock)
+    // 0. High priority: Check local verified photos database (FootyLogos verified or manual lock)
     var db = (typeof window !== 'undefined' && window.PLAYER_PHOTOS_DB) || (typeof globalThis !== 'undefined' && globalThis.PLAYER_PHOTOS_DB);
     if (db && db.players) {
       if (normName && db.players[normName] && db.players[normName].photoUrl) return db.players[normName].photoUrl;
       if (normSlug && db.players[normSlug] && db.players[normSlug].photoUrl) return db.players[normSlug].photoUrl;
       if (normSurname && db.players[normSurname] && db.players[normSurname].photoUrl) return db.players[normSurname].photoUrl;
-
-      if (normName && db.players[normName] && db.players[normName].fotmobId) {
-        return FOTMOB_IMAGE_BASE + db.players[normName].fotmobId + '.png';
-      }
-      if (normSlug && db.players[normSlug] && db.players[normSlug].fotmobId) {
-        return FOTMOB_IMAGE_BASE + db.players[normSlug].fotmobId + '.png';
-      }
-      if (normSurname && db.players[normSurname] && db.players[normSurname].fotmobId) {
-        return FOTMOB_IMAGE_BASE + db.players[normSurname].fotmobId + '.png';
-      }
     }
 
-    // 1. Explicit verified FotMob ID on player object
-    if (typeof player === 'object' && player && player.fotmobId) {
-      return FOTMOB_IMAGE_BASE + player.fotmobId + '.png';
-    }
-
-    // 2. Direct verified photo URL on player object
+    // 1. Direct verified photo URL on player object
     if (typeof player === 'object' && player && player.photo && typeof player.photo === 'string' && (player.photo.startsWith('http') || player.photo.startsWith('/'))) {
       return player.photo;
     }
 
-    // 3. Normalized fuzzy check against verified database
+    // 2. Normalized fuzzy check against verified database
     if (db && db.players && normName && normName.length >= 4) {
       for (var k in db.players) {
         if (k.length >= 4 && (normName === k || normName.indexOf(k) !== -1 || k.indexOf(normName) !== -1)) {
           var rec = db.players[k];
-          if (rec.photoUrl) return rec.photoUrl;
-          if (rec.fotmobId) return FOTMOB_IMAGE_BASE + rec.fotmobId + '.png';
+          if (rec && rec.photoUrl) return rec.photoUrl;
         }
       }
     }
@@ -335,7 +317,7 @@
   }
 
   function getSpotlightPlayerDetails(player) {
-    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', fotmobId: '' };
+    if (!player) return { photo: '', preferredFoot: 'Right', height: '—', nationality: '—', shirtNumber: '—', credit: '', license: '', sourceUrl: '', source: '' };
 
     var rawName = typeof player === 'string'
       ? player
@@ -368,11 +350,11 @@
       height: formattedHeight,
       nationality: (typeof player === 'object' && player && (player.citizenship || player.nationality)) || '—',
       shirtNumber: (typeof player === 'object' && player && player.jersey) ? '#' + player.jersey : '—',
-      credit: (photoRecord && photoRecord.credit) || '',
+      credit: (photoRecord && photoRecord.credit) || (photo ? 'FootyLogos' : ''),
       license: (photoRecord && photoRecord.license) || '',
       sourceUrl: (photoRecord && photoRecord.sourceUrl) || '',
-      confidence: (photoRecord && photoRecord.confidence) || 1,
-      fotmobId: (photoRecord && photoRecord.fotmobId) || ''
+      source: (photoRecord && photoRecord.source) || (photo ? 'footylogos' : ''),
+      confidence: (photoRecord && photoRecord.confidence) || 1
     };
   }
 

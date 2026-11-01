@@ -1,0 +1,255 @@
+{
+  "name": "Florian Lejeune",
+  "slug": "florian-lejeune",
+  "qid": "Q2070240",
+  "born": "1991-05-20",
+  "aliases": [
+    "Florian Lejeune",
+    "Florian Grégoire Claude Lejeune",
+    "Florian Gregoire Claude Lejeune"
+  ],
+  "club": "Rayo Vallecano",
+  "country": "France",
+  "position": "Defender",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/rayo-vallecano/rayo-vallecano-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "94faf94dfcd814ce4b4249d31e9f818d528a6f8071f9fe8d8cc3cb2e4fa8e79d",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": null,
+      "ss": [],
+      "bytes": 2619521
+    },
+    {
+      "k": "3571709c11c2c100d1d6b0f91f818f90d5a09bb7c5b9a38f9fde83e6fb237d03",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "58170236ff248bf3ecf1300fd43e4423cea559d4dfc40256ee3e814cb4db25b2",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "0b35c879b99b0f0ae2a58265f624129685ee3fe07c5261c8ffd858cf1d120be0",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "00120e8930c2d551666a834c029b7707b55b5f3f26d3172a14fe0dab135442bb",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "a0c318ca71127ed1ae87cbac5d96f47fbdc426db6c11acf501d54968a8894530",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "f620fa384201674a2f05f424bfce30867648e6e3b3b27a042cc3d9fff9511b0f",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "68bfcd62287d6b5a5d7cc3b7b5c494313982f6e7ca058d65042bb321ff3e0692",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "bad18fc076b19efbf8f79fed141bbadf0e2f0f58f114d8bc10f819243c93ad56",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "4982a8bff365d9537a5a00031d6cb12d0364dd18e60413b4b32392c78d47f9d6",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Rayo Vallecano",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "f7113fa0e93271c5fb68632488ea720031d925fd56173b8a6440359dc644708c",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Deportivo Alaves",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "a5e812e2f0a9f3e76202d4fee6eac1da74e2ef26866bccb2a27c26aaf009b681",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Deportivo Alaves",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "88deb8f6425b8134f39b872282117d5a25ce9a3b1ed24f6929362087784dac0c",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Deportivo Alaves",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "0e45612c28a9a5265b4fdd720422c25e08a8bb5801fc2994380d469d04ac7eeb",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Deportivo Alaves",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Emil Audero",
+      "slug": "emil-audero",
+      "club": "Rayo Vallecano",
+      "key": "3a279e423bbc121e6b8c925f1bdc48cd1634f5c1b111db8094e6f8217f05aa0e"
+    },
+    {
+      "name": "Sergio Camello",
+      "slug": "sergio-camello",
+      "club": "Rayo Vallecano",
+      "key": "bb9fd23c1e8daea0a5d7467e28967516bfe7ae689c8d0e6ff1e397afde093cb6"
+    },
+    {
+      "name": "Andrei Rațiu",
+      "slug": "andrei-ratiu",
+      "club": "Rayo Vallecano",
+      "key": "964a11736fa2395c10fee376147a95a576a97587039363ae6ee8a3e70f5ce13e"
+    },
+    {
+      "name": "Raúl de Tomás",
+      "slug": "raul-de-tomas",
+      "club": "Rayo Vallecano",
+      "key": "00d8acfd2de41e07db46ca59355da372e0af4d05f46eb71d77c77ff3ea45f9fd"
+    },
+    {
+      "name": "Isi Palazón",
+      "slug": "isi-palazon",
+      "club": "Rayo Vallecano",
+      "key": "1d53caca5d14089dadb798dbdffe8a7ae11574292b6224095e462932e9ae5acc"
+    },
+    {
+      "name": "Alemão",
+      "slug": "alemao",
+      "club": "Rayo Vallecano",
+      "key": "6b62fbbe957e617c65eaafa36d1267d22d909aab591911394359ba8f705bbaaf"
+    }
+  ],
+  "logoLinks": {
+    "Rayo Vallecano": "/logos/rayo-vallecano",
+    "Deportivo Alaves": "/logos/deportivo-alaves"
+  }
+}

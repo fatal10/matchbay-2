@@ -1,0 +1,355 @@
+{
+  "name": "Antoine Griezmann",
+  "slug": "antoine-griezmann",
+  "qid": "Q455462",
+  "born": "1991-03-21",
+  "aliases": [
+    "Antoine Griezmann",
+    "Antoine GRIEZMANN"
+  ],
+  "club": "Orlando City",
+  "country": "France",
+  "position": "Forward",
+  "competition": "MLS",
+  "clubLogo": "https://assets.footylogos.com/previews/orlando-city/orlando-city-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "dc81f5d5e5dbfef1f1889eb1eaabb5edb4dd7f07ea7b78710fcfbe7f1fdb5721",
+      "g": "mls",
+      "s": "2026",
+      "f": "mls_portrait",
+      "l": "MLS portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Orlando City",
+      "t": true,
+      "ss": [],
+      "bytes": 350041
+    },
+    {
+      "k": "222aa1381a434f245c5b08252a0b4a106a136aa801a3ed704fa78b85e5606d52",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "France",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "4953d7ff54fa7945c632d45183ec976579b9282068d8c4ccd9e11ff6e5df05f9",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "8b814a8cce0d25848485e4cd92ebec9b0fc0570ac0f306eb3f8ead6cc0659005",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "694b1e730534c8b9efc869aacdeac399f6e6936552f42acf39f910122f6de412",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "bae6017287d8199969d2a532a0cde30f6542996c20903da958a174439e5ff611",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "eece97b1f8f6c194417509c74dd63a1a89c478c56a60a0025a0d7ba7401365fb",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "0d7902bcb982cf24e34cda597da0d01165985eda8427c728f42fa039e65001b7",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "ae69b59f69466671ae60029cdd53d151ddab1d6b9cb9fdf253a8f4efe46aeb10",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "737d2fb843c52b574d57757050209b2de52828d3872c460505e21b3cb56e294a",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "eb2fd7d7410ec0618c3f09fb348c40982038fd28ab53805aef92a96d315bfe7c",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "e506a6a54a6031849df75fff39fd7516891a215ce03b7a844b3d125606397783",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "54e4b5c27e5b2d3d92b96a4f778e859c3c98dfd76f025255cbb3bf3b57585d62",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "77ea1ccdc1a0e5c9b46609ebfe0d6e6b9e0e602f972471afdebfb778d67dd3cd",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "b7d90ceeba0ab27b5239258f2fc322b2392c386ff8e3d1442b38753b380e9f7f",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "131bd12f0ca89961b59697f3dd9225eb00c98f6a35b4e3094dd1816c05f1452c",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "07676552f44e21e901a8717bba6acab0504ac39242aa839fc0406059e4d33c31",
+      "g": "laliga",
+      "s": "2018/19",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2018/19"
+      ]
+    },
+    {
+      "k": "65c3c1ae3ea572e988bf07ca2d8eb7ac695405ee7dd81273636f43660193b109",
+      "g": "laliga",
+      "s": "2018/19",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2018/19"
+      ]
+    },
+    {
+      "k": "9cbc9ca2edde5e4961f6badf79297bdcaef088e26d63516f7ff2e953dc06036b",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "53407b61f1b7944940efd0836069061897fc932d2e48d04dfec0e5329e4ce67b",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Atletico Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "414f68e36bbf5dec777d8ff836a8c1b852cfa696791b30e13427a97ce60aac5c",
+      "g": "mls",
+      "s": "2026",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 1387,
+      "h": 2997,
+      "c": "Orlando City",
+      "t": true,
+      "photoSeason": "2026",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/mls",
+  "competitionLogo": "https://assets.footylogos.com/previews/mls/mls-logo-footylogos-1200.webp",
+  "related": [
+    {
+      "name": "Justin Ellis",
+      "slug": "justin-ellis",
+      "club": "Orlando City",
+      "key": "46ecef32cae7d8f8d3f9421db9ceeee243c82bca14efc70636e08ac362d92166"
+    },
+    {
+      "name": "Marco Pašalić",
+      "slug": "marco-pasalic",
+      "club": "Orlando City",
+      "key": "5ff8d31cca46dda6319eee21ac75b1d4af0220d63057c4e4a1a01625bc17266a"
+    },
+    {
+      "name": "Daryl Dike",
+      "slug": "daryl-dike",
+      "club": "Orlando City",
+      "key": "356664b06a6ba6bea37a9c5418c7e7cc1dbb75c36bfbac02a41515aa4640ccca"
+    },
+    {
+      "name": "Martín Ojeda",
+      "slug": "martin-ojeda",
+      "club": "Orlando City",
+      "key": "affd8438b4b19a46039d9194b816ad52a2b12efc32f0c857df1fd24dcdba8737"
+    },
+    {
+      "name": "Maxime Crépeau",
+      "slug": "maxime-crepeau",
+      "club": "Orlando City",
+      "key": "0912f346c45a313b5cd86e5153083624bc9fd33bfb467e14a2189da78232a20d"
+    },
+    {
+      "name": "Lionel Messi",
+      "slug": "lionel-messi",
+      "club": "Inter Miami",
+      "key": "c6c0e0c0fe7bd26abe3489c4af9974e8db1a9d280197492ff2f667632c6f0049"
+    }
+  ],
+  "logoLinks": {
+    "Orlando City": "/logos/orlando-city",
+    "France": "/logos/france-national-team",
+    "Atletico Madrid": "/logos/atletico-madrid",
+    "FC Barcelona": "/logos/fc-barcelona",
+    "Orlando City SC": "/logos/orlando-city"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "name": "Alejandro Garnacho",
+  "slug": "alejandro-garnacho",
+  "qid": "Q111366053",
+  "born": "2004-07-01",
+  "aliases": [
+    "Alejandro Garnacho",
+    "Alejandro Garnacho Ferreyra",
+    "Garnacho"
+  ],
+  "club": "Aston Villa",
+  "country": "Spain",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/aston-villa/aston-villa-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "e3d0519a546ad09fdc0c685fd76fa05ae9cba9dd9cdb0300d32bbee6b9c98da4",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Aston Villa",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "b8547f2c0f02e78b39b32275be74424e6fdddbc59944608572a52103c45a744c",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Aston Villa",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "41f650000b685d7ae1518251d16b17e3d789b4f42b3a78b49469f8535245fbf7",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "93ba557efd32f2a6df0fbf05886e079155255a2fa701fe271329c631c6cb5478",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Chelsea",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "17895e6b54b0f7a1747b54ea1795a79b5ccd4584548dc9a2901ff41b21f5db33",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 530,
+      "h": 1058,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Zion Suzuki",
+      "slug": "zion-suzuki",
+      "club": "Aston Villa",
+      "key": "53f885d7b85edccc991e7d3ff92417fdebb9071a55730bd02cebb83ebb248ab9"
+    },
+    {
+      "name": "Nicolas Jackson",
+      "slug": "nicolas-jackson",
+      "club": "Aston Villa",
+      "key": "76a6bfbce988ef8b064bff6c4f9969019baaee21f4d169f5a53eb0b812eb61db"
+    },
+    {
+      "name": "Johan Manzambi",
+      "slug": "johan-manzambi",
+      "club": "Aston Villa",
+      "key": "56480e4275d8d48d512be147e3648296e7bb341d0b4c859063b98884cfa82665"
+    },
+    {
+      "name": "Ibrahim Mbaye",
+      "slug": "ibrahim-mbaye",
+      "club": "Aston Villa",
+      "key": "a47e5e471d2a1b20b79e9077d5e441f05830a0b2cf08476a5880040329a2d583"
+    },
+    {
+      "name": "Leon Goretzka",
+      "slug": "leon-goretzka",
+      "club": "Aston Villa",
+      "key": "17f8e6936901859660e743f9ab7f7d62f05b5b8a1570c58f13d28cc8e06f1a2f"
+    },
+    {
+      "name": "Ross Barkley",
+      "slug": "ross-barkley",
+      "club": "Aston Villa",
+      "key": "c3b9ebbbc3683fe9b13a14ce159e559dfce0f1079c3c9a651494164702094d42"
+    }
+  ],
+  "logoLinks": {
+    "Aston Villa": "/logos/aston-villa",
+    "Manchester United": "/logos/manchester-united",
+    "Chelsea": "/logos/chelsea"
+  }
+}

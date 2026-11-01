@@ -1,0 +1,118 @@
+{
+  "name": "Mohamed Salah",
+  "slug": "mohamed-salah",
+  "qid": "Q1354960",
+  "born": "1992-06-15",
+  "aliases": [
+    "Mohamed Salah",
+    "MOHAMED SALAH",
+    "Mohamed Salah Hamed Mahrous Ghaly",
+    "Mo Salah"
+  ],
+  "club": "Liverpool FC",
+  "country": "Egypt",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/liverpool-fc/liverpool-fc-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "d76e369fe389b7509518194c59e411580847fc108f5b774776694eb01e07372d",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "Egypt",
+      "t": true,
+      "ss": [],
+      "bytes": 945163
+    },
+    {
+      "k": "32978f479dc837930b53e4a98d02b2bb77d9d9a8e9cda98594ec5d761a5d8757",
+      "g": "premier-league",
+      "s": "2025/26",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "1d36279c9937b36b3d8ec148184dff334192e2c0d6ad224fd03c8f477f9f6320",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "10a392e5bb82cb5e9b6ef4ed6d126604f0eab87fa6a1a4cb3c4913cf6dad1e63",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bradley Barcola",
+      "slug": "bradley-barcola",
+      "club": "Liverpool FC",
+      "key": "c9438c56a901be7428968ccb879bfb9c0d31474921312400ec142c8e3a5ebe0b"
+    },
+    {
+      "name": "Lewis Koumas",
+      "slug": "lewis-koumas",
+      "club": "Liverpool FC",
+      "key": "3693a31ad6a0a636818c2da1ba7a070b71710ea763618e1aca63fc9d846089a7"
+    },
+    {
+      "name": "Víctor Muñoz",
+      "slug": "victor-munoz",
+      "club": "Liverpool FC",
+      "key": "a8fc5546b934f79c2bd070ff98bd0bfa10802ebbad1509b34e8cd63cf63ac12b"
+    },
+    {
+      "name": "Jérémy Jacquet",
+      "slug": "jeremy-jacquet",
+      "club": "Liverpool FC",
+      "key": "2a04041a72ea30be7aea6b7e329132997abeb54b8b6ebe587a1761169cc5c688"
+    },
+    {
+      "name": "Alexander Isak",
+      "slug": "alexander-isak",
+      "club": "Liverpool FC",
+      "key": "366bfe43238a20a65600fe3c766e6d36777a596879848da0a9897008a16c6832"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "slug": "virgil-van-dijk",
+      "club": "Liverpool FC",
+      "key": "2f598bca88b3a33982a965f7427660a5688c2cc8b5c14a60224f4009c0441621"
+    }
+  ],
+  "logoLinks": {
+    "Egypt": "/logos/egypt-national-team",
+    "Liverpool FC": "/logos/liverpool-fc"
+  }
+}

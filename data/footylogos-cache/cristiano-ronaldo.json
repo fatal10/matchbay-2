@@ -1,0 +1,103 @@
+{
+  "name": "Cristiano Ronaldo",
+  "slug": "cristiano-ronaldo",
+  "qid": "Q11571",
+  "born": "1985-02-05",
+  "aliases": [
+    "Cristiano Ronaldo",
+    "CRISTIANO RONALDO",
+    "Cristiano Ronaldo dos Santos Aveiro",
+    "CR7"
+  ],
+  "club": "Al Nassr",
+  "country": "Portugal",
+  "position": "Forward",
+  "competition": "Saudi Pro League",
+  "clubLogo": "https://assets.footylogos.com/previews/al-nassr/al-nassr-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "f6addcbe69e664451b65e3bb0cdb9326e56b81b68ef89bbb7e03ab26e00f2bcc",
+      "g": "spl",
+      "s": "2026/27",
+      "f": "spl_portrait",
+      "l": "SPL portrait",
+      "w": 800,
+      "h": 900,
+      "c": "Al Nassr",
+      "t": true,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ],
+      "bytes": 712259
+    },
+    {
+      "k": "994f167cb8e9b5208ba3db4695e5c0b3921de2b41724061d33cc5e5b22ff08b1",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "e28c99657451993b6107cbb47d237e83c8d0538d3e2b41ef57ad6c09d1dd05f7",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    }
+  ],
+  "competitionPath": "/player-pngs/saudi-pro-league",
+  "competitionLogo": "https://assets.footylogos.com/previews/saudi-pro-league/saudi-pro-league-logo-footylogos-1200.webp",
+  "related": [
+    {
+      "name": "João Félix",
+      "slug": "joao-felix",
+      "club": "Al Nassr",
+      "key": "37d225a34fc64e0916d510442e0acf8d911312042a97a063383282ddfb8cf589"
+    },
+    {
+      "name": "Sadio Mané",
+      "slug": "sadio-mane",
+      "club": "Al Nassr",
+      "key": "e3b1f90ebfa6b58a5a1a5a5cf51e286466c3177b3e292db0c579bf6dbed0876e"
+    },
+    {
+      "name": "Kingsley Coman",
+      "slug": "kingsley-coman",
+      "club": "Al Nassr",
+      "key": "2329915e9075bc676785d5e756589d3017200dd5ecc263b5daa39a71173719b6"
+    },
+    {
+      "name": "Iñigo Martínez",
+      "slug": "inigo-martinez",
+      "club": "Al Nassr",
+      "key": "293fc4fd5b0469a4c27294aec412b01a8fc2ae12c1b1a7b3fe601bc564104b48"
+    },
+    {
+      "name": "Samú Costa",
+      "slug": "samu-costa",
+      "club": "Al Nassr",
+      "key": "b80275d6252856d37e4a2f797252620140eff786887fe103ed2d2d7a8890f33c"
+    },
+    {
+      "name": "Ângelo Gabriel",
+      "slug": "angelo-gabriel",
+      "club": "Al Nassr",
+      "key": "2cf8de6d03a488c9b1b03e04094ce561020b72c17cb6454b453449dadb8fc54e"
+    }
+  ],
+  "logoLinks": {
+    "Al Nassr": "/logos/al-nassr",
+    "Portugal": "/logos/portugal-national-team"
+  }
+}

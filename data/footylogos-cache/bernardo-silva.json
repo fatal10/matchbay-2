@@ -1,0 +1,171 @@
+{
+  "name": "Bernardo Silva",
+  "slug": "bernardo-silva",
+  "qid": "Q15521306",
+  "born": "1994-08-10",
+  "aliases": [
+    "Bernardo Mota Veiga de Carvalho e Silva",
+    "Bernardo Silva",
+    "BERNARDO SILVA",
+    "Bernardo"
+  ],
+  "club": "Real Madrid",
+  "country": "Portugal",
+  "position": "Midfielder",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/real-madrid/real-madrid-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "db607def45caacb709d81f3234cfed70c6860e2ddfcca4e98805c3e063c8ec5d",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [],
+      "bytes": 591151
+    },
+    {
+      "k": "1f3fcebd8f04305b0ec9d7331dab71c1a7992696641b3b5136303f0e176f7a59",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "fb79e5bde56a6c9b7640a6ebc559682f25a8fdf41538e96b925baf540a721e43",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "b9706dcdaae49a46b4d739bba2c25c77603763f2b1247c7a35a587666498c62b",
+      "g": "premier-league",
+      "s": "2025/26",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "21f6931c25e1de1bc46512707ea5fb9d0939b48f8ed640406a927a9bbaf1ab23",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "cf44ec7e29de9702b64d8b4679871af691003370cbe8bb2ee853668583b5973c",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "18ba48e6dfdcc15fdeb197c588ebf34f2cc84a6c96ac8c12d2b16cd8c77d1686",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester City",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "e3e5cb0d618dc2a78bc2b95de5e2feb9dfae6d4d0205d8aed0e31841b9ebc506",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 702,
+      "h": 2191,
+      "c": "Real Madrid",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Kylian Mbappé",
+      "slug": "kylian-mbappe",
+      "club": "Real Madrid",
+      "key": "811ed9ef07a14e0dace017e7210ed71d65454bbb829c97279d43fa1011748469"
+    },
+    {
+      "name": "Jude Bellingham",
+      "slug": "jude-bellingham",
+      "club": "Real Madrid",
+      "key": "c8f8467b8acb7cb66595088dd9ab61901a1c7a1bc7da10dd91b41984f3570a27"
+    },
+    {
+      "name": "Yan Diomande",
+      "slug": "yan-diomande",
+      "club": "Real Madrid",
+      "key": "460cbce53ea8f911a030d2055724fb471b43bcd1eda636dbde261699cf1000ea"
+    },
+    {
+      "name": "Vinícius Júnior",
+      "slug": "vinicius-junior",
+      "club": "Real Madrid",
+      "key": "04339655a21da3ed9c791629e6649745a635029cc1db7297255ffe40e6963220"
+    },
+    {
+      "name": "Marc Cucurella",
+      "slug": "marc-cucurella",
+      "club": "Real Madrid",
+      "key": "ce1c763332b2dae2c15939b53461a4195e9ec5510b804d4acf295863f1d018e9"
+    },
+    {
+      "name": "Carlos Espí",
+      "slug": "carlos-espi",
+      "club": "Real Madrid",
+      "key": "2121169cb2a8ffbbb5a4cabecaef6e80fdf5c5fe54f2e8428e56a4218b9a0447"
+    }
+  ],
+  "logoLinks": {
+    "Real Madrid": "/logos/real-madrid",
+    "Portugal": "/logos/portugal-national-team",
+    "Manchester City": "/logos/manchester-city"
+  }
+}

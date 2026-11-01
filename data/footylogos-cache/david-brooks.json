@@ -1,0 +1,103 @@
+{
+  "name": "David Brooks",
+  "slug": "david-brooks",
+  "qid": "Q27909737",
+  "born": "1997-07-08",
+  "aliases": [
+    "David Brooks",
+    "David Robert Brooks"
+  ],
+  "club": "AFC Bournemouth",
+  "country": "United Kingdom",
+  "position": "Midfielder",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/afc-bournemouth/afc-bournemouth-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "96b6f63f8ce0a8f5f788915aa150a295833b7d893bcefbe6c8d14d135633b7d5",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "AFC Bournemouth",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "d277b67c393cbf64fe100735842c1784f9df98a9572a09364ff1eb077cf1b3d9",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "AFC Bournemouth",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "a5754f5c7be20b487bade39b4dda11751ec21014837db868f6ac98ee34e03619",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 830,
+      "h": 1674,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Alex Scott",
+      "slug": "alex-scott",
+      "club": "AFC Bournemouth",
+      "key": "d9addb3df59646700a3040d297ff5e68ff81485394a81d3230d3a3c1e5e51e13"
+    },
+    {
+      "name": "Adrien Truffert",
+      "slug": "adrien-truffert",
+      "club": "AFC Bournemouth",
+      "key": "b304f187d9d1d49e61126ab6e0c1d04cfd1129a46e11f982149b9f7a7e554052"
+    },
+    {
+      "name": "Eli Junior Kroupi",
+      "slug": "eli-junior-kroupi",
+      "club": "AFC Bournemouth",
+      "key": "b90bd197994d4a66105d7053784bdcd3bbcd2c0a8d43e641b523c9dc8ec5985d"
+    },
+    {
+      "name": "Justin Kluivert",
+      "slug": "justin-kluivert",
+      "club": "AFC Bournemouth",
+      "key": "d2a3f73c0c8243b7013d4cac145907204e6133ebf849c782f78263463eddb62e"
+    },
+    {
+      "name": "Marcus Tavernier",
+      "slug": "marcus-tavernier",
+      "club": "AFC Bournemouth",
+      "key": "bc372c22c71de3eee35c37a8c5ec984bf070fd1683f47583605cbe2604b8b6cb"
+    },
+    {
+      "name": "Ben Gannon-Doak",
+      "slug": "ben-gannon-doak",
+      "club": "AFC Bournemouth",
+      "key": "c53f4374f2763302196eeced56df7ef3b82ed18d0b79fc0fc11be2d59e0d6871"
+    }
+  ],
+  "logoLinks": {
+    "AFC Bournemouth": "/logos/afc-bournemouth"
+  }
+}

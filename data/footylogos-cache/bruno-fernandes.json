@@ -1,0 +1,140 @@
+{
+  "name": "Bruno Fernandes",
+  "slug": "bruno-fernandes",
+  "qid": "Q4979316",
+  "born": "1994-09-08",
+  "aliases": [
+    "Bruno Fernandes",
+    "BRUNO FERNANDES"
+  ],
+  "club": "Manchester United",
+  "country": "Portugal",
+  "position": "Midfielder",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/manchester-united/manchester-united-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "55cb4f3164aa33ee512b7cfafcc9f438f372cae150bdafe66329b56f61967160",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester United",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "03cca6e2b0819217e4d58c3a9dfdc39b6645153112a9e0b4c7ec685aa4cc2600",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Manchester United",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "50b195b4999d8c79863958139ca4809f3b4a487f804756784a3e3dc77460b5aa",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "c646bbf2785330a2eb6df6aa763f0d95a2fd40bc6d65c4a513b3a1067a4bab60",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2258,
+      "h": 3500,
+      "c": "Portugal",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "aae309e39df132eb5cacee544a8e36fab2b4311a47f494aae296c3adeb13ab24",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "cfa8f094d063eb72277d84413f83e8a6d421d8e091cc8a4ff6e2f615b0dcc8ac",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 702,
+      "h": 1601,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Marcus Rashford",
+      "slug": "marcus-rashford",
+      "club": "Manchester United",
+      "key": "dc3afd95abc50bcd354b08bae97c5d832c534f2454b49537e36e7b54ef0ae63e"
+    },
+    {
+      "name": "Carlos Baleba",
+      "slug": "carlos-baleba",
+      "club": "Manchester United",
+      "key": "ec4043e6fe7252ba27f22892acf762cef4b25617a83c13fe6310adb32e30a8e6"
+    },
+    {
+      "name": "Bryan Mbeumo",
+      "slug": "bryan-mbeumo",
+      "club": "Manchester United",
+      "key": "7f7cc0ab3441ccd51e1d22e4b33ad72054687af15df437e917bea793fb8fd49f"
+    },
+    {
+      "name": "Lisandro Martínez",
+      "slug": "lisandro-martinez",
+      "club": "Manchester United",
+      "key": "57f87c7f8dc5a91b32cdc3554a5b5eef5d65035192565b289427198e45b058bb"
+    },
+    {
+      "name": "Matheus Cunha",
+      "slug": "matheus-cunha",
+      "club": "Manchester United",
+      "key": "f7e60c761a0e273e57fbffe9537a7c2f606bcf38f01a2ad0ffad63fa7493a809"
+    },
+    {
+      "name": "Youri Tielemans",
+      "slug": "youri-tielemans",
+      "club": "Manchester United",
+      "key": "2a9fac7c9508cde3d45482cb99af8c1d4a81c62624e5a05f6202ca5fea09ca60"
+    }
+  ],
+  "logoLinks": {
+    "Manchester United": "/logos/manchester-united",
+    "Portugal": "/logos/portugal-national-team"
+  }
+}

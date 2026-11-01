@@ -1,0 +1,429 @@
+{
+  "name": "Alphonso Davies",
+  "slug": "alphonso-davies",
+  "qid": "Q23540953",
+  "born": "2000-11-02",
+  "aliases": [
+    "Alphonso Davies",
+    "Alphonso DAVIES",
+    "Alphonso Boyle Davies"
+  ],
+  "club": "Bayern Munich",
+  "country": "Canada",
+  "position": "Defender",
+  "competition": "Bundesliga",
+  "clubLogo": "https://assets.footylogos.com/previews/bayern-munich/bayern-munich-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "d4c237899d291fea75c12d4ac4f7c1c38fc4fbe7a8f59b5828f75d8b222099a7",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [],
+      "bytes": 843272
+    },
+    {
+      "k": "9ece80d86ffc083ad16da12ab78bf16a2b25a4e23b966ea29256081a4e17b1f2",
+      "g": "bundesliga",
+      "s": "2026/27",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "4ad046c4d3bff84beafff659036cb7012ae9c4f318dbe5732d9a08ec220adb7d",
+      "g": "bundesliga",
+      "s": "2026/27",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "1a52328c56be9948bd82c86e3cf8775ee133f9d58cb7d02e2e28984004e530e6",
+      "g": "bundesliga",
+      "s": "2026/27",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "464419005c14cf9ce222799a1319383f5d4f5abcbe2a57591b46ffa8e201bbbe",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "Canada",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "9537ea1024fd5a0ee23b7646f754d11fd6e16f4be775e351e2bb8d731740583c",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Canada",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "3cb555decf889dc48e5cea9aa2989cab0b5168330ac03d837c5a2ad6586c6af6",
+      "g": "bundesliga",
+      "s": "2025/26",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "c7b97387c3e555353a9a9ca86b982762cf71b0fb46ac06228af0ec8caa7706ca",
+      "g": "bundesliga",
+      "s": "2025/26",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "9e9850831868601887ad74deed32786fef796bfbedd7769a06d9866630a3decb",
+      "g": "bundesliga",
+      "s": "2025/26",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "9e9fcc907c329d1dfad585b6a4b463191afa2a50ee9092c1d2ae85485ace8a6c",
+      "g": "bundesliga",
+      "s": "2024/25",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "43b8de796d6ccf489e65dc5707b7ae195de85a0d2bd21245d3e46246553eabaa",
+      "g": "bundesliga",
+      "s": "2024/25",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "97838bc2d34e0c2ad3ad6b84257459b8eb9f5e5f803c9acf8aa0bb01a4f7efb2",
+      "g": "bundesliga",
+      "s": "2024/25",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "5bfdc39b93c5e9391e26ecefa0c5a5afd743195d82a8baa71e65bd43f7e76408",
+      "g": "bundesliga",
+      "s": "2023/24",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "ca7569dd136def14bd8912b6221725020f60522e722452e5d9beac6c17724473",
+      "g": "bundesliga",
+      "s": "2023/24",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "8cbb3ca443dea0a23032136fa420091d735248fa2c18f3a478b320204c7ee2ce",
+      "g": "bundesliga",
+      "s": "2023/24",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "48151a49261c7202b20fd979b5bcf0e84515f937534c22efa53a63e556dde3d0",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "31f76afb2d375ec896e927d553b72c398167c759bda53ce283b1e93ba18702c0",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "030cc2a1eb59e0fcaa744a0c46da63b98092d528061b9f0d968ebcadd3bef440",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "4e5b5d9fb4d855530267b877d2f831e572548b0c6223297867f9cd4cf5067da6",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "e4cf43af585b362978644ec870562163f68f6c58ae20002e21f8aad2c8d978f4",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "0abf1ce5e798e750de2c59ad7c420aa6dea59141160cf514fda822732f9107d9",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "bbbbdd8c70d4c280c955515d2212626ef0d0b44d3b12a676455ff3bb4fa7e7b5",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "bfb4ea5b51dacdf524f64f6264bf9dba6eb821e6e33c80ccb136053438a9053c",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "1ef6f5922a50e2e3d48c5e2b5bf172efc525e9544459eb9c499f0c2fb3397b2d",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "28bba779b762f883a1fdee5aef7d2fc5b833b608325d1bb75b1581e149d1d679",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "37d9527ac0548128b813ded3e58273b1afa179d24c80d3763bde5f11605beb33",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Bayern Munich",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "46ff04970ffc7a0efa102d9a03faefbe7cb795735410b863a3b3edc288802075",
+      "g": "bundesliga",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 948,
+      "h": 2091,
+      "c": "Bayern Munich",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/bundesliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf4af40b9ec5401b090_6a1844fbc527a0f35701cd38_68f98b2b071867dd20a9e469_bundesliga-footballlogos-org.png",
+  "related": [
+    {
+      "name": "Harry Kane",
+      "slug": "harry-kane",
+      "club": "Bayern Munich",
+      "key": "9534a1a842cdd495822fcb4ac851237a71c7a49e1b12e6099887cf10736df6ae"
+    },
+    {
+      "name": "Michael Olise",
+      "slug": "michael-olise",
+      "club": "Bayern Munich",
+      "key": "265b871305334210af4aa4504acc535a8c685fe24ce23aaec52c1076a7fa4a24"
+    },
+    {
+      "name": "Manuel Neuer",
+      "slug": "manuel-neuer",
+      "club": "Bayern Munich",
+      "key": "e224430fb181f40e99e20de5381ead1abcb83507bb9952391229123baf8e7c71"
+    },
+    {
+      "name": "Luis Díaz",
+      "slug": "luis-diaz",
+      "club": "Bayern Munich",
+      "key": "1fe3bb93a3a2fa275241a692e863510a4c618f7fd6263fc83e36d7b844b5e116"
+    },
+    {
+      "name": "Jamal Musiala",
+      "slug": "jamal-musiala",
+      "club": "Bayern Munich",
+      "key": "af2be87ae918f5857697abf106b3ed821b7fd5f40150b22ea4e81b80c55069fe"
+    },
+    {
+      "name": "Ismael Saibari",
+      "slug": "ismael-saibari",
+      "club": "Bayern Munich",
+      "key": "77a06b5f7ac19dff240034dce0cd053ad0bead4ff58229fa1df27e72397680ab"
+    }
+  ],
+  "logoLinks": {
+    "Bayern Munich": "/logos/bayern-munich",
+    "Canada": "/logos/canada-national-team"
+  }
+}

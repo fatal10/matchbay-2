@@ -1,0 +1,168 @@
+{
+  "name": "Anthony Gordon",
+  "slug": "anthony-gordon",
+  "qid": "Q45179405",
+  "born": "2001-02-24",
+  "aliases": [
+    "Anthony Gordon",
+    "Anthony GORDON",
+    "Anthony Michael Gordon"
+  ],
+  "club": "FC Barcelona",
+  "country": "United Kingdom",
+  "position": "Forward",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/fc-barcelona/fc-barcelona-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "fd31a10c51364efc7ee9637749f9f06554bd3c758589b8c40f35e3cb9186560a",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [],
+      "bytes": 730295
+    },
+    {
+      "k": "5b9791a5f7fb080997b5eee397f543b8ec43bbf4032ef85b85f4254bbaea42fe",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "a012d8fe979b22a657133b8ff60eaaa933043c78bc0cd79d600900f81f440785",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "efa197c18eacdf669dc3cf86f4e520ca870f75875f51dbcad456e554d9dc65a0",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2334,
+      "h": 3500,
+      "c": "England",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "178358246e25cd6d87d89db33c74c1e1252b08dae6bb349ab948ad0cc474d54b",
+      "g": "premier-league",
+      "s": "2025/26",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "e80d119b85800293f8ab08cb67b6144152ae59eaa2c2deb10ae7b3512e276e47",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "f29403e971d7a5491ecfb8e64ef1a74b60544dd8de238cc015c10ba396bdbc03",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "02e0e9af23d6c9aabe5b6f432defa2474fa5f1faa09256842574edbf03b237a3",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 661,
+      "h": 2196,
+      "c": "FC Barcelona",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Lamine Yamal",
+      "slug": "lamine-yamal",
+      "club": "FC Barcelona",
+      "key": "112eba5f6941f0537a5748c260983a85df42f6034767ef7f51848fa4a24c3995"
+    },
+    {
+      "name": "Raphinha",
+      "slug": "raphinha",
+      "club": "FC Barcelona",
+      "key": "669b885e4ffa393277d7f03b2886662c9b4582bdefbbeb6749bb3c273ff3e1c5"
+    },
+    {
+      "name": "Gabriel Jesus",
+      "slug": "gabriel-jesus",
+      "club": "FC Barcelona",
+      "key": "76963e125d7081897c95d982d09f9bd1c326f3fa6c4fc2dc14bb7ac49cd605c8"
+    },
+    {
+      "name": "Rodri",
+      "slug": "rodri",
+      "club": "FC Barcelona",
+      "key": "401035ab58e53b5e9bd15c170cec30598e2ca8c070fa944e2e1136aacb7cbcf5"
+    },
+    {
+      "name": "Karim Adeyemi",
+      "slug": "karim-adeyemi",
+      "club": "FC Barcelona",
+      "key": "05cab89a9d0cf9e959f04af284d7707fab22c3194e24329a70a11d24d1dbc32f"
+    },
+    {
+      "name": "Xavi Espart",
+      "slug": "xavi-espart",
+      "club": "FC Barcelona",
+      "key": "066d230eaa886ce4ff88fe12eb496c54947c49603147eb8e8a3b9a3784a0a787"
+    }
+  ],
+  "logoLinks": {
+    "FC Barcelona": "/logos/fc-barcelona",
+    "England": "/logos/england-national-team",
+    "Newcastle United": "/logos/newcastle-united"
+  }
+}

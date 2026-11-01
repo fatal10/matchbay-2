@@ -1,0 +1,209 @@
+{
+  "name": "Lamine Yamal",
+  "slug": "lamine-yamal",
+  "qid": "Q113704154",
+  "born": "2007-07-13",
+  "aliases": [
+    "Lamine Yamal Nasraoui Ebana",
+    "Lamine Yamal",
+    "Lamine YAMAL"
+  ],
+  "club": "FC Barcelona",
+  "country": "Spain",
+  "position": "Forward",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/fc-barcelona/fc-barcelona-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "112eba5f6941f0537a5748c260983a85df42f6034767ef7f51848fa4a24c3995",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [],
+      "bytes": 694444
+    },
+    {
+      "k": "6d47c2b19e4a69a44a2602ee9e75a78a7cd75b47b24560233039874ccb510fdc",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "bde7ebbb550df5c5febdcc99ba5b9438e8d8f305247f5c735ae32a9530bf3137",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "9fc75a380fd4ecaf72285b0468859d4539b62c77376763fe9aabad7defaf4398",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Spain",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "4f3b440405b3fce4eb0de2276730ee8ddd7b491c62909680bff8191ad9587ad6",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "ed5cb7a06cc6b2f0cbbaab9ff40d7a946562181806497247116e86a3c7051f02",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "61dd98bb6be72e0e95a01c3ba99a914e103ffccac362fc0d6c30603abded9288",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "2c831ca67205c76f20ca23b31e5e3661db8f95634d7acfc2b95dfc139eba1eb8",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "f900f74ee6f45442335d2f59f579d9f9ba59c015451ceffa0d03ce53258fcf7c",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "9a8b7d116fdd09ca6d6b36f9e6a76b6fbcdfcd3cbf8846fadb69d7ae8f8a4890",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "fb960761bd768f58ac54c67d5f732e6ca08d26d72d00c179fb3bf1f1f291081b",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "full",
+      "l": "Full body",
+      "w": 681,
+      "h": 2179,
+      "c": "FC Barcelona",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Raphinha",
+      "slug": "raphinha",
+      "club": "FC Barcelona",
+      "key": "669b885e4ffa393277d7f03b2886662c9b4582bdefbbeb6749bb3c273ff3e1c5"
+    },
+    {
+      "name": "Gabriel Jesus",
+      "slug": "gabriel-jesus",
+      "club": "FC Barcelona",
+      "key": "76963e125d7081897c95d982d09f9bd1c326f3fa6c4fc2dc14bb7ac49cd605c8"
+    },
+    {
+      "name": "Rodri",
+      "slug": "rodri",
+      "club": "FC Barcelona",
+      "key": "401035ab58e53b5e9bd15c170cec30598e2ca8c070fa944e2e1136aacb7cbcf5"
+    },
+    {
+      "name": "Karim Adeyemi",
+      "slug": "karim-adeyemi",
+      "club": "FC Barcelona",
+      "key": "05cab89a9d0cf9e959f04af284d7707fab22c3194e24329a70a11d24d1dbc32f"
+    },
+    {
+      "name": "Anthony Gordon",
+      "slug": "anthony-gordon",
+      "club": "FC Barcelona",
+      "key": "fd31a10c51364efc7ee9637749f9f06554bd3c758589b8c40f35e3cb9186560a"
+    },
+    {
+      "name": "Xavi Espart",
+      "slug": "xavi-espart",
+      "club": "FC Barcelona",
+      "key": "066d230eaa886ce4ff88fe12eb496c54947c49603147eb8e8a3b9a3784a0a787"
+    }
+  ],
+  "logoLinks": {
+    "FC Barcelona": "/logos/fc-barcelona",
+    "Spain": "/logos/spain-national-team"
+  }
+}

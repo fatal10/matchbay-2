@@ -1,0 +1,229 @@
+{
+  "name": "Alexander Isak",
+  "slug": "alexander-isak",
+  "qid": "Q23759917",
+  "born": "1999-09-21",
+  "aliases": [
+    "Alexander Isak",
+    "El Ibra Negro",
+    "La cigüeña Sueca"
+  ],
+  "club": "Liverpool FC",
+  "country": "Sweden",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/liverpool-fc/liverpool-fc-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "366bfe43238a20a65600fe3c766e6d36777a596879848da0a9897008a16c6832",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Liverpool FC",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "16078d66c2dccbd3edb32552a862b017305c606128dab6925c0a2623184c7170",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "3de4d7713ad684a38133c532cbe65f1866e60417c23a1ec39dfaab30f6dd37d4",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Sweden",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "0bf36d9563e3719edf765601bd848181fd51376b503de2cc586bc1a55e99aa7a",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Newcastle United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "08efb3fa83ddf6db538324c3afddee3a54f4af9b948829ec4144558782714191",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "1bd78b4be7b6b65224a029a1a3921b69e2c529947456e25468ba59b33a0c6c53",
+      "g": "laliga",
+      "s": "2021/22",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "f304927c807e1462e54c1fecfeb0fb950f2b0257260f102b416c22d22c19400f",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "a792a5ad634b2aa07ff44dd2551c00303523089b92efa8bfbef48de4158d9ef1",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "1b1378662f011c0c686c5b0bfca912b26163d5f722d4322e03f3c84c14e6dbda",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "3730dca42ace6a82c66e9090024c976cdf1704aac40ecb1ea2dddd28b37fad4b",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Sociedad",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "9b5a71095e63bc3ab963de382d5ce60e8be7307b058712c3ef5168be03ec685c",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "71c4b0309a2355fa6815c3d8b6c0f24cd7d3c1518a16b0da6a401b22fdec1d50",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 566,
+      "h": 1633,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bradley Barcola",
+      "slug": "bradley-barcola",
+      "club": "Liverpool FC",
+      "key": "c9438c56a901be7428968ccb879bfb9c0d31474921312400ec142c8e3a5ebe0b"
+    },
+    {
+      "name": "Lewis Koumas",
+      "slug": "lewis-koumas",
+      "club": "Liverpool FC",
+      "key": "3693a31ad6a0a636818c2da1ba7a070b71710ea763618e1aca63fc9d846089a7"
+    },
+    {
+      "name": "Víctor Muñoz",
+      "slug": "victor-munoz",
+      "club": "Liverpool FC",
+      "key": "a8fc5546b934f79c2bd070ff98bd0bfa10802ebbad1509b34e8cd63cf63ac12b"
+    },
+    {
+      "name": "Jérémy Jacquet",
+      "slug": "jeremy-jacquet",
+      "club": "Liverpool FC",
+      "key": "2a04041a72ea30be7aea6b7e329132997abeb54b8b6ebe587a1761169cc5c688"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "slug": "virgil-van-dijk",
+      "club": "Liverpool FC",
+      "key": "2f598bca88b3a33982a965f7427660a5688c2cc8b5c14a60224f4009c0441621"
+    },
+    {
+      "name": "Alexis Mac Allister",
+      "slug": "alexis-mac-allister",
+      "club": "Liverpool FC",
+      "key": "824f404da4d3e59871c0559bde5aa387d6d565aeb72473731632d77c303ff35c"
+    }
+  ],
+  "logoLinks": {
+    "Liverpool FC": "/logos/liverpool-fc",
+    "Sweden": "/logos/sweden-national-team",
+    "Newcastle United": "/logos/newcastle-united",
+    "Real Sociedad": "/logos/real-sociedad"
+  }
+}

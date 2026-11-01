@@ -15,18 +15,19 @@ test('normalizePlayerKey strips accents, spaces, and punctuation', () => {
   assert.equal(normalizePlayerKey('Julián Álvarez'), 'julianalvarez');
 });
 
-test('getSpotlightPlayerPhoto resolves verified photo URLs from FotMob DB', () => {
+test('getSpotlightPlayerPhoto resolves verified photo URLs from FootyLogos DB', () => {
   (globalThis as any).PLAYER_PHOTOS_DB = {
+    provider: 'FootyLogos',
     players: {
       erlinghaaland: {
         name: 'Erling Haaland',
-        fotmobId: '737066',
-        photoUrl: 'https://images.fotmob.com/image_resources/playerimages/737066.png'
+        slug: 'erling-haaland',
+        photoUrl: 'https://assets.footylogos.com/player-pngs/previews/v1/1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07.webp'
       },
       kylianmbappe: {
         name: 'Kylian Mbappé',
-        fotmobId: '701154',
-        photoUrl: 'https://images.fotmob.com/image_resources/playerimages/701154.png'
+        slug: 'kylian-mbappe',
+        photoUrl: 'https://assets.footylogos.com/player-pngs/previews/v1/mbappe_sample.webp'
       },
       rodri: {
         name: 'Rodri',
@@ -37,22 +38,22 @@ test('getSpotlightPlayerPhoto resolves verified photo URLs from FotMob DB', () =
   };
 
   const haalandPhoto = getSpotlightPlayerPhoto({ name: 'Erling Haaland' });
-  assert.equal(haalandPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
+  assert.equal(haalandPhoto, 'https://assets.footylogos.com/player-pngs/previews/v1/1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07.webp');
 
   // String input
   const haalandStringPhoto = getSpotlightPlayerPhoto('Erling Haaland');
-  assert.equal(haalandStringPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
+  assert.equal(haalandStringPhoto, 'https://assets.footylogos.com/player-pngs/previews/v1/1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07.webp');
 
   // Initial notation (e.g. from match timeline / events: E. Haaland)
   (globalThis as any).PLAYER_PHOTOS_DB.players.haaland = {
-    fotmobId: '737066',
-    photoUrl: 'https://images.fotmob.com/image_resources/playerimages/737066.png'
+    slug: 'erling-haaland',
+    photoUrl: 'https://assets.footylogos.com/player-pngs/previews/v1/1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07.webp'
   };
   const haalandInitialPhoto = getSpotlightPlayerPhoto({ name: 'E. Haaland' });
-  assert.equal(haalandInitialPhoto, 'https://images.fotmob.com/image_resources/playerimages/737066.png');
+  assert.equal(haalandInitialPhoto, 'https://assets.footylogos.com/player-pngs/previews/v1/1fe23c0e5a5a1d7131eb296655cb07b2721b51da0ed8fc8639ebb86be1484f07.webp');
 
   const mbappePhoto = getSpotlightPlayerPhoto({ name: 'Kylian Mbappé' });
-  assert.equal(mbappePhoto, 'https://images.fotmob.com/image_resources/playerimages/701154.png');
+  assert.equal(mbappePhoto, 'https://assets.footylogos.com/player-pngs/previews/v1/mbappe_sample.webp');
 
   const rodriPhoto = getSpotlightPlayerPhoto({ name: 'Rodri' });
   assert.equal(rodriPhoto, '/player-photos/rodri.webp');

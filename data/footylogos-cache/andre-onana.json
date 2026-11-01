@@ -1,0 +1,92 @@
+{
+  "name": "André Onana",
+  "slug": "andre-onana",
+  "qid": "Q19116103",
+  "born": "1996-04-02",
+  "aliases": [
+    "Andre Onana",
+    "Andre ONANA",
+    "André Onana",
+    "Andrcu Onana",
+    "André Onana Onana",
+    "Andre Onana Onana"
+  ],
+  "club": "Manchester United",
+  "country": "Cameroon",
+  "position": "Goalkeeper",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/manchester-united/manchester-united-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "8ef6824ab05e13e075da0d2bd1ff38d71286910ca8cca1579bf513756c88948a",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Manchester United",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ],
+      "bytes": 359293
+    },
+    {
+      "k": "f52ba4e776565fdfeb4d190e5e6e628939a7f950693e0d1ee38260efbbf40182",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2335,
+      "h": 3500,
+      "c": "Cameroon",
+      "t": true,
+      "ss": []
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bruno Fernandes",
+      "slug": "bruno-fernandes",
+      "club": "Manchester United",
+      "key": "55cb4f3164aa33ee512b7cfafcc9f438f372cae150bdafe66329b56f61967160"
+    },
+    {
+      "name": "Marcus Rashford",
+      "slug": "marcus-rashford",
+      "club": "Manchester United",
+      "key": "dc3afd95abc50bcd354b08bae97c5d832c534f2454b49537e36e7b54ef0ae63e"
+    },
+    {
+      "name": "Carlos Baleba",
+      "slug": "carlos-baleba",
+      "club": "Manchester United",
+      "key": "ec4043e6fe7252ba27f22892acf762cef4b25617a83c13fe6310adb32e30a8e6"
+    },
+    {
+      "name": "Bryan Mbeumo",
+      "slug": "bryan-mbeumo",
+      "club": "Manchester United",
+      "key": "7f7cc0ab3441ccd51e1d22e4b33ad72054687af15df437e917bea793fb8fd49f"
+    },
+    {
+      "name": "Lisandro Martínez",
+      "slug": "lisandro-martinez",
+      "club": "Manchester United",
+      "key": "57f87c7f8dc5a91b32cdc3554a5b5eef5d65035192565b289427198e45b058bb"
+    },
+    {
+      "name": "Matheus Cunha",
+      "slug": "matheus-cunha",
+      "club": "Manchester United",
+      "key": "f7e60c761a0e273e57fbffe9537a7c2f606bcf38f01a2ad0ffad63fa7493a809"
+    }
+  ],
+  "logoLinks": {
+    "Manchester United": "/logos/manchester-united",
+    "Cameroon": "/logos/cameroon-national-team"
+  }
+}

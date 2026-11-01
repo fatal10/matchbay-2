@@ -1,0 +1,198 @@
+{
+  "name": "Lionel Messi",
+  "slug": "lionel-messi",
+  "qid": "Q615",
+  "born": "1987-06-24",
+  "aliases": [
+    "Lionel Messi",
+    "Leo Messi",
+    "Lionel MESSI"
+  ],
+  "club": "Inter Miami",
+  "country": "Argentina",
+  "position": "Forward",
+  "competition": "MLS",
+  "clubLogo": "https://assets.footylogos.com/previews/inter-miami/inter-miami-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "c6c0e0c0fe7bd26abe3489c4af9974e8db1a9d280197492ff2f667632c6f0049",
+      "g": "mls",
+      "s": "2026",
+      "f": "mls_portrait",
+      "l": "MLS portrait",
+      "w": 1080,
+      "h": 1000,
+      "c": "Inter Miami",
+      "t": true,
+      "ss": [],
+      "bytes": 1162989
+    },
+    {
+      "k": "2940170ff06119e58f50784070d49a6728032c74c6708ae5d76275795d2af808",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Argentina",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "a93c80b4f86e6a72a6d95ae30b60a1ed9f1a4f4114d63edb5115e57bc20fd076",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Argentina",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "ef00b7f4a6604391393b77c6da3348736583ddf1658030f097bf43f11e554d0a",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "d45470846ee6341407fc21f30f7804d9766631e1739a1c58e9b0c02778b9cb14",
+      "g": "laliga",
+      "s": "2020/21",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "1939643013c6793c4168f34711b1bfdc5605014fb685ec250bfdafe5d8679752",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "f191db8acc09bae925bf03133fdff1ee0fbaed5c6d559d13b85bc16efa7b8a13",
+      "g": "laliga",
+      "s": "2019/20",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2019/20"
+      ]
+    },
+    {
+      "k": "ef017ece02c2d1c3d114828faa300fe20d74f79dbfeca0b9e663add8d2f903cf",
+      "g": "laliga",
+      "s": "2018/19",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2018/19"
+      ]
+    },
+    {
+      "k": "599a4f3a594b25ac428fa6b072ff5857370e64e931c06d6256916d24fff7a0ed",
+      "g": "laliga",
+      "s": "2018/19",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "FC Barcelona",
+      "t": true,
+      "ss": [
+        "2018/19"
+      ]
+    },
+    {
+      "k": "48e7ea1bcd4e1ed1896866d8087492ec036baace0de5c93cd14b310b04a72a96",
+      "g": "mls",
+      "s": "2026",
+      "f": "full",
+      "l": "Full body",
+      "w": 904,
+      "h": 2797,
+      "c": "Inter Miami",
+      "t": true,
+      "photoSeason": "2026",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/mls",
+  "competitionLogo": "https://assets.footylogos.com/previews/mls/mls-logo-footylogos-1200.webp",
+  "related": [
+    {
+      "name": "Luis Suárez",
+      "slug": "luis-suarez",
+      "club": "Inter Miami",
+      "key": "795a0fb5aad386d662242aa2e4bb18e1b1fded0962a81ebf3a60cf47476bccdc"
+    },
+    {
+      "name": "Rodrigo De Paul",
+      "slug": "rodrigo-de-paul",
+      "club": "Inter Miami",
+      "key": "a45cc36b0082e5c7c4fb71ff30b05d7bafccf4343e48d8b349ca384d3f72ac9a"
+    },
+    {
+      "name": "Casemiro",
+      "slug": "casemiro",
+      "club": "Inter Miami",
+      "key": "13781d751b3b70a14c790a2868a79b1925de0a979c3073fd2a2d2aedc8207c17"
+    },
+    {
+      "name": "Sergio Reguilón",
+      "slug": "sergio-reguilon",
+      "club": "Inter Miami",
+      "key": "9f76de212abbf2a1bf8d6e1b1de30bc3f4c7df3ad5102503c03ce1d204a92a63"
+    },
+    {
+      "name": "Germán Berterame",
+      "slug": "german-berterame",
+      "club": "Inter Miami",
+      "key": "a2a550886ef41982233a99aebc5ca5ba9fc627370b0e600d8d55572001cae37a"
+    },
+    {
+      "name": "Matías Galarza",
+      "slug": "matias-galarza",
+      "club": "Inter Miami",
+      "key": "69daba8789dc577ab81c77bfa9ae7c9081acc06fe0c87cd64c7117f4a4e34aba"
+    }
+  ],
+  "logoLinks": {
+    "Inter Miami": "/logos/inter-miami",
+    "Argentina": "/logos/argentina-national-team",
+    "FC Barcelona": "/logos/fc-barcelona"
+  }
+}

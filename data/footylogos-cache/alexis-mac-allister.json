@@ -1,0 +1,156 @@
+{
+  "name": "Alexis Mac Allister",
+  "slug": "alexis-mac-allister",
+  "qid": "Q33297140",
+  "born": "1998-12-24",
+  "aliases": [
+    "Alexis Mac Allister",
+    "Alexis MAC ALLISTER",
+    "Alexis MAC ALLISTER"
+  ],
+  "club": "Liverpool FC",
+  "country": "Argentina",
+  "position": "Midfielder",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/liverpool-fc/liverpool-fc-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "824f404da4d3e59871c0559bde5aa387d6d565aeb72473731632d77c303ff35c",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [],
+      "bytes": 817495
+    },
+    {
+      "k": "62f624873b45b9531825aa50a1f2df5102b4aeffb04f9d947e42dc1aedf40686",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Liverpool FC",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "6c4d170e09e5551defa7af1a7ae2115786cfbdbcf2d9942a68f596acd8d7ae64",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Argentina",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "4a664523d042145c0d6db6dfb24c252ab28c3c007dd839af2d20530f26deec4f",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Argentina",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "38e0001a6a01eb6020e9649285570629dd982018775b092f3ec0bcbd0fc8c4b6",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "6a924efa72356cb0c097cc130d46be31bc81d46dd19a2c21ad5806b85c10c7d8",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "d4db521022c8ca9f98862d21f67053797a3c05950b09c0b8de6e3048b4552ae3",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 801,
+      "h": 1594,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bradley Barcola",
+      "slug": "bradley-barcola",
+      "club": "Liverpool FC",
+      "key": "c9438c56a901be7428968ccb879bfb9c0d31474921312400ec142c8e3a5ebe0b"
+    },
+    {
+      "name": "Lewis Koumas",
+      "slug": "lewis-koumas",
+      "club": "Liverpool FC",
+      "key": "3693a31ad6a0a636818c2da1ba7a070b71710ea763618e1aca63fc9d846089a7"
+    },
+    {
+      "name": "Víctor Muñoz",
+      "slug": "victor-munoz",
+      "club": "Liverpool FC",
+      "key": "a8fc5546b934f79c2bd070ff98bd0bfa10802ebbad1509b34e8cd63cf63ac12b"
+    },
+    {
+      "name": "Jérémy Jacquet",
+      "slug": "jeremy-jacquet",
+      "club": "Liverpool FC",
+      "key": "2a04041a72ea30be7aea6b7e329132997abeb54b8b6ebe587a1761169cc5c688"
+    },
+    {
+      "name": "Alexander Isak",
+      "slug": "alexander-isak",
+      "club": "Liverpool FC",
+      "key": "366bfe43238a20a65600fe3c766e6d36777a596879848da0a9897008a16c6832"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "slug": "virgil-van-dijk",
+      "club": "Liverpool FC",
+      "key": "2f598bca88b3a33982a965f7427660a5688c2cc8b5c14a60224f4009c0441621"
+    }
+  ],
+  "logoLinks": {
+    "Liverpool FC": "/logos/liverpool-fc",
+    "Argentina": "/logos/argentina-national-team"
+  }
+}

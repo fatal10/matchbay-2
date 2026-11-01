@@ -1,0 +1,36 @@
+{
+  "name": "Aleksandar Mitrović",
+  "slug": "aleksandar-mitrovic",
+  "qid": "Q84086",
+  "born": "1994-09-16",
+  "aliases": [
+    "Aleksandar Mitrovic",
+    "Aleksandar MITROVIC",
+    "Aleksandar Mitrović",
+    "شاورما الحلوين"
+  ],
+  "club": "Serbia",
+  "country": "Serbia",
+  "position": "Forward",
+  "competition": "World Cup 2022",
+  "clubLogo": "https://assets.footylogos.com/previews/serbia-national-team/serbia-national-team-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "8f8e8676e1c8a863d7033524124da7ea556d53f92f75a50133c3f01e238ce146",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2335,
+      "h": 3500,
+      "c": "Serbia",
+      "t": true,
+      "ss": [],
+      "bytes": 1317146
+    }
+  ],
+  "related": [],
+  "logoLinks": {
+    "Serbia": "/logos/serbia-national-team"
+  }
+}

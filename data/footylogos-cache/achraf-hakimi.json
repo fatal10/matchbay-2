@@ -1,0 +1,328 @@
+{
+  "name": "Achraf Hakimi",
+  "slug": "achraf-hakimi",
+  "qid": "Q26932598",
+  "born": "1998-11-04",
+  "aliases": [
+    "Achraf Hakimi",
+    "Achraf HAKIMI",
+    "Achraf Hakimi Mouh",
+    "Hakimi"
+  ],
+  "club": "Paris Saint-Germain",
+  "country": "Spain",
+  "position": "Defender",
+  "competition": "Ligue 1",
+  "clubLogo": "https://assets.footylogos.com/previews/paris-saint-germain-psg/paris-saint-germain-psg-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "543e54b2e98b11601f03d8eb6819cf08dda4a20aef45ca5a1894054352a3d527",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [],
+      "bytes": 839420
+    },
+    {
+      "k": "6e030efac3a39be1c26e67ce446f9b27d96cfda59f0d33ae13951effc77d12b5",
+      "g": "ligue-1",
+      "s": "2026/27",
+      "f": "head",
+      "l": "Head",
+      "w": 250,
+      "h": 250,
+      "c": "Paris Saint-Germain",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "1995d2516e20c503118d34471d8907891ab59353795b956b98e5ed167a2b8a6a",
+      "g": "ligue-1",
+      "s": "2026/27",
+      "f": "bust",
+      "l": "Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "ee29ff011b06d93b42c67d0debf4c36749cac3170b18f0bbbeb74f4f158d22ef",
+      "g": "ligue-1",
+      "s": "2026/27",
+      "f": "full",
+      "l": "Full body",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "fd92ca0d947a019dadd08d7906f120b3917db60ca75b8d3d3195025974dcbd18",
+      "g": "ligue-1",
+      "s": "2026/27",
+      "f": "celebration_bust",
+      "l": "Celebration bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "0bad97a9b35e13f7c3c1c0703b5c02f1d3af3f53fe46e14b95dcb3cf7384f395",
+      "g": "ligue-1",
+      "s": "2026/27",
+      "f": "celebration_full",
+      "l": "Celebration full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "741850bb79a3a8a68104b2b337d1ec945338fd4f5a423fce8e38c2ea5e9900d2",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Morocco",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "8c8f969c42790b0de8cd8b5b370a0c80ff23e777d235f6daaffde6ba549cd73a",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Morocco",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "5369d0b2a3ef7161ec40fcff70903a3ad85959b24e067e4f1d1be78f26a22b47",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "head",
+      "l": "Head",
+      "w": 250,
+      "h": 250,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "847e1c083bc0c2c221815c85eb39a925c43c5d671a2cb516f76dad5a9e1ee9e0",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "celebration_bust",
+      "l": "Celebration Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "a5103c5a03a8dfded707f1b1ee78c935359a12f72ee9287902535d0e0f871d88",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "bust",
+      "l": "Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "77f374821e200f87e8dd103177be5e4889ee7d8d01062e5aac6a5f9b0f5090aa",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "celebration_full",
+      "l": "Celebration Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "e1294daed6823c6818931dcbfb04e811a70841aacfea7f4151108fa0bcb85295",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "full",
+      "l": "Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "57ed6cff80a5c9e77d93fd4efb4bf2d0e87ca4955b4c0ea073c8dc2376417f04",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "bust",
+      "l": "Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "3fab6dcc562bdae7fb240362f895e1b974db51d467e0e56d583bbd32012412dc",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "celebration_bust",
+      "l": "Celebration Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "730bd4aff87f2b35754a462238810530792aa3724c2deb5c5e04298ea8e56b97",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "head",
+      "l": "Head",
+      "w": 250,
+      "h": 250,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "d581e04f0ce1f54528a59c40b0d596d75448b4bc62c5a83bc5ab42ac1d9e1165",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "full",
+      "l": "Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "e0979e96ef2b4b20fb0cbd7c65c0778e80edebaf4f89e835c756c4f6b09dcd31",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "celebration_full",
+      "l": "Celebration Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "999f8a0da6ee600bc0a29c47587f9bc6dd053facfbf39fc7f950d2e9d42670da",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "88e00c0c7b6162fd83af7538bf8c0abfcc8a08e9885549accf1c8fcae7ba008c",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/ligue-1",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf62ee3405884dfde50_6a18450d1817ffd0336a69bc_68f984c17947115647c67b5d_ligue-1-footballlogos-org.png",
+  "related": [
+    {
+      "name": "Ferran Torres",
+      "slug": "ferran-torres",
+      "club": "Paris Saint-Germain",
+      "key": "6f796dd7f146b4faf0a4234bd72f8ebf2afb8d2dcf267c39ca53cfe7ed464e4c"
+    },
+    {
+      "name": "Ousmane Dembélé",
+      "slug": "ousmane-dembele",
+      "club": "Paris Saint-Germain",
+      "key": "a675121858aec91c10961d1a3dfc8a22dd55cf2c1af292b5d2241b272256d1c7"
+    },
+    {
+      "name": "Désiré Doué",
+      "slug": "desire-doue",
+      "club": "Paris Saint-Germain",
+      "key": "31173f9aa05195381de4f359b31249de2691ac93bde0b9e7de9eb14cf282b805"
+    },
+    {
+      "name": "Khvicha Kvaratskhelia",
+      "slug": "khvicha-kvaratskhelia",
+      "club": "Paris Saint-Germain",
+      "key": "27d0a9dea05cf174f813eea38272bfeda5cfe5850b70b44a2f1c69d5d89dfecd"
+    },
+    {
+      "name": "Maghnes Akliouche",
+      "slug": "maghnes-akliouche",
+      "club": "Paris Saint-Germain",
+      "key": "6e0031df1bc8b87a9b911efcb7623f58913815877b65ec660115320cb7c95c92"
+    },
+    {
+      "name": "Fabián Ruiz",
+      "slug": "fabian-ruiz",
+      "club": "Paris Saint-Germain",
+      "key": "3f46cc65189f199a58f3a1340ff1c05a95ee8117c1769b848a82631e22df310d"
+    }
+  ],
+  "logoLinks": {
+    "Paris Saint-Germain": "/logos/paris-saint-germain-psg",
+    "Morocco": "/logos/morocco-national-team"
+  }
+}

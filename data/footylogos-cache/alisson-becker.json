@@ -1,0 +1,157 @@
+{
+  "name": "Alisson Becker",
+  "slug": "alisson-becker",
+  "qid": "Q18237361",
+  "born": "1992-10-02",
+  "aliases": [
+    "Alisson Becker",
+    "ALISSON",
+    "Alisson",
+    "Alisson Ramsés Becker",
+    "Alisson Ramses Becker"
+  ],
+  "club": "Liverpool FC",
+  "country": "Brazil",
+  "position": "Goalkeeper",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/liverpool-fc/liverpool-fc-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "12c98b0e5f74aa556eb1bc27f863e44bc930b43a650bee0553780de8080de725",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Liverpool FC",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "d550fa79516a0b4f965d3ea4c2ba8824d6a4f0ca5fab36d128a3d065f2f28d35",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "5468245f3184799c7ad20b3aa92c153bab4ddf5db85f1b7396f4f47f24d326ff",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2335,
+      "h": 3500,
+      "c": "Brazil",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "6a9cdf2b2d5358be7e5940f4b34784ddef91ff761ac9ca2d8ad270dcc0d0cc4a",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "Brazil",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "1e5e8a161b083fa0138e3cdcc4f4d626ef31a1b5a414eb97bde318dc8cc3a175",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "7eff47108d0566669c34ccc2bd9738380a422bba41bbeed96bf3dfd087a85540",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "8cbaa9af55991b24bfd2361944519871dbdab98d21d4695071fcd357f2603387",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 653,
+      "h": 1491,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Bradley Barcola",
+      "slug": "bradley-barcola",
+      "club": "Liverpool FC",
+      "key": "c9438c56a901be7428968ccb879bfb9c0d31474921312400ec142c8e3a5ebe0b"
+    },
+    {
+      "name": "Lewis Koumas",
+      "slug": "lewis-koumas",
+      "club": "Liverpool FC",
+      "key": "3693a31ad6a0a636818c2da1ba7a070b71710ea763618e1aca63fc9d846089a7"
+    },
+    {
+      "name": "Víctor Muñoz",
+      "slug": "victor-munoz",
+      "club": "Liverpool FC",
+      "key": "a8fc5546b934f79c2bd070ff98bd0bfa10802ebbad1509b34e8cd63cf63ac12b"
+    },
+    {
+      "name": "Jérémy Jacquet",
+      "slug": "jeremy-jacquet",
+      "club": "Liverpool FC",
+      "key": "2a04041a72ea30be7aea6b7e329132997abeb54b8b6ebe587a1761169cc5c688"
+    },
+    {
+      "name": "Alexander Isak",
+      "slug": "alexander-isak",
+      "club": "Liverpool FC",
+      "key": "366bfe43238a20a65600fe3c766e6d36777a596879848da0a9897008a16c6832"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "slug": "virgil-van-dijk",
+      "club": "Liverpool FC",
+      "key": "2f598bca88b3a33982a965f7427660a5688c2cc8b5c14a60224f4009c0441621"
+    }
+  ],
+  "logoLinks": {
+    "Liverpool FC": "/logos/liverpool-fc",
+    "Brazil": "/logos/brazil-national-team"
+  }
+}

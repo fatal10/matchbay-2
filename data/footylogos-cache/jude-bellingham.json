@@ -1,0 +1,338 @@
+{
+  "name": "Jude Bellingham",
+  "slug": "jude-bellingham",
+  "qid": "Q66241169",
+  "born": "2003-06-29",
+  "aliases": [
+    "Jude Bellingham",
+    "Jude BELLINGHAM",
+    "Jude Victor William Bellingham"
+  ],
+  "club": "Real Madrid",
+  "country": "United Kingdom",
+  "position": "Midfielder",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/real-madrid/real-madrid-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "c8f8467b8acb7cb66595088dd9ab61901a1c7a1bc7da10dd91b41984f3570a27",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [],
+      "bytes": 656750
+    },
+    {
+      "k": "95968616bee696974415006b9fc533abf9d406912697c59b5576543e4a27bb79",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2334,
+      "h": 3500,
+      "c": "England",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "ba816463c8fba298f1a369271012917f1435a101365d482184a62e40cdc7509f",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2334,
+      "h": 3500,
+      "c": "England",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "fe52f25712efac6d5c43fe4bef729c792deef665a528b34f1dbdd7dd3dc7738a",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "9efed771c76ceebb7d06d98a88860c36da58847b25d96eade9613681d0bb6490",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "b14561ddd0fd0b326e55c041a1928a88d1017bca00849c7965da99029bf726e7",
+      "g": "bundesliga",
+      "s": "2022/23",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "c5849fdb6f6c1004b08ddfbfe48c901752fa67a3d3566d4ac9afd7b797726bd2",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "c5ecd9b5bfc8ff6ff8c435533f269ea320739791d64e326094c7ce89a8a3db6c",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "dabbcbeddf69871a516a321f54025c315b4cac5bee8aa3568e9556c95aa60351",
+      "g": "bundesliga",
+      "s": "2021/22",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2021/22"
+      ]
+    },
+    {
+      "k": "9be7ec1fb39f8248511ad31155e4b7fccd2be89a750b272305275a15878f1198",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "circle",
+      "l": "Circle",
+      "w": 300,
+      "h": 300,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "faa6c5c3079d8100dbee9517eac0ad0f2f39d061ad0e92d4978864e255791bcf",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "front",
+      "l": "Front",
+      "w": 500,
+      "h": 500,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "cc8b1e55b9addaab2d1843c8fdd0c1280e18a01f5566888b3381a80624ac346c",
+      "g": "bundesliga",
+      "s": "2020/21",
+      "f": "body",
+      "l": "Body",
+      "w": 780,
+      "h": 960,
+      "c": "Borussia Dortmund",
+      "t": true,
+      "ss": [
+        "2020/21"
+      ]
+    },
+    {
+      "k": "311e2beb5dc5aec18aae334d27e2d7e018b9000d354f82e2de28c77194f5ee8d",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "5ffe42d6c9164029e0b6f6649b9a040772bf31afb843f42ecbb8226773997d9f",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "b7a8af30abde3f8b0c020b0a5af28ff58a106ab0e84f08e5a64b2101921943f9",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "87900baa87f5d6c7777f441e32b8431aa8ad15d85ddd93c7cc7a8af65c346021",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "c3283e1f1d1bece2d31ba51582c5058b381ad7fd7a7458c7e0e2519cbdfe1e0e",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "c1b74c924fd526f5a49bf0410fc412bd024335de0f833285301f851c30d6e508",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "e5b7e2565ed19bfa62de3417ef80b2b514e0b38aa1340fa4106929892709cde4",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "6b73fccd7c4cae1968ee6cade367466b5e1337d69b24d7c51377d61dc3b5cbad",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Kylian Mbappé",
+      "slug": "kylian-mbappe",
+      "club": "Real Madrid",
+      "key": "811ed9ef07a14e0dace017e7210ed71d65454bbb829c97279d43fa1011748469"
+    },
+    {
+      "name": "Yan Diomande",
+      "slug": "yan-diomande",
+      "club": "Real Madrid",
+      "key": "460cbce53ea8f911a030d2055724fb471b43bcd1eda636dbde261699cf1000ea"
+    },
+    {
+      "name": "Vinícius Júnior",
+      "slug": "vinicius-junior",
+      "club": "Real Madrid",
+      "key": "04339655a21da3ed9c791629e6649745a635029cc1db7297255ffe40e6963220"
+    },
+    {
+      "name": "Marc Cucurella",
+      "slug": "marc-cucurella",
+      "club": "Real Madrid",
+      "key": "ce1c763332b2dae2c15939b53461a4195e9ec5510b804d4acf295863f1d018e9"
+    },
+    {
+      "name": "Carlos Espí",
+      "slug": "carlos-espi",
+      "club": "Real Madrid",
+      "key": "2121169cb2a8ffbbb5a4cabecaef6e80fdf5c5fe54f2e8428e56a4218b9a0447"
+    },
+    {
+      "name": "Thibaut Courtois",
+      "slug": "thibaut-courtois",
+      "club": "Real Madrid",
+      "key": "ca733b941a584aafbb7c7785fa03663fbff02444aa026f89b5793e15a08f58bb"
+    }
+  ],
+  "logoLinks": {
+    "Real Madrid": "/logos/real-madrid",
+    "England": "/logos/england-national-team",
+    "Borussia Dortmund": "/logos/borussia-dortmund"
+  }
+}

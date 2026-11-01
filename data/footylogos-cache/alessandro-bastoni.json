@@ -1,0 +1,126 @@
+{
+  "name": "Alessandro Bastoni",
+  "slug": "alessandro-bastoni",
+  "qid": "Q28561068",
+  "born": "1999-04-13",
+  "aliases": [
+    "Alessandro Bastoni"
+  ],
+  "club": "Inter Milan",
+  "country": "Italy",
+  "position": "Defender",
+  "competition": "Serie A",
+  "clubLogo": "https://assets.footylogos.com/previews/inter-milan/inter-milan-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "ecb09c91bfab5e7c3a5bbaa40e185cdf976a92e919b9f99a000904d1efde9e6b",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Inter Milan",
+      "t": true,
+      "ss": [],
+      "bytes": 772545
+    },
+    {
+      "k": "ecf4684e02274bad81bf82d0e7715a3d01ac113fecc8a8a68528bcd8f5d0854c",
+      "g": "serie-a",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 1024,
+      "h": 1024,
+      "c": "Inter Milan",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "f142f3bd51bd6d29479f3189440ad3814a20da63cfebc9e9fcc0a7a72ad2b82c",
+      "g": "serie-a",
+      "s": "2025/26",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 674,
+      "h": 675,
+      "c": "Inter Milan",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "be4be7c42849c69358cb115de66179b71ad29a43cac0e82d74ad8f03deaf08d1",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Inter Milan",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "68f7678b1bbcaceb943ae63283f1a2187fa71271de6ece5b193c594cbd448b0d",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Inter Milan",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/serie-a",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf58ce80568fad03f15_6a1845148d373abfdda6ddf5_68f97eb05d0722bd9f157c30_seria-a-footballlogos-org.png",
+  "related": [
+    {
+      "name": "Lautaro Martínez",
+      "slug": "lautaro-martinez",
+      "club": "Inter Milan",
+      "key": "1081e7d363297081be98cd9d80c9936e21f1ccf4a2560f1d1d4dd4e1fa46be0b"
+    },
+    {
+      "name": "Josep Martínez",
+      "slug": "josep-martinez",
+      "club": "Inter Milan",
+      "key": "38618be690702d60b53a9b404e2df6473f0d8b0628b6e55775101d7b209dc816"
+    },
+    {
+      "name": "Andy Diouf",
+      "slug": "andy-diouf",
+      "club": "Inter Milan",
+      "key": "2832db48e3f2d4f17f6ea6893843f78556a951bd3a68fd5f7cc6786c8c0d3bb6"
+    },
+    {
+      "name": "Djed Spence",
+      "slug": "djed-spence",
+      "club": "Inter Milan",
+      "key": "d2dd88b2dbeb2ac1b7387773e410a00c70029c2861de2f08c06dbe920a99f11e"
+    },
+    {
+      "name": "John Stones",
+      "slug": "john-stones",
+      "club": "Inter Milan",
+      "key": "36e07be361c9a05828c08280b7946e3d1d274a41a7975d1d4cfcce8d58f83f06"
+    },
+    {
+      "name": "Curtis Jones",
+      "slug": "curtis-jones",
+      "club": "Inter Milan",
+      "key": "a3301e9958db39c56cedb53516e25b44ca898cae4f280898d305f16852d06421"
+    }
+  ],
+  "logoLinks": {
+    "Inter Milan": "/logos/inter-milan"
+  }
+}

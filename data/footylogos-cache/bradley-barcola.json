@@ -1,0 +1,271 @@
+{
+  "name": "Bradley Barcola",
+  "slug": "bradley-barcola",
+  "qid": "Q99670930",
+  "born": "2002-09-02",
+  "aliases": [
+    "Bradley Barcola",
+    "Bradley BARCOLA",
+    "Bradley Jean-Manuel Essolisam Addo Barcola",
+    "Bradley Laurent Barcola"
+  ],
+  "club": "Liverpool FC",
+  "country": "France",
+  "position": "Forward",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/liverpool-fc/liverpool-fc-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "c9438c56a901be7428968ccb879bfb9c0d31474921312400ec142c8e3a5ebe0b",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Liverpool FC",
+      "t": true,
+      "ss": [],
+      "bytes": 978117
+    },
+    {
+      "k": "f852f570b79f11e950c4df7dac36f06810534a0f2b98706c65e85bb8c6730782",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "France",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "575f96ade91e067eb5fd4796c34beb618ca2d5f9154e11d6a3fc87e6669f478a",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "bust",
+      "l": "Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "9632f102ccab0fa18ed51820ca887a1f459fb3a6e9bb7893c644e597cf901549",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "head",
+      "l": "Head",
+      "w": 250,
+      "h": 250,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "ce24ef6e3051abadb4588371fb63f89ac05263c7742aee594da2688bbeed5a61",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "full",
+      "l": "Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "a0fa70434baa46a9e05c16e03841ca92cde88fc15ab0040f3d018e300aaadfd9",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "celebration_full",
+      "l": "Celebration Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "c40e15b5e4718a5ef832d2113389c4d37989f5e2281af2af5700121eb9632a69",
+      "g": "ligue-1",
+      "s": "2025/26",
+      "f": "celebration_bust",
+      "l": "Celebration Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "8cea0173dde8e88f6f2def34d387422debc043b1fc974c755350dd3448018194",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "bust",
+      "l": "Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "5cae28246bce16cec38f3dc958dc17fe39e90ba8bb20f705c15f9da4adfd7a59",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "celebration_bust",
+      "l": "Celebration Bust",
+      "w": 800,
+      "h": 600,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "c38218bb73f77d3b467ee5f3bf6caeec63b2953f8bc09472197358b5f64242fc",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "celebration_full",
+      "l": "Celebration Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "ede89cae7cac7c12b2632b0dfb297f0b94f2a9a2dfd63c7098cf04b9d4ae546d",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "full",
+      "l": "Full",
+      "w": 800,
+      "h": 1200,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "a9bcfe181bee75b26499ab6885f6832304821bd01d5e23379e6be79e206fee3a",
+      "g": "ligue-1",
+      "s": "2024/25",
+      "f": "head",
+      "l": "Head",
+      "w": 250,
+      "h": 250,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "24cf3ed49c3b39b767eb8d17d94e03c33eded713cbb28c197e813dbc66f2f7bd",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "a6e3adf1390809f57f640bfc2e6f662ed842ae5b81bc902dbe87c7d2e5a1b86c",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Paris Saint-Germain",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "3235da3cc7758042dac8b53be4e6e50b063257bc75aa461c208e75df2ce38a92",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 1039,
+      "h": 1463,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Lewis Koumas",
+      "slug": "lewis-koumas",
+      "club": "Liverpool FC",
+      "key": "3693a31ad6a0a636818c2da1ba7a070b71710ea763618e1aca63fc9d846089a7"
+    },
+    {
+      "name": "Víctor Muñoz",
+      "slug": "victor-munoz",
+      "club": "Liverpool FC",
+      "key": "a8fc5546b934f79c2bd070ff98bd0bfa10802ebbad1509b34e8cd63cf63ac12b"
+    },
+    {
+      "name": "Jérémy Jacquet",
+      "slug": "jeremy-jacquet",
+      "club": "Liverpool FC",
+      "key": "2a04041a72ea30be7aea6b7e329132997abeb54b8b6ebe587a1761169cc5c688"
+    },
+    {
+      "name": "Alexander Isak",
+      "slug": "alexander-isak",
+      "club": "Liverpool FC",
+      "key": "366bfe43238a20a65600fe3c766e6d36777a596879848da0a9897008a16c6832"
+    },
+    {
+      "name": "Virgil van Dijk",
+      "slug": "virgil-van-dijk",
+      "club": "Liverpool FC",
+      "key": "2f598bca88b3a33982a965f7427660a5688c2cc8b5c14a60224f4009c0441621"
+    },
+    {
+      "name": "Alexis Mac Allister",
+      "slug": "alexis-mac-allister",
+      "club": "Liverpool FC",
+      "key": "824f404da4d3e59871c0559bde5aa387d6d565aeb72473731632d77c303ff35c"
+    }
+  ],
+  "logoLinks": {
+    "Liverpool FC": "/logos/liverpool-fc",
+    "France": "/logos/france-national-team",
+    "Paris Saint-Germain": "/logos/paris-saint-germain-psg"
+  }
+}

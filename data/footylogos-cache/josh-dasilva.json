@@ -1,0 +1,106 @@
+{
+  "name": "Josh Dasilva",
+  "slug": "josh-dasilva",
+  "qid": "Q36696872",
+  "born": "1998-10-23",
+  "aliases": [
+    "Josh Dasilva",
+    "Pelenda Da Silva",
+    "Josh Da Silva",
+    "Joshua Da Silva",
+    "Pelenda Joshua Tunga Dasilva"
+  ],
+  "club": "Brentford",
+  "country": "United Kingdom",
+  "position": "Midfielder",
+  "competition": "Premier League",
+  "clubLogo": "https://assets.footylogos.com/previews/brentford/brentford-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "aa72b88f4e40823f88928234d5d6a875c214efff38637d2ee8065aec2118f6df",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Brentford",
+      "t": null,
+      "ss": [
+        "2025/26",
+        "2026/27"
+      ]
+    },
+    {
+      "k": "1422980e7d2792fbe77fa68aa7ed46bf8bb20a8baa03c07bc0f217d0f45f6eee",
+      "g": "premier-league",
+      "s": "2024/25",
+      "f": "portrait",
+      "l": "Portrait",
+      "w": 500,
+      "h": 500,
+      "c": "Brentford",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "04ae81044482df9fa27523b3c88b302c2c24f6c4669c7f0812d44fb0e734dc2e",
+      "g": "premier-league",
+      "s": "2026/27",
+      "f": "portrait",
+      "l": "Additional portrait",
+      "w": 910,
+      "h": 1561,
+      "c": "Unbranded studio kit",
+      "t": true,
+      "photoSeason": "2026/27",
+      "ss": [],
+      "additional": true
+    }
+  ],
+  "competitionPath": "/player-pngs/premier-league",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a184511f90f11922091de75_68f9844519f4e17922b4d48d_premier-league-footballlogos-org.webp",
+  "related": [
+    {
+      "name": "Michael Kayode",
+      "slug": "michael-kayode",
+      "club": "Brentford",
+      "key": "c0c0ea1dbf3823522c7ad39fb40785a57cfb245a9f924c3d4d38de856cc475c3"
+    },
+    {
+      "name": "Kevin Schade",
+      "slug": "kevin-schade",
+      "club": "Brentford",
+      "key": "78f213e782e27d96f3342e7854b197937974c3393097c8df8f03d0f989dd61a6"
+    },
+    {
+      "name": "Mamadou Sangaré",
+      "slug": "mamadou-sangare",
+      "club": "Brentford",
+      "key": "c7b7393786a482ea0032c9990f5395000a77ca6f664c982b502ceeb8a2702cf2"
+    },
+    {
+      "name": "Igor Thiago",
+      "slug": "igor-thiago",
+      "club": "Brentford",
+      "key": "f610fd87eb9f8b1ed7e0280c907b935c90d28b62d9531b0f3aa5bbce47120991"
+    },
+    {
+      "name": "Fábio Carvalho",
+      "slug": "fabio-carvalho",
+      "club": "Brentford",
+      "key": "95e743cf470c900b11b8f680c2ade392844a0b6c55e05f9a3e1ab42a4f90072c"
+    },
+    {
+      "name": "Caoimhín Kelleher",
+      "slug": "caoimhin-kelleher",
+      "club": "Brentford",
+      "key": "1b835ebf9445c00de6348bc6475c21982c4233572c40b072456a3e38d77998b3"
+    }
+  ],
+  "logoLinks": {
+    "Brentford": "/logos/brentford"
+  }
+}

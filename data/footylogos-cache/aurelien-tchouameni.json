@@ -1,0 +1,264 @@
+{
+  "name": "Aurélien Tchouaméni",
+  "slug": "aurelien-tchouameni",
+  "qid": "Q46951844",
+  "born": "2000-01-27",
+  "aliases": [
+    "Aurélien Tchouaméni",
+    "Aurelien TCHOUAMENI",
+    "Aurelien Tchouameni",
+    "Aurelien Djani Tchouameni"
+  ],
+  "club": "Real Madrid",
+  "country": "France",
+  "position": "Midfielder",
+  "competition": "LaLiga",
+  "clubLogo": "https://assets.footylogos.com/previews/real-madrid/real-madrid-logo-footylogos-1200.webp",
+  "assets": [
+    {
+      "k": "f0a0909c200d8f4038acb32dd23493a9014c5a5da299eb8524483879a4354f8f",
+      "g": "ucl",
+      "s": "2026/27",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [],
+      "bytes": 553850
+    },
+    {
+      "k": "71f21ed41c2461b2cadee657ec02d6571e00f4a5e68a9c46ba0d041815e9ed28",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "f143f5ef26de8fafaf7e8bbb4ce06e2ea3ce9788c99cf44ae948e5582c5487be",
+      "g": "laliga",
+      "s": "2026/27",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": null,
+      "ss": []
+    },
+    {
+      "k": "f977789769bd6466ed13a2f73d6c6cd9392e67cd1cb4ce9e37d05ec5f3d63357",
+      "g": "fifa-world-cup-2026",
+      "s": "2026",
+      "f": "fifa_wc_2026",
+      "l": "World Cup 2026",
+      "w": 2333,
+      "h": 3500,
+      "c": "France",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "111bf72471f83872a9087a17b6cea478f0ed3256d506c59856783fd041c92409",
+      "g": "fifa-world-cup-2022",
+      "s": "2022",
+      "f": "fifa_wc_2022",
+      "l": "World Cup 2022",
+      "w": 2333,
+      "h": 3500,
+      "c": "France",
+      "t": true,
+      "ss": []
+    },
+    {
+      "k": "d9e3806093853e53adaf026c69cb70a622e8bf0e85b8a83b03725d662d95a958",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "8c0de5f677288d13abaef77b934e6d6665925871013c1b24aa2ffb31fd062883",
+      "g": "laliga",
+      "s": "2025/26",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "8cf5de801a8fe2a3758844e20683861f9184494e5a5d11bead6e57d6a5443aa7",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "b6dee4cd5e775ea7fdae0a38185b5f0c1b7987b990733eae8ceb6532f739450b",
+      "g": "laliga",
+      "s": "2024/25",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    },
+    {
+      "k": "c3ae0f594ade100d330c0a07a01a7e0777dfbb72b24ee2c08b38d9f0a02b9595",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "c845d315338487099b4ee105496b4ceefa0d6716df2f350716a32fd866b039f7",
+      "g": "laliga",
+      "s": "2023/24",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2023/24"
+      ]
+    },
+    {
+      "k": "9da428972a06f30369203eb1f15fc78ae23ac68da1415a90b58aa61a43ecebce",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "tall",
+      "l": "Tall",
+      "w": 2048,
+      "h": 2225,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "8065751fc1a0d236ab0e97bac73d98ddf3b6384ebb4310ddf1127b5d8f5a3aa6",
+      "g": "laliga",
+      "s": "2022/23",
+      "f": "square",
+      "l": "Square",
+      "w": 2048,
+      "h": 2048,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2022/23"
+      ]
+    },
+    {
+      "k": "9b36bed9737ad4afb2c1a422a8887cee169ba9668cf08b1302ac309e70b4e9e9",
+      "g": "ucl",
+      "s": "2025/26",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2025/26"
+      ]
+    },
+    {
+      "k": "7d78f14007301091363a5a21d889f7effc4b80de2d4497d9cd45f027de39be00",
+      "g": "ucl",
+      "s": "2024/25",
+      "f": "ucl_body",
+      "l": "UCL body portrait",
+      "w": 1080,
+      "h": 1080,
+      "c": "Real Madrid",
+      "t": true,
+      "ss": [
+        "2024/25"
+      ]
+    }
+  ],
+  "competitionPath": "/player-pngs/laliga",
+  "competitionLogo": "https://cdn.prod.website-files.com/68f550992570ca0322737dc2/6a57cbf377f6513af2373b49_6a1845086a10ed608c75db11_6931843519fd5804342b7285_laliga-no-text-footylogos.png",
+  "related": [
+    {
+      "name": "Kylian Mbappé",
+      "slug": "kylian-mbappe",
+      "club": "Real Madrid",
+      "key": "811ed9ef07a14e0dace017e7210ed71d65454bbb829c97279d43fa1011748469"
+    },
+    {
+      "name": "Jude Bellingham",
+      "slug": "jude-bellingham",
+      "club": "Real Madrid",
+      "key": "c8f8467b8acb7cb66595088dd9ab61901a1c7a1bc7da10dd91b41984f3570a27"
+    },
+    {
+      "name": "Yan Diomande",
+      "slug": "yan-diomande",
+      "club": "Real Madrid",
+      "key": "460cbce53ea8f911a030d2055724fb471b43bcd1eda636dbde261699cf1000ea"
+    },
+    {
+      "name": "Vinícius Júnior",
+      "slug": "vinicius-junior",
+      "club": "Real Madrid",
+      "key": "04339655a21da3ed9c791629e6649745a635029cc1db7297255ffe40e6963220"
+    },
+    {
+      "name": "Marc Cucurella",
+      "slug": "marc-cucurella",
+      "club": "Real Madrid",
+      "key": "ce1c763332b2dae2c15939b53461a4195e9ec5510b804d4acf295863f1d018e9"
+    },
+    {
+      "name": "Carlos Espí",
+      "slug": "carlos-espi",
+      "club": "Real Madrid",
+      "key": "2121169cb2a8ffbbb5a4cabecaef6e80fdf5c5fe54f2e8428e56a4218b9a0447"
+    }
+  ],
+  "logoLinks": {
+    "Real Madrid": "/logos/real-madrid",
+    "France": "/logos/france-national-team"
+  }
+}
