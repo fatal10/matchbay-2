@@ -2861,7 +2861,131 @@ function openPlayerProfile(playerIdOrName, clubKeyOrTeam = null, playerObj = nul
   draw();
 }
 
-// 7.4.2 Player Details View (Full Profile Page with Football Spotlight Data & Design)
+// 7.4.2 Player Details View (Redesigned matching player-profile-template reference)
+const POS_PITCH_MAP = {
+  GK: { cx: 14, cy: 42, label: 'Goalkeeper', note: 'GK · Last line of defence' },
+  CB: { cx: 34, cy: 42, label: 'Centre-Back', note: 'CB · Central defence anchor' },
+  LB: { cx: 34, cy: 18, label: 'Left-Back', note: 'LB · Left flank defender' },
+  RB: { cx: 34, cy: 66, label: 'Right-Back', note: 'RB · Right flank defender' },
+  DF: { cx: 34, cy: 42, label: 'Defender', note: 'DF · Defensive line' },
+  DM: { cx: 52, cy: 42, label: 'Defensive Midfield', note: 'DM · Shield & ball winner' },
+  CM: { cx: 66, cy: 42, label: 'Central Midfield', note: 'CM · Engine of the midfield' },
+  LM: { cx: 66, cy: 18, label: 'Left Midfield', note: 'LM · Left flank progressor' },
+  RM: { cx: 66, cy: 66, label: 'Right Midfield', note: 'RM · Right flank progressor' },
+  MF: { cx: 66, cy: 42, label: 'Midfielder', note: 'MF · Midfield zone' },
+  AM: { cx: 82, cy: 42, label: 'Attacking Midfield', note: 'AM · Playmaker & creative spark' },
+  LW: { cx: 98, cy: 18, label: 'Left Winger', note: 'LW · Wide attacking threat' },
+  RW: { cx: 98, cy: 66, label: 'Right Winger', note: 'RW · Wide attacking threat' },
+  ST: { cx: 104, cy: 42, label: 'Striker', note: 'ST · Clinical primary finisher' },
+  CF: { cx: 100, cy: 42, label: 'Centre-Forward', note: 'CF · Attacking focal point' },
+  FW: { cx: 102, cy: 42, label: 'Forward', note: 'FW · Attacking front line' }
+};
+
+const CLUB_COLORS_MAP = {
+  'manchester city': 'hsl(198 85% 52%)',
+  'arsenal': 'hsl(356 82% 46%)',
+  'liverpool': 'hsl(356 88% 42%)',
+  'chelsea': 'hsl(215 88% 48%)',
+  'manchester united': 'hsl(356 85% 45%)',
+  'tottenham hotspur': 'hsl(220 60% 25%)',
+  'tottenham': 'hsl(220 60% 25%)',
+  'newcastle united': 'hsl(0 0% 40%)',
+  'newcastle': 'hsl(0 0% 40%)',
+  'aston villa': 'hsl(335 70% 40%)',
+  'real madrid': 'hsl(215 75% 50%)',
+  'barcelona': 'hsl(218 75% 45%)',
+  'fc barcelona': 'hsl(218 75% 45%)',
+  'atletico madrid': 'hsl(355 80% 45%)',
+  'bayern munich': 'hsl(355 85% 45%)',
+  'bayern münchen': 'hsl(355 85% 45%)',
+  'borussia dortmund': 'hsl(52 98% 48%)',
+  'bayer leverkusen': 'hsl(356 85% 45%)',
+  'paris saint-germain': 'hsl(215 80% 42%)',
+  'psg': 'hsl(215 80% 42%)',
+  'inter': 'hsl(215 85% 45%)',
+  'inter milan': 'hsl(215 85% 45%)',
+  'juventus': 'hsl(0 0% 55%)',
+  'ac milan': 'hsl(356 85% 45%)',
+  'como': 'hsl(215 78% 58%)'
+};
+
+function getClubColor(clubName) {
+  if (!clubName || clubName.toLowerCase() === 'free agent' || clubName.toLowerCase() === 'unattached') {
+    return 'var(--accent)';
+  }
+  const key = clubName.toLowerCase().trim();
+  if (CLUB_COLORS_MAP[key]) return CLUB_COLORS_MAP[key];
+  for (const k of Object.keys(CLUB_COLORS_MAP)) {
+    if (key.includes(k) || k.includes(key)) return CLUB_COLORS_MAP[k];
+  }
+  let h = 0;
+  for (let i = 0; i < clubName.length; i++) h = (h * 31 + clubName.charCodeAt(i)) % 360;
+  return `hsl(${h} 70% 50%)`;
+}
+
+function splitPlayerName(fullName) {
+  if (!fullName) return { first: '', last: '' };
+  const trimmed = String(fullName).trim();
+  const parts = trimmed.split(/\s+/);
+  if (parts.length === 1) {
+    return { first: '', last: parts[0] };
+  }
+  const multiWordPrefixes = ['de', 'van', 'da', 'di', 'del', 'dos', 'von', 'la', 'le'];
+  if (parts.length >= 3 && multiWordPrefixes.includes(parts[parts.length - 2].toLowerCase())) {
+    return {
+      first: parts.slice(0, parts.length - 2).join(' '),
+      last: parts.slice(parts.length - 2).join(' ')
+    };
+  }
+  return {
+    first: parts.slice(0, -1).join(' '),
+    last: parts[parts.length - 1]
+  };
+}
+
+function normalizePosCode(pos) {
+  if (!pos) return 'CM';
+  const p = String(pos).trim().toUpperCase();
+  if (['GK', 'CB', 'LB', 'RB', 'DF', 'DM', 'CM', 'LM', 'RM', 'MF', 'AM', 'LW', 'RW', 'ST', 'CF', 'FW'].includes(p)) {
+    return p;
+  }
+  if (p.includes('GOAL') || p === 'G') return 'GK';
+  if (p.includes('CENTRE-BACK') || p.includes('CENTER-BACK') || p.includes('CENTRE BACK') || p === 'DEF') return 'CB';
+  if (p.includes('LEFT-BACK') || p.includes('LEFT BACK')) return 'LB';
+  if (p.includes('RIGHT-BACK') || p.includes('RIGHT BACK')) return 'RB';
+  if (p.includes('DEFEND')) return 'DF';
+  if (p.includes('DEFENSIVE MID')) return 'DM';
+  if (p.includes('ATTACKING MID')) return 'AM';
+  if (p.includes('LEFT MID')) return 'LM';
+  if (p.includes('RIGHT MID')) return 'RM';
+  if (p.includes('MIDFIELD') || p === 'MID') return 'MF';
+  if (p.includes('STRIKER')) return 'ST';
+  if (p.includes('CENTRE-FORWARD') || p.includes('CENTER FORWARD')) return 'CF';
+  if (p.includes('LEFT WING')) return 'LW';
+  if (p.includes('RIGHT WING')) return 'RW';
+  if (p.includes('FORWARD') || p === 'ATT') return 'FW';
+  return p;
+}
+
+function parseHeightCm(h) {
+  if (!h) return null;
+  if (typeof h === 'number' && !isNaN(h)) return h;
+  const match = String(h).match(/(\d+)/);
+  if (match) {
+    const num = parseInt(match[1], 10);
+    if (num >= 140 && num <= 230) return num;
+  }
+  return null;
+}
+
+function renderCrestHtml(clubName, clubLogo, size = 'sm') {
+  const monogram = esc((clubName || 'FA').slice(0, 2).toUpperCase());
+  if (clubLogo) {
+    return `<span class="crest crest--${size}" aria-hidden="true"><img referrerpolicy="no-referrer" src="${esc(clubLogo)}" alt="" onerror="this.remove();" /><span style="display:none">${monogram}</span></span>`;
+  }
+  return `<span class="crest crest--${size}" aria-hidden="true">${monogram}</span>`;
+}
+
 function playerModal() {
   if (!S.selectedPlayerId) return '';
   let player = null;
@@ -2877,11 +3001,11 @@ function playerModal() {
   // 1. Check DATA.playerProfiles cache
   if (DATA.playerProfiles && DATA.playerProfiles[idStr]) {
     player = DATA.playerProfiles[idStr];
-    clubName = player.team || '';
+    clubName = player.team || player.club || '';
   }
   if (!player && DATA.playerProfiles && DATA.playerProfiles[normId]) {
     player = DATA.playerProfiles[normId];
-    clubName = player.team || '';
+    clubName = player.team || player.club || '';
   }
 
   // 2. Check S.selectedPlayerClubKey in DATA.clubDetails
@@ -2940,7 +3064,6 @@ function playerModal() {
             flag: matchFound.flag || '',
             age: matchFound.athlete?.age || matchFound.age || null,
             team: clubName,
-            stats: { goals: 0, assists: 0, appearances: 1, subIns: 0, minutes: 75, yellowCards: 0, redCards: 0, shotsOnTarget: 0, saves: 0, goalsConceded: 0 }
           };
           break;
         }
@@ -2964,7 +3087,6 @@ function playerModal() {
         citizenship: tp.country || '',
         flag: tp.flag || '',
         team: tp.team,
-        stats: { goals: 0, assists: 0, appearances: 0, subIns: 0, minutes: 0, yellowCards: 0, redCards: 0, shotsOnTarget: 0, saves: 0, goalsConceded: 0 }
       };
     }
   }
@@ -2977,197 +3099,322 @@ function playerModal() {
       name: readableName,
       jersey: '',
       position: 'Player',
-      citizenship: 'International',
-      flag: '🌍',
-      team: clubName || 'Football Club',
-      stats: { goals: 0, assists: 0, appearances: 0, subIns: 0, minutes: 0, yellowCards: 0, redCards: 0, shotsOnTarget: 0, saves: 0, goalsConceded: 0 }
+      citizenship: '',
+      flag: '',
+      team: clubName || '',
     };
   }
 
-  const s = player.stats || { goals: 0, assists: 0, appearances: 0, subIns: 0, minutes: 0, yellowCards: 0, redCards: 0, shotsOnTarget: 0, saves: 0, goalsConceded: 0 };
-  const team = player.team || clubName || 'Football Club';
-  const isGoalkeeper = (player.position || '').toLowerCase().includes('goal') || (player.position || '').toUpperCase() === 'GK' || s.saves > 0;
+  // Resolve Football Spotlight / FotMob photo and facts
+  let spotlightDetails = {};
+  if (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerDetails) {
+    spotlightDetails = window.PlayerSpotlight.getSpotlightPlayerDetails(player) || {};
+  }
+
+  // Map unified fields
+  let first = player.first || '';
+  let last = player.last || '';
+  if (!last) {
+    const parsed = splitPlayerName(player.name || idStr);
+    first = parsed.first;
+    last = parsed.last;
+  }
+
+  const rawPos = player.pos || player.position || 'CM';
+  const posCode = normalizePosCode(rawPos);
+  const positionLabel = player.position && !['GK','CB','LB','RB','DF','DM','CM','LM','RM','MF','AM','LW','RW','ST','CF','FW'].includes(String(player.position).toUpperCase())
+    ? player.position
+    : (POS_PITCH_MAP[posCode]?.label || posCode);
+
+  const teamName = player.club || player.team || clubName || '';
+  const isFreeAgent = !teamName || teamName.toLowerCase() === 'free agent' || teamName.toLowerCase() === 'unattached';
+  const displayClub = isFreeAgent ? 'Free agent' : teamName;
+  const clubColor = player.clubColor || (isFreeAgent ? 'var(--accent)' : getClubColor(teamName));
+  const hasClub = !isFreeAgent;
+
+  const nationality = player.nationality || player.citizenship || spotlightDetails.nationality || '';
+  let flagHtml = '';
+  if (player.flagUrl) {
+    flagHtml = `<img referrerpolicy="no-referrer" src="${esc(player.flagUrl)}" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;">`;
+  } else if (typeof CountryFlag === 'function' && nationality && nationality !== '—' && nationality !== 'International') {
+    flagHtml = CountryFlag({ country: nationality, size: 28 });
+  } else if (player.flag && player.flag.startsWith('http')) {
+    flagHtml = `<img referrerpolicy="no-referrer" src="${esc(player.flag)}" alt="" style="width:28px;height:28px;border-radius:50%;object-fit:cover;">`;
+  } else if (player.flag) {
+    flagHtml = `<span style="font-size:24px;line-height:1">${esc(player.flag)}</span>`;
+  }
+
+  const age = (player.age && !isNaN(Number(player.age))) ? Number(player.age) : null;
+  const heightNum = parseHeightCm(player.height || spotlightDetails.height);
+
+  let footVal = player.foot || spotlightDetails.preferredFoot || '';
+  if (footVal) {
+    const fLower = String(footVal).toLowerCase().trim();
+    if (fLower === 'left' || fLower === 'l') footVal = 'Left';
+    else if (fLower === 'right' || fLower === 'r') footVal = 'Right';
+    else if (fLower === 'both' || fLower === 'b' || fLower === 'two-footed' || fLower === 'ambidextrous') footVal = 'Both';
+    else footVal = '';
+  }
+
+  const photoUrl = (player.photo !== undefined && player.photo !== null) ? player.photo : (spotlightDetails.photo || '');
+  const creditText = spotlightDetails.fotmobId ? 'FotMob' : (spotlightDetails.credit || player.credit || '');
+  const initialsText = (first ? first[0] : '') + (last ? last[0] : '') || (player.name ? player.name[0] : 'P');
+
   const isFav = Boolean(S.favoritePlayers && S.favoritePlayers[player.id || player.name]);
 
-  // Resolve Football Spotlight / API-Sports photo and facts
-  let details = {
-    photo: '',
-    preferredFoot: 'Right',
-    height: '—',
-    nationality: player.citizenship || player.nationality || '—',
-    shirtNumber: player.jersey ? `#${player.jersey}` : '—'
+  // Icons
+  const IC = {
+    cal: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>`,
+    ruler: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></svg>`,
+    globe: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>`,
+    foot: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 16v-2.4a4 4 0 0 1 4-4h2.5V6a2 2 0 0 1 4 0v3.6H18a2 2 0 0 1 2 2V16a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4z"/></svg>`,
+    pos: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="14" x="3" y="5" rx="2"/><path d="M12 5v14M3 12h4M17 12h4"/></svg>`,
+    shield: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.7 8.9a1 1 0 0 1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.6 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1z"/></svg>`
   };
-  if (typeof window !== 'undefined' && window.PlayerSpotlight && window.PlayerSpotlight.getSpotlightPlayerDetails) {
-    details = window.PlayerSpotlight.getSpotlightPlayerDetails(player);
+
+  const clubCrestSm = renderCrestHtml(teamName, clubLogo, 'sm');
+  const clubCrestMd = renderCrestHtml(teamName, clubLogo, 'md');
+
+  // Silhouette SVG
+  const SIL = `
+    <svg viewBox="0 0 512 512" role="img" aria-label="No photo available">
+      <defs>
+        <linearGradient id="silG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" style="stop-color:color-mix(in srgb,var(--club) 55%,var(--surface-2))"/>
+          <stop offset="1" style="stop-color:var(--surface)"/>
+        </linearGradient>
+      </defs>
+      <path class="sil__body" d="M110 512 L120 270 C122 228 156 204 204 192 L234 184 L278 184 L308 192 C356 204 390 228 392 270 L402 512 Z"/>
+      <path class="sil__arm" d="M140 290 L134 512M372 290 L378 512"/>
+      <rect class="sil__neck" x="231" y="150" width="50" height="46" rx="14"/>
+      <ellipse class="sil__head" cx="256" cy="106" rx="47" ry="59"/>
+      <path class="sil__hair" d="M209 98C209 54 232 42 256 42c26 0 48 12 48 56-12-20-28-26-48-26s-36 6-47 26z"/>
+      <text class="sil__ini" x="256" y="318" text-anchor="middle">${esc(initialsText)}</text>
+    </svg>
+  `;
+
+  // Build small tiles array
+  const smallTiles = [];
+  let delay = 0;
+
+  if (age) {
+    const ageP = Math.max(0, Math.min(1, (age - 16) / 24)) * 100;
+    smallTiles.push({
+      id: 'age',
+      html: `
+        <article class="tile" style="--d:${delay}ms">
+          <div class="lbl">${IC.cal}Age</div>
+          <div class="big"><b data-count="${age}">${age}</b><span>yrs</span></div>
+          <div class="gauge" style="--p:${ageP.toFixed(1)}%" aria-hidden="true"><i></i><em></em></div>
+          <div class="scale" aria-hidden="true"><span>16</span><span>40</span></div>
+        </article>
+      `
+    });
+    delay += 70;
   }
 
-  const photoUrl = details.photo || player.photo || '';
-  const posDisplay = player.position || 'Player';
-
-  // Nationality Flag
-  const countryName = details.nationality && details.nationality !== '—' ? details.nationality : (player.citizenship || '');
-  let flagHtml = '';
-  if (typeof CountryFlag === 'function' && countryName && countryName !== 'International') {
-    flagHtml = CountryFlag({ country: countryName, size: 18 });
-  } else if (player.flag && player.flag.startsWith('http')) {
-    flagHtml = `<img referrerpolicy="no-referrer" src="${esc(player.flag)}" alt="" style="width:18px;height:13px;border-radius:2px;object-fit:cover;margin-right:6px">`;
-  } else if (player.flag) {
-    flagHtml = `<span style="font-size:16px;margin-right:6px">${esc(player.flag)}</span>`;
+  if (heightNum) {
+    const heightP = Math.max(0, Math.min(1, (heightNum - 160) / 50)) * 100;
+    smallTiles.push({
+      id: 'height',
+      html: `
+        <article class="tile" style="--d:${delay}ms">
+          <div class="lbl">${IC.ruler}Height</div>
+          <div class="big"><b data-count="${heightNum}">${heightNum}</b><span>cm</span></div>
+          <div class="gauge" style="--p:${heightP.toFixed(1)}%" aria-hidden="true"><i></i><em></em></div>
+          <div class="scale" aria-hidden="true"><span>160</span><span>210</span></div>
+        </article>
+      `
+    });
+    delay += 70;
   }
+
+  if (nationality && nationality !== '—') {
+    smallTiles.push({
+      id: 'nationality',
+      html: `
+        <article class="tile" style="--d:${delay}ms">
+          <div class="lbl">${IC.globe}Nationality</div>
+          <div class="val">${flagHtml}<span>${esc(nationality)}</span></div>
+        </article>
+      `
+    });
+    delay += 70;
+  }
+
+  if (footVal) {
+    const isLeft = footVal === 'Left' || footVal === 'Both';
+    const isRight = footVal === 'Right' || footVal === 'Both';
+    smallTiles.push({
+      id: 'foot',
+      html: `
+        <article class="tile" style="--d:${delay}ms">
+          <div class="lbl">${IC.foot}Preferred foot</div>
+          <div class="feet" role="img" aria-label="${esc(footVal)} foot">
+            <span class="foot ${isLeft ? 'is-on' : ''}">L</span>
+            <span class="foot ${isRight ? 'is-on' : ''}">R</span>
+          </div>
+        </article>
+      `
+    });
+    delay += 70;
+  }
+
+  // Rule: If number of small tiles is odd, the last one spans full width
+  if (smallTiles.length % 2 === 1) {
+    const lastTile = smallTiles[smallTiles.length - 1];
+    lastTile.html = lastTile.html.replace('class="tile"', 'class="tile tile--wide"');
+  }
+
+  const pitchInfo = POS_PITCH_MAP[posCode] || { cx: 66, cy: 42, label: posCode, note: `${posCode} · On-pitch specialist` };
+  const posNote = pitchInfo.note || `${posCode} · On-pitch specialist`;
+
+  const posTileHtml = `
+    <article class="tile tile--wide" style="--d:${delay}ms">
+      <div class="pos">
+        <div class="pos__t">
+          <div class="lbl">${IC.pos}Position</div>
+          <b>${esc(positionLabel)}</b>
+          <small>${esc(posNote)}</small>
+        </div>
+        <svg class="pitch" viewBox="0 0 132 84" aria-hidden="true">
+          <rect class="bg" x="1" y="1" width="130" height="82" rx="6"/>
+          <path d="M66 1v82"/>
+          <circle cx="66" cy="42" r="12"/>
+          <rect x="1" y="22" width="20" height="40"/>
+          <rect x="1" y="32" width="8" height="20"/>
+          <rect x="111" y="22" width="20" height="40"/>
+          <rect x="123" y="32" width="8" height="20"/>
+          <circle class="ring" cx="${pitchInfo.cx}" cy="${pitchInfo.cy}" r="5"/>
+          <circle class="dot" cx="${pitchInfo.cx}" cy="${pitchInfo.cy}" r="5"/>
+        </svg>
+      </div>
+    </article>
+  `;
+  delay += 70;
+
+  const clubTileHtml = `
+    <article class="tile tile--wide" style="--d:${delay}ms">
+      <div class="lbl">${IC.shield}Club</div>
+      <div class="club"${clubId ? ` data-open-club="${esc(clubId)}" role="button" tabindex="0" style="cursor:pointer;"` : ''}>
+        ${clubCrestMd}
+        <div>
+          <b>${esc(displayClub)}</b>
+          <small>${hasClub ? 'Current club' : 'Unattached'}</small>
+        </div>
+      </div>
+    </article>
+  `;
 
   return `
-    <div class="player-profile-view">
-      <!-- Top Bar -->
-      <div class="player-top-bar">
-        <button class="player-action-btn" data-close-player="1" aria-label="Back">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5 L8 12 L15 19"></path></svg>
+    <div class="player-profile-view" style="--club: ${clubColor};">
+      <!-- Sticky translucent top bar -->
+      <header class="top" id="top">
+        <button class="icon-btn" data-close-player="1" aria-label="Back">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
         </button>
-        <span class="player-page-title">Player</span>
-        <button class="player-action-btn ${isFav ? 'is-fav' : ''}" data-fav-player="${esc(player.id || player.name)}" aria-label="${isFav ? 'Remove from favorites' : 'Add to favorites'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? '#3DDC97' : 'none'}" stroke="${isFav ? '#3DDC97' : 'currentColor'}" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 L14.8 9 L21 9.7 L16.4 14 L17.7 20.4 L12 17.2 L6.3 20.4 L7.6 14 L3 9.7 L9.2 9 Z"></path></svg>
+        <div class="top__t">Player</div>
+        <button class="icon-btn" id="follow" data-fav-player="${esc(player.id || player.name)}" type="button" aria-pressed="${isFav ? 'true' : 'false'}" aria-label="${isFav ? 'Unfollow player' : 'Follow player'}">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="${isFav ? 'var(--accent)' : 'none'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>
         </button>
-      </div>
+      </header>
 
-      <!-- Player Identity Hero (Matching Design Template) -->
-      <div class="player-identity-hero">
-        <div class="player-avatar-ring">
-          <div class="player-avatar-inner">
+      <!-- Hero: club glow, pitch lines, standing figure with bottom mask, chips, NO NAME BEHIND -->
+      <section class="hero" id="hero">
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="figure" id="figure">
+          <div class="figure__in">
             ${photoUrl ? `
-              <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc(player.name)}" class="player-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-              <div class="player-photo-fallback" style="display:none;">
-                <svg width="64" height="64" viewBox="0 0 120 120" fill="none" stroke="#5E7B7E" stroke-width="5" stroke-linecap="round" role="img" aria-label="Player photo placeholder"><circle cx="60" cy="42" r="20"></circle><path d="M20 106 C22 80 40 70 60 70 C80 70 98 80 100 106"></path></svg>
-              </div>
-            ` : `
-              <div class="player-photo-fallback">
-                <svg width="64" height="64" viewBox="0 0 120 120" fill="none" stroke="#5E7B7E" stroke-width="5" stroke-linecap="round" role="img" aria-label="Player photo placeholder"><circle cx="60" cy="42" r="20"></circle><path d="M20 106 C22 80 40 70 60 70 C80 70 98 80 100 106"></path></svg>
-              </div>
-            `}
+              <img referrerpolicy="no-referrer" src="${esc(photoUrl)}" alt="${esc((first ? first + ' ' : '') + last)}, ${esc(displayClub)} ${esc(positionLabel.toLowerCase())}" width="512" height="512" decoding="async" onerror="this.parentElement.innerHTML = \`${SIL.replace(/`/g, '\\`')}\`; if(!document.getElementById('hero').querySelector('.nophoto')) document.getElementById('hero').insertAdjacentHTML('beforeend','<span class=\\'nophoto\\'>Photo not available</span>');" />
+            ` : SIL}
           </div>
         </div>
-        <div class="player-name-block">
-          <h1 class="player-hero-name">${esc(player.name)}</h1>
-          ${clubId ? `
-            <button class="player-hero-club" data-open-club="${esc(clubId)}" style="background:none;border:none;cursor:pointer;color:#8FA6A8;display:inline-flex;align-items:center;gap:6px;font-size:15px;padding:0;font-family:inherit">
-              ${clubLogo ? `<img referrerpolicy="no-referrer" src="${esc(clubLogo)}" alt="" style="width:16px;height:16px;object-fit:contain" onerror="this.remove()">` : ''}
-              <span>${esc(team)}</span>
-            </button>
-          ` : `
-            <span class="player-hero-club">
-              ${clubLogo ? `<img referrerpolicy="no-referrer" src="${esc(clubLogo)}" alt="" style="width:16px;height:16px;object-fit:contain;margin-right:6px;vertical-align:middle" onerror="this.remove()">` : ''}
-              ${esc(team)}
-            </span>
-          `}
-        </div>
-        <span class="player-hero-pos">${esc(posDisplay)}</span>
-        ${details.fotmobId ? `
-          <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
-            <span>Photo: FotMob</span>
-          </div>
-        ` : details.credit ? `
-          <div class="player-photo-credit" style="font-size:11px;color:#8FA6A8;margin-top:6px;display:flex;align-items:center;justify-content:center;gap:4px">
-            <span>${esc(details.credit)}</span>
+        ${!photoUrl ? `<span class="nophoto">Photo not available</span>` : ''}
+        ${hasClub ? `
+          <div class="fchip club-chip"${clubId ? ` data-open-club="${esc(clubId)}" role="button" tabindex="0"` : ''}>
+            ${clubCrestSm}
+            <span>${esc(displayClub)}</span>
           </div>
         ` : ''}
-      </div>
+        <div class="fchip gk" aria-hidden="true">${esc(posCode)}</div>
+      </section>
 
-      <!-- Facts Card (From Design Template: Nationality, Age, Position, Club, Height, Preferred foot, Shirt number) -->
-      <div class="player-facts-card">
-        <div class="player-fact-row">
-          <span class="player-fact-label">Nationality</span>
-          <span class="player-fact-value">${flagHtml}<span>${esc(countryName || '—')}</span></span>
-        </div>
-        <div class="player-fact-row">
-          <span class="player-fact-label">Age</span>
-          <span class="player-fact-value">${player.age ? `${player.age} yrs` : '—'}</span>
-        </div>
-        <div class="player-fact-row">
-          <span class="player-fact-label">Position</span>
-          <span class="player-fact-value">${esc(posDisplay || '—')}</span>
-        </div>
-        <div class="player-fact-row">
-          <span class="player-fact-label">Club</span>
-          <span class="player-fact-value">
-            ${clubLogo ? `<img referrerpolicy="no-referrer" src="${esc(clubLogo)}" alt="" style="width:16px;height:16px;object-fit:contain;margin-right:4px;" onerror="this.remove()">` : ''}
-            <span>${esc(team)}</span>
+      <!-- Identity Block: small first name above large last name, position chip, club chip -->
+      <section class="id" id="id">
+        ${first ? `<p class="id__first" style="--i:0">${esc(first)}</p>` : ''}
+        <h1 class="id__last" style="--i:1">${esc(last)}</h1>
+        <div class="id__chips" style="--i:2">
+          <span class="chip chip--pos">${esc(positionLabel)}</span>
+          <span class="chip"${clubId ? ` data-open-club="${esc(clubId)}" role="button" tabindex="0" style="cursor:pointer;"` : ''}>
+            ${hasClub ? clubCrestSm : ''}
+            <span>${esc(displayClub)}</span>
           </span>
         </div>
-        <div class="player-fact-row">
-          <span class="player-fact-label">Height</span>
-          <span class="player-fact-value">${esc(details.height || '—')}</span>
-        </div>
-        <div class="player-fact-row">
-          <span class="player-fact-label">Preferred foot</span>
-          <span class="player-fact-value">${esc(details.preferredFoot || 'Right')}</span>
-        </div>
-        <div class="player-fact-row no-border">
-          <span class="player-fact-label">Shirt number</span>
-          <span class="player-fact-value">${esc(details.shirtNumber || (player.jersey ? `#${player.jersey}` : '—'))}</span>
-        </div>
-      </div>
+      </section>
 
-      <!-- 2026/2027 Season Stats Grid -->
-      <div class="player-stats-section">
-        <div class="player-season-banner">
-          <div>
-            <div class="season-badge-title">2026/2027 Season Stats</div>
-            <div class="season-badge-sub">Live feed sync · All competitions</div>
-          </div>
-          <div class="season-tag">Live Feed</div>
-        </div>
+      <!-- Bento Grid (2 columns) -->
+      <section class="bento" id="bento" aria-label="Player info">
+        ${smallTiles.map((t) => t.html).join('')}
+        ${posTileHtml}
+        ${clubTileHtml}
+      </section>
 
-        <div class="player-stats-grid">
-          <div class="player-stat-card">
-            <div class="lbl">Goals</div>
-            <div class="val highlight">${s.goals}</div>
-            <div class="sub">Season total</div>
-          </div>
-          <div class="player-stat-card">
-            <div class="lbl">Assists</div>
-            <div class="val highlight-blue">${s.assists}</div>
-            <div class="sub">Key passes</div>
-          </div>
-          <div class="player-stat-card">
-            <div class="lbl">Appearances</div>
-            <div class="val">${s.appearances}</div>
-            <div class="sub">${s.subIns ? `${s.subIns} as sub` : 'Matches'}</div>
-          </div>
-          <div class="player-stat-card">
-            <div class="lbl">Minutes</div>
-            <div class="val">${s.minutes ? s.minutes.toLocaleString() : '0'}'</div>
-            <div class="sub">Time on pitch</div>
-          </div>
-          <div class="player-stat-card">
-            <div class="lbl">Yellow Cards</div>
-            <div class="val highlight-yellow">${s.yellowCards}</div>
-            <div class="sub">Cautions</div>
-          </div>
-          <div class="player-stat-card">
-            <div class="lbl">Red Cards</div>
-            <div class="val highlight-red">${s.redCards}</div>
-            <div class="sub">Dismissals</div>
-          </div>
-          ${isGoalkeeper ? `
-            <div class="player-stat-card">
-              <div class="lbl">Saves</div>
-              <div class="val highlight">${s.saves || 0}</div>
-              <div class="sub">Shots stopped</div>
-            </div>
-            <div class="player-stat-card">
-              <div class="lbl">Conceded</div>
-              <div class="val">${s.goalsConceded || 0}</div>
-              <div class="sub">Goals allowed</div>
-            </div>
-          ` : `
-            <div class="player-stat-card">
-              <div class="lbl">Shots on Target</div>
-              <div class="val highlight">${s.shotsOnTarget || 0}</div>
-              <div class="sub">Efforts tested</div>
-            </div>
-          `}
-        </div>
-      </div>
+      ${creditText ? `<p class="credit" id="credit">Photo: ${esc(creditText)}</p>` : ''}
     </div>
   `;
+}
+
+function initPlayerProfileView(container) {
+  if (!container) return;
+  const topbar = container.querySelector('#top');
+  const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  let tick = false;
+  container.onscroll = () => {
+    if (tick) return;
+    tick = true;
+    requestAnimationFrame(() => {
+      if (topbar) {
+        topbar.classList.toggle('is-scrolled', container.scrollTop > 8);
+      }
+      if (!reduce && container.scrollTop < 700) {
+        container.style.setProperty('--py', container.scrollTop);
+      }
+      tick = false;
+    });
+  };
+
+  function countUp(el) {
+    const t = +el.dataset.count;
+    if (reduce || isNaN(t)) return;
+    const t0 = performance.now();
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / 900);
+      const e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(t * e);
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = t;
+    };
+    requestAnimationFrame(step);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        en.target.classList.add('is-in');
+        en.target.querySelectorAll('[data-count]').forEach(countUp);
+        io.unobserve(en.target);
+      });
+    }, { root: container, threshold: 0.15 });
+
+    container.querySelectorAll('.tile').forEach((t) => io.observe(t));
+  } else {
+    container.querySelectorAll('.tile').forEach((t) => {
+      t.classList.add('is-in');
+      t.querySelectorAll('[data-count]').forEach(countUp);
+    });
+  }
 }
 
 // 7.5 Redesigned Match Details Modal
@@ -3747,6 +3994,9 @@ function draw() {
   if (player_) {
     player_.hidden = !S.selectedPlayerId;
     player_.innerHTML = S.selectedPlayerId ? playerModal() : '';
+    if (S.selectedPlayerId) {
+      initPlayerProfileView(player_);
+    }
   }
 
   if (set_) {

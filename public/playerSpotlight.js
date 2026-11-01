@@ -352,9 +352,9 @@
       (normSurname ? SPOTLIGHT_PLAYERS_MAP[normSurname] : null);
 
     var photo = getSpotlightPlayerPhoto(player);
-    var preferredFoot = (match && match.foot) || (typeof player === 'object' && player && player.preferredFoot) || 'Right';
+    var preferredFoot = (match && match.foot) || (typeof player === 'object' && player && (player.preferredFoot || player.foot)) || '';
     
-    var formattedHeight = (match && match.height) || (typeof player === 'object' && player && player.height) || '—';
+    var formattedHeight = String((match && match.height) || (typeof player === 'object' && player && player.height) || '—');
     if (formattedHeight !== '—' && formattedHeight.indexOf('cm') === -1 && formattedHeight.indexOf('\'') === -1) {
       formattedHeight = formattedHeight + ' cm';
     }
@@ -376,10 +376,77 @@
     };
   }
 
+  var POS_PITCH_MAP = {
+    GK: { cx: 14, cy: 42, label: 'Goalkeeper', note: 'GK · Last line of defence' },
+    CB: { cx: 34, cy: 42, label: 'Centre-Back', note: 'CB · Central defence anchor' },
+    LB: { cx: 34, cy: 18, label: 'Left-Back', note: 'LB · Left flank defender' },
+    RB: { cx: 34, cy: 66, label: 'Right-Back', note: 'RB · Right flank defender' },
+    DF: { cx: 34, cy: 42, label: 'Defender', note: 'DF · Defensive line' },
+    DM: { cx: 52, cy: 42, label: 'Defensive Midfield', note: 'DM · Shield & ball winner' },
+    CM: { cx: 66, cy: 42, label: 'Central Midfield', note: 'CM · Engine of the midfield' },
+    LM: { cx: 66, cy: 18, label: 'Left Midfield', note: 'LM · Left flank progressor' },
+    RM: { cx: 66, cy: 66, label: 'Right Midfield', note: 'RM · Right flank progressor' },
+    MF: { cx: 66, cy: 42, label: 'Midfielder', note: 'MF · Midfield zone' },
+    AM: { cx: 82, cy: 42, label: 'Attacking Midfield', note: 'AM · Playmaker & creative spark' },
+    LW: { cx: 98, cy: 18, label: 'Left Winger', note: 'LW · Wide attacking threat' },
+    RW: { cx: 98, cy: 66, label: 'Right Winger', note: 'RW · Wide attacking threat' },
+    ST: { cx: 104, cy: 42, label: 'Striker', note: 'ST · Clinical primary finisher' },
+    CF: { cx: 100, cy: 42, label: 'Centre-Forward', note: 'CF · Attacking focal point' },
+    FW: { cx: 102, cy: 42, label: 'Forward', note: 'FW · Attacking front line' }
+  };
+
+  function splitPlayerName(fullName) {
+    if (!fullName) return { first: '', last: '' };
+    var trimmed = String(fullName).trim();
+    var parts = trimmed.split(/\s+/);
+    if (parts.length === 1) {
+      return { first: '', last: parts[0] };
+    }
+    var multiWordPrefixes = ['de', 'van', 'da', 'di', 'del', 'dos', 'von', 'la', 'le'];
+    if (parts.length >= 3 && multiWordPrefixes.indexOf(parts[parts.length - 2].toLowerCase()) !== -1) {
+      return {
+        first: parts.slice(0, parts.length - 2).join(' '),
+        last: parts.slice(parts.length - 2).join(' ')
+      };
+    }
+    return {
+      first: parts.slice(0, -1).join(' '),
+      last: parts[parts.length - 1]
+    };
+  }
+
+  function normalizePosCode(pos) {
+    if (!pos) return 'CM';
+    var p = String(pos).trim().toUpperCase();
+    if (['GK', 'CB', 'LB', 'RB', 'DF', 'DM', 'CM', 'LM', 'RM', 'MF', 'AM', 'LW', 'RW', 'ST', 'CF', 'FW'].indexOf(p) !== -1) {
+      return p;
+    }
+    if (p.indexOf('GOAL') !== -1 || p === 'G') return 'GK';
+    if (p.indexOf('CENTRE-BACK') !== -1 || p.indexOf('CENTER-BACK') !== -1 || p.indexOf('CENTRE BACK') !== -1 || p === 'DEF') return 'CB';
+    if (p.indexOf('LEFT-BACK') !== -1 || p.indexOf('LEFT BACK') !== -1) return 'LB';
+    if (p.indexOf('RIGHT-BACK') !== -1 || p.indexOf('RIGHT BACK') !== -1) return 'RB';
+    if (p.indexOf('DEFEND') !== -1) return 'DF';
+    if (p.indexOf('DEFENSIVE MID') !== -1) return 'DM';
+    if (p.indexOf('ATTACKING MID') !== -1) return 'AM';
+    if (p.indexOf('LEFT MID') !== -1) return 'LM';
+    if (p.indexOf('RIGHT MID') !== -1) return 'RM';
+    if (p.indexOf('MIDFIELD') !== -1 || p === 'MID') return 'MF';
+    if (p.indexOf('STRIKER') !== -1) return 'ST';
+    if (p.indexOf('CENTRE-FORWARD') !== -1 || p.indexOf('CENTER FORWARD') !== -1) return 'CF';
+    if (p.indexOf('LEFT WING') !== -1) return 'LW';
+    if (p.indexOf('RIGHT WING') !== -1) return 'RW';
+    if (p.indexOf('FORWARD') !== -1 || p === 'ATT') return 'FW';
+    return p;
+  }
+
   return {
     SPOTLIGHT_PLAYERS_MAP: SPOTLIGHT_PLAYERS_MAP,
+    POS_PITCH_MAP: POS_PITCH_MAP,
     normalizePlayerKey: normalizePlayerKey,
     getSpotlightPlayerPhoto: getSpotlightPlayerPhoto,
-    getSpotlightPlayerDetails: getSpotlightPlayerDetails
+    getSpotlightPlayerDetails: getSpotlightPlayerDetails,
+    splitPlayerName: splitPlayerName,
+    normalizePosCode: normalizePosCode
   };
 });
+

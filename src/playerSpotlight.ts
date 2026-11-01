@@ -360,9 +360,9 @@ export function getSpotlightPlayerDetails(player: any) {
     (normSurname ? SPOTLIGHT_PLAYERS_MAP[normSurname] : null);
 
   const photo = getSpotlightPlayerPhoto(player);
-  const preferredFoot = match?.foot || (typeof player === 'object' && player && player.preferredFoot) || 'Right';
+  const preferredFoot = match?.foot || (typeof player === 'object' && player && (player.preferredFoot || player.foot)) || undefined;
   
-  let formattedHeight = match?.height || (typeof player === 'object' && player && player.height) || '—';
+  let formattedHeight = String(match?.height || (typeof player === 'object' && player && player.height) || '—');
   if (formattedHeight !== '—' && !formattedHeight.includes('cm') && !formattedHeight.includes('\'')) {
     formattedHeight = `${formattedHeight} cm`;
   }
@@ -382,4 +382,67 @@ export function getSpotlightPlayerDetails(player: any) {
     confidence: photoRecord?.confidence || 1,
     fotmobId: photoRecord?.fotmobId || ''
   };
+}
+
+export const POS_PITCH_MAP: Record<string, { cx: number; cy: number; label: string; note: string }> = {
+  GK: { cx: 14, cy: 42, label: 'Goalkeeper', note: 'GK · Last line of defence' },
+  CB: { cx: 34, cy: 42, label: 'Centre-Back', note: 'CB · Central defence anchor' },
+  LB: { cx: 34, cy: 18, label: 'Left-Back', note: 'LB · Left flank defender' },
+  RB: { cx: 34, cy: 66, label: 'Right-Back', note: 'RB · Right flank defender' },
+  DF: { cx: 34, cy: 42, label: 'Defender', note: 'DF · Defensive line' },
+  DM: { cx: 52, cy: 42, label: 'Defensive Midfield', note: 'DM · Shield & ball winner' },
+  CM: { cx: 66, cy: 42, label: 'Central Midfield', note: 'CM · Engine of the midfield' },
+  LM: { cx: 66, cy: 18, label: 'Left Midfield', note: 'LM · Left flank progressor' },
+  RM: { cx: 66, cy: 66, label: 'Right Midfield', note: 'RM · Right flank progressor' },
+  MF: { cx: 66, cy: 42, label: 'Midfielder', note: 'MF · Midfield zone' },
+  AM: { cx: 82, cy: 42, label: 'Attacking Midfield', note: 'AM · Playmaker & creative spark' },
+  LW: { cx: 98, cy: 18, label: 'Left Winger', note: 'LW · Wide attacking threat' },
+  RW: { cx: 98, cy: 66, label: 'Right Winger', note: 'RW · Wide attacking threat' },
+  ST: { cx: 104, cy: 42, label: 'Striker', note: 'ST · Clinical primary finisher' },
+  CF: { cx: 100, cy: 42, label: 'Centre-Forward', note: 'CF · Attacking focal point' },
+  FW: { cx: 102, cy: 42, label: 'Forward', note: 'FW · Attacking front line' }
+};
+
+export function splitPlayerName(fullName: string): { first: string; last: string } {
+  if (!fullName) return { first: '', last: '' };
+  const trimmed = String(fullName).trim();
+  const parts = trimmed.split(/\s+/);
+  if (parts.length === 1) {
+    return { first: '', last: parts[0] };
+  }
+  const multiWordPrefixes = ['de', 'van', 'da', 'di', 'del', 'dos', 'von', 'la', 'le'];
+  if (parts.length >= 3 && multiWordPrefixes.includes(parts[parts.length - 2].toLowerCase())) {
+    return {
+      first: parts.slice(0, parts.length - 2).join(' '),
+      last: parts.slice(parts.length - 2).join(' ')
+    };
+  }
+  return {
+    first: parts.slice(0, -1).join(' '),
+    last: parts[parts.length - 1]
+  };
+}
+
+export function normalizePosCode(pos?: string): string {
+  if (!pos) return 'CM';
+  const p = String(pos).trim().toUpperCase();
+  if (['GK', 'CB', 'LB', 'RB', 'DF', 'DM', 'CM', 'LM', 'RM', 'MF', 'AM', 'LW', 'RW', 'ST', 'CF', 'FW'].includes(p)) {
+    return p;
+  }
+  if (p.includes('GOAL') || p === 'G') return 'GK';
+  if (p.includes('CENTRE-BACK') || p.includes('CENTER-BACK') || p.includes('CENTRE BACK') || p === 'DEF') return 'CB';
+  if (p.includes('LEFT-BACK') || p.includes('LEFT BACK')) return 'LB';
+  if (p.includes('RIGHT-BACK') || p.includes('RIGHT BACK')) return 'RB';
+  if (p.includes('DEFEND')) return 'DF';
+  if (p.includes('DEFENSIVE MID')) return 'DM';
+  if (p.includes('ATTACKING MID')) return 'AM';
+  if (p.includes('LEFT MID')) return 'LM';
+  if (p.includes('RIGHT MID')) return 'RM';
+  if (p.includes('MIDFIELD') || p === 'MID') return 'MF';
+  if (p.includes('STRIKER')) return 'ST';
+  if (p.includes('CENTRE-FORWARD') || p.includes('CENTER FORWARD')) return 'CF';
+  if (p.includes('LEFT WING')) return 'LW';
+  if (p.includes('RIGHT WING')) return 'RW';
+  if (p.includes('FORWARD') || p === 'ATT') return 'FW';
+  return p;
 }

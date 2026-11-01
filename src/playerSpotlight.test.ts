@@ -74,3 +74,83 @@ test('getSpotlightPlayerDetails provides preferred foot, height, and nationality
   assert.equal(details.nationality, 'Spain');
   assert.equal(details.shirtNumber, '#23');
 });
+
+test('splitPlayerName handles single names, two-word names, and multi-word surnames', async () => {
+  const { splitPlayerName } = await import('./playerSpotlight');
+  assert.deepEqual(splitPlayerName('Pedrinho'), { first: '', last: 'Pedrinho' });
+  assert.deepEqual(splitPlayerName('Robert Sánchez'), { first: 'Robert', last: 'Sánchez' });
+  assert.deepEqual(splitPlayerName('Kevin De Bruyne'), { first: 'Kevin', last: 'De Bruyne' });
+  assert.deepEqual(splitPlayerName('Virgil van Dijk'), { first: 'Virgil', last: 'van Dijk' });
+  assert.deepEqual(splitPlayerName('Trent Alexander-Arnold'), { first: 'Trent', last: 'Alexander-Arnold' });
+});
+
+test('normalizePosCode and POS_PITCH_MAP drive correct mini-pitch coordinates', async () => {
+  const { normalizePosCode, POS_PITCH_MAP } = await import('./playerSpotlight');
+  assert.equal(normalizePosCode('Goalkeeper'), 'GK');
+  assert.equal(normalizePosCode('GK'), 'GK');
+  assert.equal(POS_PITCH_MAP.GK.cx, 14);
+  assert.equal(POS_PITCH_MAP.GK.cy, 42);
+
+  assert.equal(normalizePosCode('Striker'), 'ST');
+  assert.equal(POS_PITCH_MAP.ST.cx, 104);
+
+  assert.equal(normalizePosCode('Attacking Midfield'), 'AM');
+  assert.equal(POS_PITCH_MAP.AM.cx, 82);
+
+  // Unknown pos returns raw code
+  assert.equal(normalizePosCode('LIBERO'), 'LIBERO');
+});
+
+test('Test Case 1: Goalkeeper with verified photo resolves photo, GK position and facts', () => {
+  const details = getSpotlightPlayerDetails({
+    name: 'Robert Sánchez',
+    team: 'Como',
+    position: 'GK',
+    citizenship: 'Spain',
+    jersey: 1
+  });
+  assert.equal(details.preferredFoot, 'Right');
+  assert.equal(details.height, '197 cm');
+  assert.equal(details.nationality, 'Spain');
+});
+
+test('Test Case 2: Defender with no age/height/foot handles missing data gracefully', async () => {
+  const { splitPlayerName, normalizePosCode, POS_PITCH_MAP } = await import('./playerSpotlight');
+  const player = {
+    name: 'Unknown Defender',
+    position: 'CB',
+    club: 'Everton'
+  };
+  const parsed = splitPlayerName(player.name);
+  assert.equal(parsed.first, 'Unknown');
+  assert.equal(parsed.last, 'Defender');
+  const posCode = normalizePosCode(player.position);
+  assert.equal(posCode, 'CB');
+  assert.equal(POS_PITCH_MAP[posCode].label, 'Centre-Back');
+});
+
+test('Test Case 3: Midfielder who plays with both feet resolves foot: Both', () => {
+  const details = getSpotlightPlayerDetails({
+    name: 'Brahim Díaz',
+    citizenship: 'Morocco',
+    team: 'Real Madrid'
+  });
+  assert.equal(details.preferredFoot, 'Both');
+});
+
+test('Test Case 4: Long surname splits correctly without truncating', async () => {
+  const { splitPlayerName } = await import('./playerSpotlight');
+  const parsed = splitPlayerName('Jan Blaszczykowski-Papastathopoulos');
+  assert.equal(parsed.first, 'Jan');
+  assert.equal(parsed.last, 'Blaszczykowski-Papastathopoulos');
+});
+
+test('Test Case 5: Single-name player with no club and no photo', async () => {
+  const { splitPlayerName } = await import('./playerSpotlight');
+  const parsed = splitPlayerName('Pedrinho');
+  assert.equal(parsed.first, '');
+  assert.equal(parsed.last, 'Pedrinho');
+  const photo = getSpotlightPlayerPhoto({ name: 'Pedrinho' });
+  assert.equal(photo, '');
+});
+
